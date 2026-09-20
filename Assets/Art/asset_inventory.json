@@ -1,0 +1,5459 @@
+[
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/idle\/wizard_idle_down_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      40,
+      55,
+      184,
+      255
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/idle\/wizard_idle_down_02.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      189,
+      55,
+      326,
+      255
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/idle\/wizard_idle_down_03.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      326,
+      55,
+      467,
+      255
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/idle\/wizard_idle_down_04.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      468,
+      55,
+      618,
+      255
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/walk\/wizard_walk_right_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      670,
+      55,
+      819,
+      255
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/walk\/wizard_walk_left_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      670,
+      55,
+      819,
+      255
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/walk\/wizard_walk_right_02.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      818,
+      55,
+      956,
+      255
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/walk\/wizard_walk_left_02.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      818,
+      55,
+      956,
+      255
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/walk\/wizard_walk_right_03.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      956,
+      55,
+      1088,
+      255
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/walk\/wizard_walk_left_03.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      956,
+      55,
+      1088,
+      255
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/walk\/wizard_walk_right_04.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      1088,
+      55,
+      1230,
+      255
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/walk\/wizard_walk_left_04.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      1088,
+      55,
+      1230,
+      255
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/attack\/wizard_attack_right_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      48,
+      298,
+      234,
+      490
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/attack\/wizard_attack_left_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      48,
+      298,
+      234,
+      490
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/attack\/wizard_attack_right_02.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      276,
+      297,
+      503,
+      490
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/attack\/wizard_attack_left_02.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      276,
+      297,
+      503,
+      490
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/attack\/wizard_attack_right_03.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      505,
+      295,
+      730,
+      490
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/attack\/wizard_attack_left_03.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      505,
+      295,
+      730,
+      490
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/attack\/wizard_attack_right_04.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      757,
+      296,
+      1004,
+      490
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/attack\/wizard_attack_left_04.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      757,
+      296,
+      1004,
+      490
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/hurt\/wizard_hurt_right_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      47,
+      526,
+      248,
+      701
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/hurt\/wizard_hurt_left_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      47,
+      526,
+      248,
+      701
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/death\/wizard_death_right_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      385,
+      532,
+      539,
+      699
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/death\/wizard_death_left_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      385,
+      532,
+      539,
+      699
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/death\/wizard_death_right_02.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      546,
+      583,
+      755,
+      698
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/death\/wizard_death_left_02.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      546,
+      583,
+      755,
+      698
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/death\/wizard_death_right_03.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      763,
+      588,
+      965,
+      698
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/death\/wizard_death_left_03.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      763,
+      588,
+      965,
+      698
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/death\/wizard_death_right_04.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      997,
+      592,
+      1210,
+      698
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/death\/wizard_death_left_04.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      997,
+      592,
+      1210,
+      698
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/cast_arcane\/wizard_cast_arcane_right_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      39,
+      753,
+      297,
+      944
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/cast_arcane\/wizard_cast_arcane_left_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      39,
+      753,
+      297,
+      944
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/cast_fire\/wizard_cast_fire_right_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      294,
+      750,
+      528,
+      945
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/cast_fire\/wizard_cast_fire_left_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      294,
+      750,
+      528,
+      945
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/cast_ice\/wizard_cast_ice_right_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      527,
+      749,
+      757,
+      945
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/cast_ice\/wizard_cast_ice_left_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      527,
+      749,
+      757,
+      945
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/cast_lightning\/wizard_cast_lightning_right_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      746,
+      748,
+      998,
+      950
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/cast_lightning\/wizard_cast_lightning_left_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      746,
+      748,
+      998,
+      950
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/cast_heal\/wizard_cast_heal_right_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      995,
+      722,
+      1234,
+      951
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Characters\/Wizard\/cast_heal\/wizard_cast_heal_left_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      995,
+      722,
+      1234,
+      951
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/direction_idle\/wizard_direction_idle_down_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      60,
+      992,
+      206,
+      1183
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/direction_idle\/wizard_direction_idle_up_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      262,
+      993,
+      395,
+      1183
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/direction_idle\/wizard_direction_idle_left_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      445,
+      989,
+      589,
+      1183
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 256,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Characters\/Wizard\/direction_idle\/wizard_direction_idle_right_01.png",
+    "pivot" : [
+      0.5,
+      0.015625
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      672,
+      991,
+      813,
+      1183
+    ],
+    "width" : 384
+  },
+  {
+    "height" : 176,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Effects\/Projectiles\/arcane_projectile_right_01.png",
+    "pivot" : [
+      0.5,
+      0.022727272727272728
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      1004,
+      315,
+      1227,
+      470
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 176,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Effects\/Projectiles\/arcane_projectile_left_01.png",
+    "pivot" : [
+      0.5,
+      0.022727272727272728
+    ],
+    "source" : "Assets\/Art\/Characters\/wizard-px.png",
+    "sourceRect" : [
+      1004,
+      315,
+      1227,
+      470
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/blue_slime\/idle\/blue_slime_idle_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      15,
+      78,
+      208,
+      224
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/blue_slime\/idle\/blue_slime_idle_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      15,
+      78,
+      208,
+      224
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/blue_slime\/walk\/blue_slime_walk_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      216,
+      78,
+      404,
+      224
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/blue_slime\/walk\/blue_slime_walk_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      216,
+      78,
+      404,
+      224
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/blue_slime\/walk\/blue_slime_walk_left_02.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      414,
+      78,
+      601,
+      224
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/blue_slime\/walk\/blue_slime_walk_right_02.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      414,
+      78,
+      601,
+      224
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/blue_slime\/attack\/blue_slime_attack_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      595,
+      78,
+      814,
+      224
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/blue_slime\/attack\/blue_slime_attack_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      595,
+      78,
+      814,
+      224
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/blue_slime\/hurt\/blue_slime_hurt_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      818,
+      78,
+      1015,
+      224
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/blue_slime\/hurt\/blue_slime_hurt_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      818,
+      78,
+      1015,
+      224
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/blue_slime\/death\/blue_slime_death_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      1015,
+      78,
+      1240,
+      224
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/blue_slime\/death\/blue_slime_death_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      1015,
+      78,
+      1240,
+      224
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/goblin\/idle\/goblin_idle_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      15,
+      304,
+      208,
+      451
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/goblin\/idle\/goblin_idle_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      15,
+      304,
+      208,
+      451
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/goblin\/walk\/goblin_walk_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      216,
+      304,
+      404,
+      451
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/goblin\/walk\/goblin_walk_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      216,
+      304,
+      404,
+      451
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/goblin\/walk\/goblin_walk_left_02.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      414,
+      304,
+      585,
+      451
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/goblin\/walk\/goblin_walk_right_02.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      414,
+      304,
+      585,
+      451
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/goblin\/attack\/goblin_attack_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      595,
+      304,
+      814,
+      451
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/goblin\/attack\/goblin_attack_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      595,
+      304,
+      814,
+      451
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/goblin\/hurt\/goblin_hurt_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      818,
+      304,
+      1015,
+      451
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/goblin\/hurt\/goblin_hurt_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      818,
+      304,
+      1015,
+      451
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/goblin\/death\/goblin_death_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      1015,
+      304,
+      1240,
+      451
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/goblin\/death\/goblin_death_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      1015,
+      304,
+      1240,
+      451
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/skeleton_warrior\/idle\/skeleton_warrior_idle_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      15,
+      529,
+      208,
+      696
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/skeleton_warrior\/idle\/skeleton_warrior_idle_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      15,
+      529,
+      208,
+      696
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/skeleton_warrior\/walk\/skeleton_warrior_walk_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      216,
+      529,
+      404,
+      696
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/skeleton_warrior\/walk\/skeleton_warrior_walk_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      216,
+      529,
+      404,
+      696
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/skeleton_warrior\/walk\/skeleton_warrior_walk_left_02.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      414,
+      529,
+      601,
+      696
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/skeleton_warrior\/walk\/skeleton_warrior_walk_right_02.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      414,
+      529,
+      601,
+      696
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/skeleton_warrior\/attack\/skeleton_warrior_attack_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      608,
+      508,
+      814,
+      696
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/skeleton_warrior\/attack\/skeleton_warrior_attack_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      608,
+      508,
+      814,
+      696
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/skeleton_warrior\/hurt\/skeleton_warrior_hurt_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      818,
+      529,
+      1015,
+      696
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/skeleton_warrior\/hurt\/skeleton_warrior_hurt_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      818,
+      529,
+      1015,
+      696
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/skeleton_warrior\/death\/skeleton_warrior_death_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      1015,
+      529,
+      1240,
+      696
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/skeleton_warrior\/death\/skeleton_warrior_death_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      1015,
+      529,
+      1240,
+      696
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/cave_bat\/idle\/cave_bat_idle_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      15,
+      771,
+      208,
+      911
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/cave_bat\/idle\/cave_bat_idle_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      15,
+      771,
+      208,
+      911
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/cave_bat\/fly\/cave_bat_fly_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      216,
+      771,
+      404,
+      911
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/cave_bat\/fly\/cave_bat_fly_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      216,
+      771,
+      404,
+      911
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/cave_bat\/fly\/cave_bat_fly_left_02.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      414,
+      771,
+      601,
+      911
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/cave_bat\/fly\/cave_bat_fly_right_02.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      414,
+      771,
+      601,
+      911
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/cave_bat\/attack\/cave_bat_attack_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      603,
+      771,
+      814,
+      911
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/cave_bat\/attack\/cave_bat_attack_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      603,
+      771,
+      814,
+      911
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/cave_bat\/hurt\/cave_bat_hurt_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      818,
+      771,
+      1015,
+      911
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/cave_bat\/hurt\/cave_bat_hurt_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      818,
+      771,
+      1015,
+      911
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/cave_bat\/death\/cave_bat_death_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      1015,
+      771,
+      1240,
+      911
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/cave_bat\/death\/cave_bat_death_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      1015,
+      771,
+      1240,
+      911
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/rocky_golem\/idle\/rocky_golem_idle_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      15,
+      977,
+      208,
+      1166
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/rocky_golem\/idle\/rocky_golem_idle_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      15,
+      977,
+      208,
+      1166
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/rocky_golem\/walk\/rocky_golem_walk_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      216,
+      977,
+      404,
+      1166
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/rocky_golem\/walk\/rocky_golem_walk_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      216,
+      977,
+      404,
+      1166
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/rocky_golem\/walk\/rocky_golem_walk_left_02.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      414,
+      977,
+      601,
+      1166
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/rocky_golem\/walk\/rocky_golem_walk_right_02.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      414,
+      977,
+      601,
+      1166
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/rocky_golem\/attack\/rocky_golem_attack_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      595,
+      977,
+      814,
+      1166
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/rocky_golem\/attack\/rocky_golem_attack_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      595,
+      977,
+      814,
+      1166
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/rocky_golem\/hurt\/rocky_golem_hurt_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      818,
+      977,
+      1015,
+      1166
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/rocky_golem\/hurt\/rocky_golem_hurt_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      818,
+      977,
+      1015,
+      1166
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Enemies\/rocky_golem\/death\/rocky_golem_death_left_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      1015,
+      977,
+      1240,
+      1166
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 224,
+    "mirrored" : true,
+    "path" : "Assets\/Art\/Enemies\/rocky_golem\/death\/rocky_golem_death_right_01.png",
+    "pivot" : [
+      0.5,
+      0.017857142857142856
+    ],
+    "source" : "Assets\/Art\/Enemies\/monsters-transparent.png",
+    "sourceRect" : [
+      1015,
+      977,
+      1240,
+      1166
+    ],
+    "width" : 240
+  },
+  {
+    "height" : 113,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Potions\/potion_health_small.png",
+    "pivot" : [
+      0.5,
+      0.035398230088495575
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      19,
+      130,
+      125,
+      291
+    ],
+    "width" : 82
+  },
+  {
+    "height" : 139,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Potions\/potion_health_medium.png",
+    "pivot" : [
+      0.5,
+      0.028776978417266189
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      132,
+      130,
+      241,
+      291
+    ],
+    "width" : 103
+  },
+  {
+    "height" : 161,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Potions\/potion_health_large.png",
+    "pivot" : [
+      0.5,
+      0.024844720496894408
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      248,
+      130,
+      373,
+      291
+    ],
+    "width" : 120
+  },
+  {
+    "height" : 143,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Potions\/potion_mana.png",
+    "pivot" : [
+      0.5,
+      0.027972027972027972
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      379,
+      130,
+      490,
+      291
+    ],
+    "width" : 105
+  },
+  {
+    "height" : 145,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Potions\/potion_energy.png",
+    "pivot" : [
+      0.5,
+      0.027586206896551724
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      497,
+      130,
+      610,
+      291
+    ],
+    "width" : 104
+  },
+  {
+    "height" : 142,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Potions\/potion_antidote.png",
+    "pivot" : [
+      0.5,
+      0.028169014084507043
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      624,
+      130,
+      736,
+      291
+    ],
+    "width" : 101
+  },
+  {
+    "height" : 146,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Potions\/potion_speed.png",
+    "pivot" : [
+      0.5,
+      0.027397260273972601
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      753,
+      130,
+      869,
+      291
+    ],
+    "width" : 102
+  },
+  {
+    "height" : 149,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Potions\/potion_shield.png",
+    "pivot" : [
+      0.5,
+      0.026845637583892617
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      875,
+      130,
+      987,
+      291
+    ],
+    "width" : 110
+  },
+  {
+    "height" : 150,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Potions\/potion_rage.png",
+    "pivot" : [
+      0.5,
+      0.026666666666666668
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      995,
+      130,
+      1110,
+      291
+    ],
+    "width" : 114
+  },
+  {
+    "height" : 158,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Potions\/potion_revive.png",
+    "pivot" : [
+      0.5,
+      0.025316455696202531
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      1118,
+      130,
+      1240,
+      291
+    ],
+    "width" : 112
+  },
+  {
+    "height" : 106,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Materials\/gold_coins.png",
+    "pivot" : [
+      0.5,
+      0.037735849056603772
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      12,
+      430,
+      127,
+      578
+    ],
+    "width" : 111
+  },
+  {
+    "height" : 101,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Materials\/silver_coins.png",
+    "pivot" : [
+      0.5,
+      0.039603960396039604
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      134,
+      430,
+      247,
+      578
+    ],
+    "width" : 106
+  },
+  {
+    "height" : 122,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Materials\/gem_shard.png",
+    "pivot" : [
+      0.5,
+      0.032786885245901641
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      260,
+      430,
+      340,
+      578
+    ],
+    "width" : 78
+  },
+  {
+    "height" : 152,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Materials\/magic_crystal.png",
+    "pivot" : [
+      0.5,
+      0.026315789473684209
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      346,
+      430,
+      473,
+      578
+    ],
+    "width" : 121
+  },
+  {
+    "height" : 131,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Materials\/soul_shard.png",
+    "pivot" : [
+      0.5,
+      0.030534351145038167
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      478,
+      430,
+      560,
+      578
+    ],
+    "width" : 76
+  },
+  {
+    "height" : 125,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Materials\/monster_fang.png",
+    "pivot" : [
+      0.5,
+      0.032000000000000001
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      569,
+      430,
+      661,
+      578
+    ],
+    "width" : 81
+  },
+  {
+    "height" : 120,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Materials\/bone_fragment.png",
+    "pivot" : [
+      0.5,
+      0.033333333333333333
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      663,
+      430,
+      780,
+      578
+    ],
+    "width" : 121
+  },
+  {
+    "height" : 96,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Materials\/slime_jelly.png",
+    "pivot" : [
+      0.5,
+      0.041666666666666664
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      780,
+      430,
+      909,
+      578
+    ],
+    "width" : 129
+  },
+  {
+    "height" : 129,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Materials\/bat_wing.png",
+    "pivot" : [
+      0.5,
+      0.031007751937984496
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      909,
+      430,
+      1021,
+      578
+    ],
+    "width" : 109
+  },
+  {
+    "height" : 130,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Materials\/goblin_knife.png",
+    "pivot" : [
+      0.5,
+      0.030769230769230771
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      1021,
+      430,
+      1127,
+      578
+    ],
+    "width" : 102
+  },
+  {
+    "height" : 118,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Materials\/rocky_core.png",
+    "pivot" : [
+      0.5,
+      0.033898305084745763
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      1128,
+      430,
+      1241,
+      578
+    ],
+    "width" : 106
+  },
+  {
+    "height" : 111,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Utility\/key.png",
+    "pivot" : [
+      0.5,
+      0.036036036036036036
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      13,
+      703,
+      102,
+      861
+    ],
+    "width" : 91
+  },
+  {
+    "height" : 125,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Utility\/magic_key.png",
+    "pivot" : [
+      0.5,
+      0.032000000000000001
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      109,
+      703,
+      203,
+      861
+    ],
+    "width" : 98
+  },
+  {
+    "height" : 115,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Utility\/scroll.png",
+    "pivot" : [
+      0.5,
+      0.034782608695652174
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      207,
+      703,
+      307,
+      861
+    ],
+    "width" : 104
+  },
+  {
+    "height" : 129,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Utility\/spell_scroll.png",
+    "pivot" : [
+      0.5,
+      0.031007751937984496
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      309,
+      703,
+      415,
+      861
+    ],
+    "width" : 104
+  },
+  {
+    "height" : 134,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Utility\/bomb.png",
+    "pivot" : [
+      0.5,
+      0.029850746268656716
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      418,
+      703,
+      511,
+      861
+    ],
+    "width" : 89
+  },
+  {
+    "height" : 110,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Utility\/trap_disarm_kit.png",
+    "pivot" : [
+      0.5,
+      0.036363636363636362
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      515,
+      703,
+      636,
+      861
+    ],
+    "width" : 119
+  },
+  {
+    "height" : 159,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Utility\/torch.png",
+    "pivot" : [
+      0.5,
+      0.025157232704402517
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      639,
+      703,
+      729,
+      861
+    ],
+    "width" : 84
+  },
+  {
+    "height" : 118,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Utility\/food_ration.png",
+    "pivot" : [
+      0.5,
+      0.033898305084745763
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      728,
+      703,
+      834,
+      861
+    ],
+    "width" : 107
+  },
+  {
+    "height" : 92,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Utility\/heart_pickup.png",
+    "pivot" : [
+      0.5,
+      0.043478260869565216
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      838,
+      703,
+      939,
+      861
+    ],
+    "width" : 96
+  },
+  {
+    "height" : 121,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Utility\/mana_orb.png",
+    "pivot" : [
+      0.5,
+      0.033057851239669422
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      940,
+      703,
+      1040,
+      861
+    ],
+    "width" : 99
+  },
+  {
+    "height" : 118,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Utility\/experience_orb.png",
+    "pivot" : [
+      0.5,
+      0.033898305084745763
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      1041,
+      703,
+      1138,
+      861
+    ],
+    "width" : 100
+  },
+  {
+    "height" : 131,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/Utility\/shield_orb.png",
+    "pivot" : [
+      0.5,
+      0.030534351145038167
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      1138,
+      703,
+      1247,
+      861
+    ],
+    "width" : 106
+  },
+  {
+    "height" : 147,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/RareDrops\/treasure_bag.png",
+    "pivot" : [
+      0.5,
+      0.027210884353741496
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      35,
+      984,
+      228,
+      1147
+    ],
+    "width" : 174
+  },
+  {
+    "height" : 132,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/RareDrops\/relic_fragment.png",
+    "pivot" : [
+      0.5,
+      0.030303030303030304
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      286,
+      984,
+      439,
+      1147
+    ],
+    "width" : 138
+  },
+  {
+    "height" : 165,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/RareDrops\/rune_tablet.png",
+    "pivot" : [
+      0.5,
+      0.024242424242424242
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      499,
+      984,
+      698,
+      1147
+    ],
+    "width" : 167
+  },
+  {
+    "height" : 136,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/RareDrops\/enchanted_ring.png",
+    "pivot" : [
+      0.5,
+      0.029411764705882353
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      749,
+      984,
+      920,
+      1147
+    ],
+    "width" : 144
+  },
+  {
+    "height" : 149,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Items\/RareDrops\/mystery_chest.png",
+    "pivot" : [
+      0.5,
+      0.026845637583892617
+    ],
+    "source" : "Assets\/Art\/Items\/items-transparent.png",
+    "sourceRect" : [
+      975,
+      984,
+      1208,
+      1147
+    ],
+    "width" : 196
+  },
+  {
+    "height" : 87,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_surface_01.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      29,
+      39,
+      113,
+      138
+    ],
+    "width" : 80
+  },
+  {
+    "height" : 75,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_surface_02.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      113,
+      39,
+      194,
+      138
+    ],
+    "width" : 81
+  },
+  {
+    "height" : 85,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_surface_03.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      194,
+      39,
+      273,
+      138
+    ],
+    "width" : 79
+  },
+  {
+    "height" : 86,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_surface_04.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      273,
+      39,
+      351,
+      138
+    ],
+    "width" : 78
+  },
+  {
+    "height" : 83,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_surface_05.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      351,
+      39,
+      458,
+      138
+    ],
+    "width" : 107
+  },
+  {
+    "height" : 91,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_surface_06.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      458,
+      39,
+      534,
+      138
+    ],
+    "width" : 76
+  },
+  {
+    "height" : 82,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_surface_07.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      534,
+      39,
+      592,
+      138
+    ],
+    "width" : 58
+  },
+  {
+    "height" : 87,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_surface_08.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      600,
+      39,
+      713,
+      138
+    ],
+    "width" : 109
+  },
+  {
+    "height" : 76,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_block_01.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      28,
+      138,
+      112,
+      230
+    ],
+    "width" : 75
+  },
+  {
+    "height" : 76,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_block_02.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      119,
+      138,
+      192,
+      230
+    ],
+    "width" : 68
+  },
+  {
+    "height" : 76,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_block_03.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      198,
+      138,
+      275,
+      230
+    ],
+    "width" : 70
+  },
+  {
+    "height" : 75,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_edge_right.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      280,
+      138,
+      349,
+      230
+    ],
+    "width" : 64
+  },
+  {
+    "height" : 76,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_slope_down.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      354,
+      138,
+      446,
+      230
+    ],
+    "width" : 82
+  },
+  {
+    "height" : 77,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_block_04.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      447,
+      138,
+      527,
+      230
+    ],
+    "width" : 70
+  },
+  {
+    "height" : 76,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_slope_up.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      530,
+      138,
+      622,
+      230
+    ],
+    "width" : 81
+  },
+  {
+    "height" : 82,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Grass\/grass_edge_left.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      625,
+      138,
+      714,
+      230
+    ],
+    "width" : 79
+  },
+  {
+    "height" : 84,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_surface_01.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      756,
+      45,
+      838,
+      137
+    ],
+    "width" : 78
+  },
+  {
+    "height" : 74,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_surface_02.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      838,
+      45,
+      918,
+      137
+    ],
+    "width" : 80
+  },
+  {
+    "height" : 74,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_surface_03.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      918,
+      45,
+      998,
+      137
+    ],
+    "width" : 80
+  },
+  {
+    "height" : 74,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_surface_04.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      998,
+      45,
+      1078,
+      137
+    ],
+    "width" : 80
+  },
+  {
+    "height" : 74,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_surface_05.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1078,
+      45,
+      1129,
+      137
+    ],
+    "width" : 51
+  },
+  {
+    "height" : 74,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_surface_06.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1129,
+      45,
+      1207,
+      137
+    ],
+    "width" : 78
+  },
+  {
+    "height" : 74,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_surface_07.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1207,
+      45,
+      1281,
+      137
+    ],
+    "width" : 74
+  },
+  {
+    "height" : 74,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_surface_08.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1281,
+      45,
+      1344,
+      137
+    ],
+    "width" : 63
+  },
+  {
+    "height" : 74,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_surface_09.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1344,
+      45,
+      1428,
+      137
+    ],
+    "width" : 78
+  },
+  {
+    "height" : 77,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_block_01.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      755,
+      140,
+      840,
+      230
+    ],
+    "width" : 77
+  },
+  {
+    "height" : 77,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_block_02.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      844,
+      140,
+      927,
+      230
+    ],
+    "width" : 72
+  },
+  {
+    "height" : 77,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_block_03.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      932,
+      140,
+      1008,
+      230
+    ],
+    "width" : 64
+  },
+  {
+    "height" : 77,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_block_04.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1012,
+      140,
+      1080,
+      230
+    ],
+    "width" : 60
+  },
+  {
+    "height" : 77,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_block_05.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1081,
+      140,
+      1169,
+      230
+    ],
+    "width" : 73
+  },
+  {
+    "height" : 77,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_block_06.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1173,
+      140,
+      1252,
+      230
+    ],
+    "width" : 62
+  },
+  {
+    "height" : 77,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_block_07.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1253,
+      140,
+      1342,
+      230
+    ],
+    "width" : 79
+  },
+  {
+    "height" : 77,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Stone\/stone_block_08.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1346,
+      140,
+      1428,
+      230
+    ],
+    "width" : 74
+  },
+  {
+    "height" : 90,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Platforms\/grass_platform_01.png",
+    "pivot" : [
+      0.5,
+      0.044444444444444446
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      24,
+      282,
+      117,
+      380
+    ],
+    "width" : 94
+  },
+  {
+    "height" : 87,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Platforms\/grass_platform_02.png",
+    "pivot" : [
+      0.5,
+      0.045977011494252873
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      117,
+      282,
+      250,
+      380
+    ],
+    "width" : 130
+  },
+  {
+    "height" : 87,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Platforms\/grass_platform_03.png",
+    "pivot" : [
+      0.5,
+      0.045977011494252873
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      257,
+      282,
+      346,
+      380
+    ],
+    "width" : 86
+  },
+  {
+    "height" : 80,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Platforms\/grass_platform_04.png",
+    "pivot" : [
+      0.5,
+      0.050000000000000003
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      347,
+      282,
+      427,
+      380
+    ],
+    "width" : 77
+  },
+  {
+    "height" : 82,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Platforms\/grass_platform_05.png",
+    "pivot" : [
+      0.5,
+      0.04878048780487805
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      429,
+      282,
+      515,
+      380
+    ],
+    "width" : 78
+  },
+  {
+    "height" : 78,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Platforms\/stone_platform_01.png",
+    "pivot" : [
+      0.5,
+      0.05128205128205128
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      26,
+      381,
+      119,
+      473
+    ],
+    "width" : 82
+  },
+  {
+    "height" : 87,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Platforms\/stone_platform_02.png",
+    "pivot" : [
+      0.5,
+      0.045977011494252873
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      121,
+      381,
+      261,
+      473
+    ],
+    "width" : 135
+  },
+  {
+    "height" : 83,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Platforms\/stone_platform_03.png",
+    "pivot" : [
+      0.5,
+      0.048192771084337352
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      263,
+      381,
+      413,
+      473
+    ],
+    "width" : 147
+  },
+  {
+    "height" : 82,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Platforms\/stone_platform_04.png",
+    "pivot" : [
+      0.5,
+      0.04878048780487805
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      414,
+      381,
+      504,
+      473
+    ],
+    "width" : 82
+  },
+  {
+    "height" : 191,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Ledges\/ledge_left_tall.png",
+    "pivot" : [
+      0.5,
+      0.020942408376963352
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      529,
+      282,
+      635,
+      481
+    ],
+    "width" : 97
+  },
+  {
+    "height" : 115,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Ledges\/ledge_left_short.png",
+    "pivot" : [
+      0.5,
+      0.034782608695652174
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      637,
+      282,
+      732,
+      400
+    ],
+    "width" : 86
+  },
+  {
+    "height" : 102,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Ledges\/ledge_center.png",
+    "pivot" : [
+      0.5,
+      0.039215686274509803
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      732,
+      284,
+      796,
+      395
+    ],
+    "width" : 60
+  },
+  {
+    "height" : 180,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Ledges\/ledge_right_tall.png",
+    "pivot" : [
+      0.5,
+      0.022222222222222223
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      795,
+      283,
+      875,
+      472
+    ],
+    "width" : 70
+  },
+  {
+    "height" : 105,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Ledges\/corner_left.png",
+    "pivot" : [
+      0.5,
+      0.038095238095238099
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      642,
+      398,
+      726,
+      501
+    ],
+    "width" : 82
+  },
+  {
+    "height" : 97,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Ledges\/corner_right.png",
+    "pivot" : [
+      0.5,
+      0.041237113402061855
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      726,
+      398,
+      797,
+      494
+    ],
+    "width" : 70
+  },
+  {
+    "height" : 81,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Stairs\/stone_steps_small.png",
+    "pivot" : [
+      0.5,
+      0.049382716049382713
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      903,
+      285,
+      991,
+      379
+    ],
+    "width" : 80
+  },
+  {
+    "height" : 81,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Stairs\/stone_steps_medium.png",
+    "pivot" : [
+      0.5,
+      0.049382716049382713
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      993,
+      283,
+      1093,
+      379
+    ],
+    "width" : 99
+  },
+  {
+    "height" : 85,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Stairs\/stone_steps_block.png",
+    "pivot" : [
+      0.5,
+      0.047058823529411764
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1093,
+      286,
+      1172,
+      379
+    ],
+    "width" : 75
+  },
+  {
+    "height" : 81,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Stairs\/stone_slope_down.png",
+    "pivot" : [
+      0.5,
+      0.049382716049382713
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1174,
+      286,
+      1272,
+      379
+    ],
+    "width" : 91
+  },
+  {
+    "height" : 77,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Stairs\/stone_steps_low.png",
+    "pivot" : [
+      0.5,
+      0.051948051948051951
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      908,
+      398,
+      1016,
+      483
+    ],
+    "width" : 108
+  },
+  {
+    "height" : 80,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Stairs\/grass_slope_up_01.png",
+    "pivot" : [
+      0.5,
+      0.050000000000000003
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1014,
+      391,
+      1113,
+      488
+    ],
+    "width" : 106
+  },
+  {
+    "height" : 83,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Stairs\/grass_slope_up_02.png",
+    "pivot" : [
+      0.5,
+      0.048192771084337352
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1112,
+      391,
+      1216,
+      488
+    ],
+    "width" : 107
+  },
+  {
+    "height" : 195,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Stairs\/stone_staircase.png",
+    "pivot" : [
+      0.5,
+      0.020512820512820513
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1220,
+      284,
+      1429,
+      481
+    ],
+    "width" : 202
+  },
+  {
+    "height" : 89,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Walls\/stone_wall_01_01.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      26,
+      530,
+      126,
+      625
+    ],
+    "width" : 94
+  },
+  {
+    "height" : 89,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Walls\/stone_wall_01_02.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      130,
+      530,
+      236,
+      625
+    ],
+    "width" : 101
+  },
+  {
+    "height" : 89,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Walls\/stone_wall_01_03.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      239,
+      530,
+      339,
+      625
+    ],
+    "width" : 90
+  },
+  {
+    "height" : 87,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Walls\/stone_wall_01_04.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      343,
+      530,
+      404,
+      625
+    ],
+    "width" : 52
+  },
+  {
+    "height" : 90,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Walls\/stone_wall_02_01.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      26,
+      625,
+      126,
+      723
+    ],
+    "width" : 94
+  },
+  {
+    "height" : 90,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Walls\/stone_wall_02_02.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      130,
+      625,
+      236,
+      723
+    ],
+    "width" : 95
+  },
+  {
+    "height" : 90,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Walls\/stone_wall_02_03.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      239,
+      625,
+      339,
+      723
+    ],
+    "width" : 96
+  },
+  {
+    "height" : 89,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Walls\/stone_wall_02_04.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      343,
+      625,
+      404,
+      723
+    ],
+    "width" : 41
+  },
+  {
+    "height" : 191,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Columns\/ruin_column_01.png",
+    "pivot" : [
+      0.5,
+      0.020942408376963352
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      410,
+      528,
+      492,
+      726
+    ],
+    "width" : 67
+  },
+  {
+    "height" : 191,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Columns\/ruin_column_02.png",
+    "pivot" : [
+      0.5,
+      0.020942408376963352
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      495,
+      528,
+      582,
+      726
+    ],
+    "width" : 75
+  },
+  {
+    "height" : 192,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Columns\/ruin_column_03.png",
+    "pivot" : [
+      0.5,
+      0.020833333333333332
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      586,
+      528,
+      661,
+      726
+    ],
+    "width" : 64
+  },
+  {
+    "height" : 190,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Columns\/ruin_column_04.png",
+    "pivot" : [
+      0.5,
+      0.021052631578947368
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      663,
+      528,
+      749,
+      726
+    ],
+    "width" : 75
+  },
+  {
+    "height" : 184,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Columns\/ruin_column_05.png",
+    "pivot" : [
+      0.5,
+      0.021739130434782608
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      751,
+      528,
+      813,
+      726
+    ],
+    "width" : 56
+  },
+  {
+    "height" : 176,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Architecture\/archway_pillar_left.png",
+    "pivot" : [
+      0.5,
+      0.022727272727272728
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      822,
+      541,
+      883,
+      726
+    ],
+    "width" : 63
+  },
+  {
+    "height" : 194,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Architecture\/stone_archway.png",
+    "pivot" : [
+      0.5,
+      0.020618556701030927
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      883,
+      533,
+      1061,
+      726
+    ],
+    "width" : 179
+  },
+  {
+    "height" : 60,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Architecture\/gate_cap.png",
+    "pivot" : [
+      0.5,
+      0.066666666666666666
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1059,
+      530,
+      1135,
+      586
+    ],
+    "width" : 71
+  },
+  {
+    "height" : 129,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Architecture\/iron_gate.png",
+    "pivot" : [
+      0.5,
+      0.031007751937984496
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1064,
+      595,
+      1173,
+      727
+    ],
+    "width" : 100
+  },
+  {
+    "height" : 191,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Architecture\/archway_pillar_right.png",
+    "pivot" : [
+      0.5,
+      0.020942408376963352
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1174,
+      530,
+      1244,
+      726
+    ],
+    "width" : 69
+  },
+  {
+    "height" : 173,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Banners\/banner_blue.png",
+    "pivot" : [
+      0.5,
+      0.023121387283236993
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1246,
+      528,
+      1340,
+      714
+    ],
+    "width" : 92
+  },
+  {
+    "height" : 172,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Banners\/banner_red.png",
+    "pivot" : [
+      0.5,
+      0.023255813953488372
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1350,
+      528,
+      1439,
+      714
+    ],
+    "width" : 84
+  },
+  {
+    "height" : 78,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/rock_cluster.png",
+    "pivot" : [
+      0.5,
+      0.05128205128205128
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      29,
+      763,
+      145,
+      838
+    ],
+    "width" : 110
+  },
+  {
+    "height" : 69,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/rock_large.png",
+    "pivot" : [
+      0.5,
+      0.057971014492753624
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      147,
+      775,
+      265,
+      844
+    ],
+    "width" : 122
+  },
+  {
+    "height" : 62,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/rock_small_01.png",
+    "pivot" : [
+      0.5,
+      0.064516129032258063
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      28,
+      835,
+      106,
+      896
+    ],
+    "width" : 80
+  },
+  {
+    "height" : 56,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/skull.png",
+    "pivot" : [
+      0.5,
+      0.071428571428571425
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      106,
+      835,
+      157,
+      890
+    ],
+    "width" : 54
+  },
+  {
+    "height" : 50,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/rock_small_02.png",
+    "pivot" : [
+      0.5,
+      0.080000000000000002
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      158,
+      848,
+      221,
+      896
+    ],
+    "width" : 71
+  },
+  {
+    "height" : 42,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/rock_small_03.png",
+    "pivot" : [
+      0.5,
+      0.095238095238095233
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      222,
+      849,
+      278,
+      896
+    ],
+    "width" : 64
+  },
+  {
+    "height" : 52,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/bush_small.png",
+    "pivot" : [
+      0.5,
+      0.076923076923076927
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      267,
+      800,
+      340,
+      852
+    ],
+    "width" : 69
+  },
+  {
+    "height" : 57,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/bush_medium.png",
+    "pivot" : [
+      0.5,
+      0.070175438596491224
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      345,
+      787,
+      422,
+      845
+    ],
+    "width" : 71
+  },
+  {
+    "height" : 47,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/grass_tuft.png",
+    "pivot" : [
+      0.5,
+      0.085106382978723402
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      422,
+      817,
+      479,
+      858
+    ],
+    "width" : 64
+  },
+  {
+    "height" : 37,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/grass_small.png",
+    "pivot" : [
+      0.5,
+      0.10810810810810811
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      277,
+      859,
+      327,
+      896
+    ],
+    "width" : 56
+  },
+  {
+    "height" : 50,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/flower_blue_01.png",
+    "pivot" : [
+      0.5,
+      0.080000000000000002
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      328,
+      848,
+      373,
+      895
+    ],
+    "width" : 53
+  },
+  {
+    "height" : 45,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/flower_blue_02.png",
+    "pivot" : [
+      0.5,
+      0.088888888888888892
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      373,
+      852,
+      406,
+      895
+    ],
+    "width" : 39
+  },
+  {
+    "height" : 41,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/mushroom_red_01.png",
+    "pivot" : [
+      0.5,
+      0.097560975609756101
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      406,
+      857,
+      437,
+      895
+    ],
+    "width" : 38
+  },
+  {
+    "height" : 36,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/mushroom_red_02.png",
+    "pivot" : [
+      0.5,
+      0.1111111111111111
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      437,
+      862,
+      462,
+      895
+    ],
+    "width" : 33
+  },
+  {
+    "height" : 148,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/dead_tree.png",
+    "pivot" : [
+      0.5,
+      0.027027027027027029
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      476,
+      746,
+      634,
+      895
+    ],
+    "width" : 166
+  },
+  {
+    "height" : 110,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/wood_crate_stack.png",
+    "pivot" : [
+      0.5,
+      0.036363636363636362
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      635,
+      789,
+      726,
+      896
+    ],
+    "width" : 96
+  },
+  {
+    "height" : 56,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/wood_crate_small.png",
+    "pivot" : [
+      0.5,
+      0.071428571428571425
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      674,
+      845,
+      726,
+      896
+    ],
+    "width" : 57
+  },
+  {
+    "height" : 111,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Props\/wood_barrel.png",
+    "pivot" : [
+      0.5,
+      0.036036036036036036
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      723,
+      775,
+      818,
+      896
+    ],
+    "width" : 88
+  },
+  {
+    "height" : 131,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Crystals\/crystal_blue_cluster.png",
+    "pivot" : [
+      0.5,
+      0.030534351145038167
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      825,
+      765,
+      989,
+      905
+    ],
+    "width" : 151
+  },
+  {
+    "height" : 131,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Crystals\/crystal_blue_tall.png",
+    "pivot" : [
+      0.5,
+      0.030534351145038167
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      993,
+      765,
+      1131,
+      903
+    ],
+    "width" : 128
+  },
+  {
+    "height" : 142,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Crystals\/crystal_amber.png",
+    "pivot" : [
+      0.5,
+      0.028169014084507043
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1134,
+      750,
+      1271,
+      903
+    ],
+    "width" : 141
+  },
+  {
+    "height" : 141,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Crystals\/crystal_purple.png",
+    "pivot" : [
+      0.5,
+      0.028368794326241134
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1266,
+      750,
+      1435,
+      903
+    ],
+    "width" : 160
+  },
+  {
+    "height" : 118,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Platforms\/grass_strip.png",
+    "pivot" : [
+      0.5,
+      0.033898305084745763
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      24,
+      943,
+      333,
+      1062
+    ],
+    "width" : 310
+  },
+  {
+    "height" : 108,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Platforms\/stone_strip.png",
+    "pivot" : [
+      0.5,
+      0.037037037037037035
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      333,
+      946,
+      603,
+      1062
+    ],
+    "width" : 275
+  },
+  {
+    "height" : 119,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Platforms\/grass_floating_strip.png",
+    "pivot" : [
+      0.5,
+      0.033613445378151259
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      603,
+      935,
+      876,
+      1062
+    ],
+    "width" : 269
+  },
+  {
+    "height" : 97,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Variants\/grass_tile.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      884,
+      947,
+      987,
+      1061
+    ],
+    "width" : 91
+  },
+  {
+    "height" : 97,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Variants\/lava_tile.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      993,
+      946,
+      1094,
+      1061
+    ],
+    "width" : 91
+  },
+  {
+    "height" : 99,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Variants\/snow_tile.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1104,
+      943,
+      1205,
+      1061
+    ],
+    "width" : 93
+  },
+  {
+    "height" : 99,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Variants\/corrupted_tile.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1210,
+      944,
+      1318,
+      1061
+    ],
+    "width" : 97
+  },
+  {
+    "height" : 97,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Tiles\/Variants\/sandstone_tile.png",
+    "pivot" : [
+      0.5,
+      0
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1328,
+      944,
+      1431,
+      1061
+    ],
+    "width" : 92
+  },
+  {
+    "height" : 193,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Portals\/portal_inactive.png",
+    "pivot" : [
+      0.5,
+      0.02072538860103627
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      14,
+      46,
+      208,
+      241
+    ],
+    "width" : 184
+  },
+  {
+    "height" : 191,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Portals\/portal_forming.png",
+    "pivot" : [
+      0.5,
+      0.020942408376963352
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      208,
+      43,
+      394,
+      240
+    ],
+    "width" : 185
+  },
+  {
+    "height" : 205,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Portals\/portal_active.png",
+    "pivot" : [
+      0.5,
+      0.019512195121951219
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      396,
+      27,
+      583,
+      239
+    ],
+    "width" : 183
+  },
+  {
+    "height" : 215,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Portals\/portal_upgraded.png",
+    "pivot" : [
+      0.5,
+      0.018604651162790697
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      584,
+      24,
+      780,
+      240
+    ],
+    "width" : 191
+  },
+  {
+    "height" : 163,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Portals\/portal_swirl_01.png",
+    "pivot" : [
+      0.5,
+      0.024539877300613498
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      799,
+      62,
+      973,
+      244
+    ],
+    "width" : 165
+  },
+  {
+    "height" : 163,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Portals\/portal_swirl_02.png",
+    "pivot" : [
+      0.5,
+      0.024539877300613498
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      970,
+      62,
+      1127,
+      244
+    ],
+    "width" : 145
+  },
+  {
+    "height" : 167,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Portals\/portal_swirl_03.png",
+    "pivot" : [
+      0.5,
+      0.023952095808383235
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1125,
+      62,
+      1285,
+      244
+    ],
+    "width" : 147
+  },
+  {
+    "height" : 176,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Portals\/portal_swirl_04.png",
+    "pivot" : [
+      0.5,
+      0.022727272727272728
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1284,
+      62,
+      1442,
+      244
+    ],
+    "width" : 145
+  },
+  {
+    "height" : 196,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Progression\/rune_door_closed.png",
+    "pivot" : [
+      0.5,
+      0.020408163265306121
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      17,
+      281,
+      185,
+      473
+    ],
+    "width" : 167
+  },
+  {
+    "height" : 192,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Progression\/iron_gate_closed.png",
+    "pivot" : [
+      0.5,
+      0.020833333333333332
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      184,
+      282,
+      342,
+      475
+    ],
+    "width" : 157
+  },
+  {
+    "height" : 202,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Progression\/rune_door_open.png",
+    "pivot" : [
+      0.5,
+      0.019801980198019802
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      342,
+      272,
+      509,
+      475
+    ],
+    "width" : 175
+  },
+  {
+    "height" : 194,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Progression\/crystal_barrier_large.png",
+    "pivot" : [
+      0.5,
+      0.020618556701030927
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      508,
+      271,
+      639,
+      475
+    ],
+    "width" : 136
+  },
+  {
+    "height" : 175,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Progression\/crystal_barrier_small.png",
+    "pivot" : [
+      0.5,
+      0.022857142857142857
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      639,
+      289,
+      770,
+      475
+    ],
+    "width" : 137
+  },
+  {
+    "height" : 177,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Progression\/progression_lock.png",
+    "pivot" : [
+      0.5,
+      0.022598870056497175
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      772,
+      284,
+      909,
+      464
+    ],
+    "width" : 133
+  },
+  {
+    "height" : 54,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Triggers\/pressure_plate_pressed.png",
+    "pivot" : [
+      0.5,
+      0.07407407407407407
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      913,
+      317,
+      993,
+      370
+    ],
+    "width" : 84
+  },
+  {
+    "height" : 65,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Triggers\/pressure_plate_raised.png",
+    "pivot" : [
+      0.5,
+      0.061538461538461542
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      993,
+      301,
+      1082,
+      370
+    ],
+    "width" : 90
+  },
+  {
+    "height" : 76,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Triggers\/wall_switch_inactive.png",
+    "pivot" : [
+      0.5,
+      0.052631578947368418
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1091,
+      287,
+      1169,
+      368
+    ],
+    "width" : 72
+  },
+  {
+    "height" : 79,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Triggers\/wall_switch_active.png",
+    "pivot" : [
+      0.5,
+      0.050632911392405063
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1175,
+      287,
+      1249,
+      368
+    ],
+    "width" : 71
+  },
+  {
+    "height" : 76,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Triggers\/lever_left.png",
+    "pivot" : [
+      0.5,
+      0.052631578947368418
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1260,
+      291,
+      1331,
+      367
+    ],
+    "width" : 65
+  },
+  {
+    "height" : 84,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Triggers\/lever_right.png",
+    "pivot" : [
+      0.5,
+      0.047619047619047616
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1331,
+      285,
+      1406,
+      367
+    ],
+    "width" : 74
+  },
+  {
+    "height" : 106,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Triggers\/rune_totem_inactive.png",
+    "pivot" : [
+      0.5,
+      0.037735849056603772
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      969,
+      394,
+      1045,
+      502
+    ],
+    "width" : 67
+  },
+  {
+    "height" : 112,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Triggers\/rune_totem_active.png",
+    "pivot" : [
+      0.5,
+      0.035714285714285712
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1045,
+      394,
+      1131,
+      502
+    ],
+    "width" : 68
+  },
+  {
+    "height" : 99,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Triggers\/monster_seal_inactive.png",
+    "pivot" : [
+      0.5,
+      0.040404040404040407
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1148,
+      395,
+      1268,
+      497
+    ],
+    "width" : 108
+  },
+  {
+    "height" : 106,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Triggers\/monster_seal_active.png",
+    "pivot" : [
+      0.5,
+      0.037735849056603772
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1268,
+      395,
+      1388,
+      498
+    ],
+    "width" : 108
+  },
+  {
+    "height" : 100,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/push_block.png",
+    "pivot" : [
+      0.5,
+      0.040000000000000001
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      18,
+      549,
+      124,
+      665
+    ],
+    "width" : 103
+  },
+  {
+    "height" : 103,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/rune_block.png",
+    "pivot" : [
+      0.5,
+      0.038834951456310676
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      123,
+      548,
+      231,
+      665
+    ],
+    "width" : 111
+  },
+  {
+    "height" : 109,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/metal_block.png",
+    "pivot" : [
+      0.5,
+      0.03669724770642202
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      229,
+      547,
+      345,
+      665
+    ],
+    "width" : 116
+  },
+  {
+    "height" : 106,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/wooden_crate.png",
+    "pivot" : [
+      0.5,
+      0.037735849056603772
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      346,
+      548,
+      455,
+      665
+    ],
+    "width" : 115
+  },
+  {
+    "height" : 111,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/explosive_barrel.png",
+    "pivot" : [
+      0.5,
+      0.036036036036036036
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      455,
+      546,
+      554,
+      665
+    ],
+    "width" : 104
+  },
+  {
+    "height" : 90,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/puzzle_key.png",
+    "pivot" : [
+      0.5,
+      0.044444444444444446
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      555,
+      560,
+      637,
+      660
+    ],
+    "width" : 78
+  },
+  {
+    "height" : 117,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/key_pedestal.png",
+    "pivot" : [
+      0.5,
+      0.034188034188034191
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      633,
+      542,
+      716,
+      665
+    ],
+    "width" : 86
+  },
+  {
+    "height" : 110,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/key_pedestal_column.png",
+    "pivot" : [
+      0.5,
+      0.036363636363636362
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      719,
+      548,
+      778,
+      665
+    ],
+    "width" : 56
+  },
+  {
+    "height" : 128,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/orb_socket.png",
+    "pivot" : [
+      0.5,
+      0.03125
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      777,
+      528,
+      878,
+      665
+    ],
+    "width" : 88
+  },
+  {
+    "height" : 115,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/energy_crystal.png",
+    "pivot" : [
+      0.5,
+      0.034782608695652174
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      879,
+      548,
+      957,
+      665
+    ],
+    "width" : 71
+  },
+  {
+    "height" : 130,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/mirror_statue_front.png",
+    "pivot" : [
+      0.5,
+      0.030769230769230771
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      955,
+      529,
+      1052,
+      665
+    ],
+    "width" : 82
+  },
+  {
+    "height" : 130,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/mirror_statue_diagonal.png",
+    "pivot" : [
+      0.5,
+      0.030769230769230771
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1060,
+      528,
+      1182,
+      665
+    ],
+    "width" : 118
+  },
+  {
+    "height" : 129,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/mirror_statue_side.png",
+    "pivot" : [
+      0.5,
+      0.031007751937984496
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1184,
+      528,
+      1299,
+      665
+    ],
+    "width" : 105
+  },
+  {
+    "height" : 133,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Puzzle\/mirror_statue_back.png",
+    "pivot" : [
+      0.5,
+      0.03007518796992481
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1323,
+      528,
+      1443,
+      667
+    ],
+    "width" : 95
+  },
+  {
+    "height" : 86,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/spike_trap_retracted.png",
+    "pivot" : [
+      0.5,
+      0.046511627906976744
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      12,
+      758,
+      87,
+      850
+    ],
+    "width" : 74
+  },
+  {
+    "height" : 90,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/spike_trap_extended.png",
+    "pivot" : [
+      0.5,
+      0.044444444444444446
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      87,
+      751,
+      169,
+      850
+    ],
+    "width" : 81
+  },
+  {
+    "height" : 99,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/flame_jet_inactive.png",
+    "pivot" : [
+      0.5,
+      0.040404040404040407
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      187,
+      752,
+      242,
+      853
+    ],
+    "width" : 58
+  },
+  {
+    "height" : 108,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/flame_jet_active.png",
+    "pivot" : [
+      0.5,
+      0.037037037037037035
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      240,
+      751,
+      299,
+      853
+    ],
+    "width" : 58
+  },
+  {
+    "height" : 91,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/arrow_trap.png",
+    "pivot" : [
+      0.5,
+      0.043956043956043959
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      299,
+      751,
+      450,
+      850
+    ],
+    "width" : 151
+  },
+  {
+    "height" : 76,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/saw_trap_01.png",
+    "pivot" : [
+      0.5,
+      0.052631578947368418
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      450,
+      751,
+      523,
+      851
+    ],
+    "width" : 76
+  },
+  {
+    "height" : 84,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/saw_trap_02.png",
+    "pivot" : [
+      0.5,
+      0.047619047619047616
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      522,
+      751,
+      610,
+      851
+    ],
+    "width" : 85
+  },
+  {
+    "height" : 91,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/cracked_floor.png",
+    "pivot" : [
+      0.5,
+      0.043956043956043959
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      610,
+      752,
+      740,
+      850
+    ],
+    "width" : 115
+  },
+  {
+    "height" : 60,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/collapsing_platform_01.png",
+    "pivot" : [
+      0.5,
+      0.066666666666666666
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      742,
+      753,
+      821,
+      818
+    ],
+    "width" : 77
+  },
+  {
+    "height" : 60,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/collapsing_platform_02.png",
+    "pivot" : [
+      0.5,
+      0.066666666666666666
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      821,
+      754,
+      902,
+      818
+    ],
+    "width" : 80
+  },
+  {
+    "height" : 93,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/collapsing_platform_03.png",
+    "pivot" : [
+      0.5,
+      0.043010752688172046
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      902,
+      752,
+      974,
+      851
+    ],
+    "width" : 78
+  },
+  {
+    "height" : 77,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/collapsing_platform_04.png",
+    "pivot" : [
+      0.5,
+      0.051948051948051951
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      974,
+      751,
+      1087,
+      851
+    ],
+    "width" : 110
+  },
+  {
+    "height" : 70,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/poison_puddle.png",
+    "pivot" : [
+      0.5,
+      0.057142857142857141
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1088,
+      761,
+      1211,
+      844
+    ],
+    "width" : 121
+  },
+  {
+    "height" : 70,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/ice_patch.png",
+    "pivot" : [
+      0.5,
+      0.057142857142857141
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1210,
+      761,
+      1333,
+      850
+    ],
+    "width" : 115
+  },
+  {
+    "height" : 74,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Hazards\/lava_tile.png",
+    "pivot" : [
+      0.5,
+      0.054054054054054057
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1334,
+      757,
+      1445,
+      850
+    ],
+    "width" : 104
+  },
+  {
+    "height" : 132,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Rewards\/checkpoint_inactive.png",
+    "pivot" : [
+      0.5,
+      0.030303030303030304
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      11,
+      895,
+      91,
+      1026
+    ],
+    "width" : 81
+  },
+  {
+    "height" : 141,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Rewards\/checkpoint_active.png",
+    "pivot" : [
+      0.5,
+      0.028368794326241134
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      91,
+      890,
+      176,
+      1035
+    ],
+    "width" : 82
+  },
+  {
+    "height" : 66,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Rewards\/health_orb.png",
+    "pivot" : [
+      0.5,
+      0.060606060606060608
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      175,
+      936,
+      242,
+      1008
+    ],
+    "width" : 55
+  },
+  {
+    "height" : 66,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Rewards\/mana_orb.png",
+    "pivot" : [
+      0.5,
+      0.060606060606060608
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      240,
+      936,
+      312,
+      1008
+    ],
+    "width" : 56
+  },
+  {
+    "height" : 68,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Rewards\/treasure_chest_closed.png",
+    "pivot" : [
+      0.5,
+      0.058823529411764705
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      314,
+      934,
+      394,
+      1014
+    ],
+    "width" : 84
+  },
+  {
+    "height" : 88,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Rewards\/treasure_chest_open.png",
+    "pivot" : [
+      0.5,
+      0.045454545454545456
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      395,
+      921,
+      489,
+      1015
+    ],
+    "width" : 92
+  },
+  {
+    "height" : 88,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Rewards\/magic_crystal.png",
+    "pivot" : [
+      0.5,
+      0.045454545454545456
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      490,
+      922,
+      566,
+      1019
+    ],
+    "width" : 51
+  },
+  {
+    "height" : 103,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Rewards\/stage_clear_emblem.png",
+    "pivot" : [
+      0.5,
+      0.038834951456310676
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      568,
+      905,
+      707,
+      1016
+    ],
+    "width" : 122
+  },
+  {
+    "height" : 96,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Rewards\/skull_warning_sign.png",
+    "pivot" : [
+      0.5,
+      0.041666666666666664
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      709,
+      935,
+      805,
+      1028
+    ],
+    "width" : 83
+  },
+  {
+    "height" : 69,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Utility\/magic_bridge_inactive.png",
+    "pivot" : [
+      0.5,
+      0.057971014492753624
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      815,
+      938,
+      879,
+      1009
+    ],
+    "width" : 66
+  },
+  {
+    "height" : 69,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Utility\/magic_bridge_active.png",
+    "pivot" : [
+      0.5,
+      0.057971014492753624
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      885,
+      926,
+      950,
+      1010
+    ],
+    "width" : 72
+  },
+  {
+    "height" : 66,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Utility\/teleport_pad_inactive.png",
+    "pivot" : [
+      0.5,
+      0.060606060606060608
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      955,
+      943,
+      1022,
+      1009
+    ],
+    "width" : 75
+  },
+  {
+    "height" : 83,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Utility\/teleport_pad_active.png",
+    "pivot" : [
+      0.5,
+      0.048192771084337352
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1020,
+      920,
+      1093,
+      1011
+    ],
+    "width" : 72
+  },
+  {
+    "height" : 76,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Utility\/summon_circle_inactive.png",
+    "pivot" : [
+      0.5,
+      0.052631578947368418
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1094,
+      937,
+      1168,
+      1015
+    ],
+    "width" : 80
+  },
+  {
+    "height" : 99,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Utility\/summon_circle_active.png",
+    "pivot" : [
+      0.5,
+      0.040404040404040407
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1164,
+      919,
+      1252,
+      1016
+    ],
+    "width" : 90
+  },
+  {
+    "height" : 96,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Utility\/enemy_spawn_seal.png",
+    "pivot" : [
+      0.5,
+      0.041666666666666664
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1248,
+      923,
+      1340,
+      1025
+    ],
+    "width" : 93
+  },
+  {
+    "height" : 98,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Utility\/enemy_spawn_rocks.png",
+    "pivot" : [
+      0.5,
+      0.040816326530612242
+    ],
+    "source" : "Assets\/Art\/Environments\/portal&co.png",
+    "sourceRect" : [
+      1348,
+      924,
+      1447,
+      1028
+    ],
+    "width" : 95
+  },
+  {
+    "height" : 118,
+    "mirrored" : false,
+    "path" : "Assets\/Art\/Environments\/Stairs\/grass_slope_long.png",
+    "pivot" : [
+      0.5,
+      0.033898305084745763
+    ],
+    "source" : "Assets\/Art\/Environments\/arena-objects-px.png",
+    "sourceRect" : [
+      1291,
+      363,
+      1429,
+      484
+    ],
+    "width" : 130
+  }
+]

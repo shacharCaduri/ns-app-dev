@@ -1,0 +1,3855 @@
+[
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/idle/wizard_idle_down_01.png",
+    "rect": [
+      40,
+      55,
+      184,
+      255
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 112
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/idle/wizard_idle_down_02.png",
+    "rect": [
+      189,
+      55,
+      326,
+      255
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 258
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/idle/wizard_idle_down_03.png",
+    "rect": [
+      326,
+      55,
+      467,
+      255
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 396
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/idle/wizard_idle_down_04.png",
+    "rect": [
+      468,
+      55,
+      618,
+      255
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 543
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/walk/wizard_walk_right_01.png",
+    "rect": [
+      670,
+      55,
+      819,
+      255
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 744
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/walk/wizard_walk_left_01.png",
+    "rect": [
+      670,
+      55,
+      819,
+      255
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 744
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/walk/wizard_walk_right_02.png",
+    "rect": [
+      818,
+      55,
+      956,
+      255
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 887
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/walk/wizard_walk_left_02.png",
+    "rect": [
+      818,
+      55,
+      956,
+      255
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 887
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/walk/wizard_walk_right_03.png",
+    "rect": [
+      956,
+      55,
+      1088,
+      255
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 1022
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/walk/wizard_walk_left_03.png",
+    "rect": [
+      956,
+      55,
+      1088,
+      255
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 1022
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/walk/wizard_walk_right_04.png",
+    "rect": [
+      1088,
+      55,
+      1230,
+      255
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 1159
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/walk/wizard_walk_left_04.png",
+    "rect": [
+      1088,
+      55,
+      1230,
+      255
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 1159
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/attack/wizard_attack_right_01.png",
+    "rect": [
+      48,
+      298,
+      234,
+      490
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 135
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/attack/wizard_attack_left_01.png",
+    "rect": [
+      48,
+      298,
+      234,
+      490
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 135
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/attack/wizard_attack_right_02.png",
+    "rect": [
+      276,
+      297,
+      503,
+      490
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 353
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/attack/wizard_attack_left_02.png",
+    "rect": [
+      276,
+      297,
+      503,
+      490
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 353
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/attack/wizard_attack_right_03.png",
+    "rect": [
+      505,
+      295,
+      730,
+      490
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 596
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/attack/wizard_attack_left_03.png",
+    "rect": [
+      505,
+      295,
+      730,
+      490
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 596
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/attack/wizard_attack_right_04.png",
+    "rect": [
+      757,
+      296,
+      1004,
+      490
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 842
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/attack/wizard_attack_left_04.png",
+    "rect": [
+      757,
+      296,
+      1004,
+      490
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 842
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/hurt/wizard_hurt_right_01.png",
+    "rect": [
+      47,
+      526,
+      248,
+      701
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 139
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/hurt/wizard_hurt_left_01.png",
+    "rect": [
+      47,
+      526,
+      248,
+      701
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 139
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/death/wizard_death_right_01.png",
+    "rect": [
+      385,
+      532,
+      539,
+      699
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 462
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/death/wizard_death_left_01.png",
+    "rect": [
+      385,
+      532,
+      539,
+      699
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 462
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/death/wizard_death_right_02.png",
+    "rect": [
+      546,
+      583,
+      755,
+      698
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 650
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/death/wizard_death_left_02.png",
+    "rect": [
+      546,
+      583,
+      755,
+      698
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 650
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/death/wizard_death_right_03.png",
+    "rect": [
+      763,
+      588,
+      965,
+      698
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 864
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/death/wizard_death_left_03.png",
+    "rect": [
+      763,
+      588,
+      965,
+      698
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 864
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/death/wizard_death_right_04.png",
+    "rect": [
+      997,
+      592,
+      1210,
+      698
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 1104
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/death/wizard_death_left_04.png",
+    "rect": [
+      997,
+      592,
+      1210,
+      698
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 1104
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/cast_arcane/wizard_cast_arcane_right_01.png",
+    "rect": [
+      39,
+      753,
+      297,
+      944
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 127
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/cast_arcane/wizard_cast_arcane_left_01.png",
+    "rect": [
+      39,
+      753,
+      297,
+      944
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 127
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/cast_fire/wizard_cast_fire_right_01.png",
+    "rect": [
+      294,
+      750,
+      528,
+      945
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 379
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/cast_fire/wizard_cast_fire_left_01.png",
+    "rect": [
+      294,
+      750,
+      528,
+      945
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 379
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/cast_ice/wizard_cast_ice_right_01.png",
+    "rect": [
+      527,
+      749,
+      757,
+      945
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 607
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/cast_ice/wizard_cast_ice_left_01.png",
+    "rect": [
+      527,
+      749,
+      757,
+      945
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 607
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/cast_lightning/wizard_cast_lightning_right_01.png",
+    "rect": [
+      746,
+      748,
+      998,
+      950
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 814
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/cast_lightning/wizard_cast_lightning_left_01.png",
+    "rect": [
+      746,
+      748,
+      998,
+      950
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 814
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/cast_heal/wizard_cast_heal_right_01.png",
+    "rect": [
+      995,
+      722,
+      1234,
+      951
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 1087
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/cast_heal/wizard_cast_heal_left_01.png",
+    "rect": [
+      995,
+      722,
+      1234,
+      951
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "mirror": true,
+    "anchorX": 1087
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/direction_idle/wizard_direction_idle_down_01.png",
+    "rect": [
+      60,
+      992,
+      206,
+      1183
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 133
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/direction_idle/wizard_direction_idle_up_01.png",
+    "rect": [
+      262,
+      993,
+      395,
+      1183
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 328
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/direction_idle/wizard_direction_idle_left_01.png",
+    "rect": [
+      445,
+      989,
+      589,
+      1183
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 517
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Characters/Wizard/direction_idle/wizard_direction_idle_right_01.png",
+    "rect": [
+      672,
+      991,
+      813,
+      1183
+    ],
+    "canvas": [
+      384,
+      256
+    ],
+    "anchorX": 742
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Effects/Projectiles/arcane_projectile_right_01.png",
+    "rect": [
+      1004,
+      315,
+      1227,
+      470
+    ],
+    "canvas": [
+      240,
+      176
+    ]
+  },
+  {
+    "source": "Assets/Art/Characters/wizard-px.png",
+    "output": "Assets/Art/Effects/Projectiles/arcane_projectile_left_01.png",
+    "rect": [
+      1004,
+      315,
+      1227,
+      470
+    ],
+    "canvas": [
+      240,
+      176
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/blue_slime/idle/blue_slime_idle_left_01.png",
+    "rect": [
+      15,
+      78,
+      208,
+      224
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/blue_slime/idle/blue_slime_idle_right_01.png",
+    "rect": [
+      15,
+      78,
+      208,
+      224
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/blue_slime/walk/blue_slime_walk_left_01.png",
+    "rect": [
+      216,
+      78,
+      404,
+      224
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/blue_slime/walk/blue_slime_walk_right_01.png",
+    "rect": [
+      216,
+      78,
+      404,
+      224
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/blue_slime/walk/blue_slime_walk_left_02.png",
+    "rect": [
+      414,
+      78,
+      601,
+      224
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/blue_slime/walk/blue_slime_walk_right_02.png",
+    "rect": [
+      414,
+      78,
+      601,
+      224
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/blue_slime/attack/blue_slime_attack_left_01.png",
+    "rect": [
+      595,
+      78,
+      814,
+      224
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/blue_slime/attack/blue_slime_attack_right_01.png",
+    "rect": [
+      595,
+      78,
+      814,
+      224
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/blue_slime/hurt/blue_slime_hurt_left_01.png",
+    "rect": [
+      818,
+      78,
+      1015,
+      224
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/blue_slime/hurt/blue_slime_hurt_right_01.png",
+    "rect": [
+      818,
+      78,
+      1015,
+      224
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/blue_slime/death/blue_slime_death_left_01.png",
+    "rect": [
+      1015,
+      78,
+      1240,
+      224
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/blue_slime/death/blue_slime_death_right_01.png",
+    "rect": [
+      1015,
+      78,
+      1240,
+      224
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/goblin/idle/goblin_idle_left_01.png",
+    "rect": [
+      15,
+      304,
+      208,
+      451
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/goblin/idle/goblin_idle_right_01.png",
+    "rect": [
+      15,
+      304,
+      208,
+      451
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/goblin/walk/goblin_walk_left_01.png",
+    "rect": [
+      216,
+      304,
+      404,
+      451
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/goblin/walk/goblin_walk_right_01.png",
+    "rect": [
+      216,
+      304,
+      404,
+      451
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/goblin/walk/goblin_walk_left_02.png",
+    "rect": [
+      414,
+      304,
+      585,
+      451
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/goblin/walk/goblin_walk_right_02.png",
+    "rect": [
+      414,
+      304,
+      585,
+      451
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/goblin/attack/goblin_attack_left_01.png",
+    "rect": [
+      595,
+      304,
+      814,
+      451
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/goblin/attack/goblin_attack_right_01.png",
+    "rect": [
+      595,
+      304,
+      814,
+      451
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/goblin/hurt/goblin_hurt_left_01.png",
+    "rect": [
+      818,
+      304,
+      1015,
+      451
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/goblin/hurt/goblin_hurt_right_01.png",
+    "rect": [
+      818,
+      304,
+      1015,
+      451
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/goblin/death/goblin_death_left_01.png",
+    "rect": [
+      1015,
+      304,
+      1240,
+      451
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/goblin/death/goblin_death_right_01.png",
+    "rect": [
+      1015,
+      304,
+      1240,
+      451
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/skeleton_warrior/idle/skeleton_warrior_idle_left_01.png",
+    "rect": [
+      15,
+      529,
+      208,
+      696
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/skeleton_warrior/idle/skeleton_warrior_idle_right_01.png",
+    "rect": [
+      15,
+      529,
+      208,
+      696
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/skeleton_warrior/walk/skeleton_warrior_walk_left_01.png",
+    "rect": [
+      216,
+      529,
+      404,
+      696
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/skeleton_warrior/walk/skeleton_warrior_walk_right_01.png",
+    "rect": [
+      216,
+      529,
+      404,
+      696
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/skeleton_warrior/walk/skeleton_warrior_walk_left_02.png",
+    "rect": [
+      414,
+      529,
+      601,
+      696
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/skeleton_warrior/walk/skeleton_warrior_walk_right_02.png",
+    "rect": [
+      414,
+      529,
+      601,
+      696
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/skeleton_warrior/attack/skeleton_warrior_attack_left_01.png",
+    "rect": [
+      608,
+      508,
+      814,
+      696
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/skeleton_warrior/attack/skeleton_warrior_attack_right_01.png",
+    "rect": [
+      608,
+      508,
+      814,
+      696
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/skeleton_warrior/hurt/skeleton_warrior_hurt_left_01.png",
+    "rect": [
+      818,
+      529,
+      1015,
+      696
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/skeleton_warrior/hurt/skeleton_warrior_hurt_right_01.png",
+    "rect": [
+      818,
+      529,
+      1015,
+      696
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/skeleton_warrior/death/skeleton_warrior_death_left_01.png",
+    "rect": [
+      1015,
+      529,
+      1240,
+      696
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/skeleton_warrior/death/skeleton_warrior_death_right_01.png",
+    "rect": [
+      1015,
+      529,
+      1240,
+      696
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/cave_bat/idle/cave_bat_idle_left_01.png",
+    "rect": [
+      15,
+      771,
+      208,
+      911
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/cave_bat/idle/cave_bat_idle_right_01.png",
+    "rect": [
+      15,
+      771,
+      208,
+      911
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/cave_bat/fly/cave_bat_fly_left_01.png",
+    "rect": [
+      216,
+      771,
+      404,
+      911
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/cave_bat/fly/cave_bat_fly_right_01.png",
+    "rect": [
+      216,
+      771,
+      404,
+      911
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/cave_bat/fly/cave_bat_fly_left_02.png",
+    "rect": [
+      414,
+      771,
+      601,
+      911
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/cave_bat/fly/cave_bat_fly_right_02.png",
+    "rect": [
+      414,
+      771,
+      601,
+      911
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/cave_bat/attack/cave_bat_attack_left_01.png",
+    "rect": [
+      603,
+      771,
+      814,
+      911
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/cave_bat/attack/cave_bat_attack_right_01.png",
+    "rect": [
+      603,
+      771,
+      814,
+      911
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/cave_bat/hurt/cave_bat_hurt_left_01.png",
+    "rect": [
+      818,
+      771,
+      1015,
+      911
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/cave_bat/hurt/cave_bat_hurt_right_01.png",
+    "rect": [
+      818,
+      771,
+      1015,
+      911
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/cave_bat/death/cave_bat_death_left_01.png",
+    "rect": [
+      1015,
+      771,
+      1240,
+      911
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/cave_bat/death/cave_bat_death_right_01.png",
+    "rect": [
+      1015,
+      771,
+      1240,
+      911
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/rocky_golem/idle/rocky_golem_idle_left_01.png",
+    "rect": [
+      15,
+      977,
+      208,
+      1166
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/rocky_golem/idle/rocky_golem_idle_right_01.png",
+    "rect": [
+      15,
+      977,
+      208,
+      1166
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/rocky_golem/walk/rocky_golem_walk_left_01.png",
+    "rect": [
+      216,
+      977,
+      404,
+      1166
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/rocky_golem/walk/rocky_golem_walk_right_01.png",
+    "rect": [
+      216,
+      977,
+      404,
+      1166
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/rocky_golem/walk/rocky_golem_walk_left_02.png",
+    "rect": [
+      414,
+      977,
+      601,
+      1166
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/rocky_golem/walk/rocky_golem_walk_right_02.png",
+    "rect": [
+      414,
+      977,
+      601,
+      1166
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/rocky_golem/attack/rocky_golem_attack_left_01.png",
+    "rect": [
+      595,
+      977,
+      814,
+      1166
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/rocky_golem/attack/rocky_golem_attack_right_01.png",
+    "rect": [
+      595,
+      977,
+      814,
+      1166
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/rocky_golem/hurt/rocky_golem_hurt_left_01.png",
+    "rect": [
+      818,
+      977,
+      1015,
+      1166
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/rocky_golem/hurt/rocky_golem_hurt_right_01.png",
+    "rect": [
+      818,
+      977,
+      1015,
+      1166
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/rocky_golem/death/rocky_golem_death_left_01.png",
+    "rect": [
+      1015,
+      977,
+      1240,
+      1166
+    ],
+    "canvas": [
+      240,
+      224
+    ]
+  },
+  {
+    "source": "Assets/Art/Enemies/monsters-transparent.png",
+    "output": "Assets/Art/Enemies/rocky_golem/death/rocky_golem_death_right_01.png",
+    "rect": [
+      1015,
+      977,
+      1240,
+      1166
+    ],
+    "canvas": [
+      240,
+      224
+    ],
+    "mirror": true
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Potions/potion_health_small.png",
+    "rect": [
+      19,
+      130,
+      125,
+      291
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Potions/potion_health_medium.png",
+    "rect": [
+      132,
+      130,
+      241,
+      291
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Potions/potion_health_large.png",
+    "rect": [
+      248,
+      130,
+      373,
+      291
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Potions/potion_mana.png",
+    "rect": [
+      379,
+      130,
+      490,
+      291
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Potions/potion_energy.png",
+    "rect": [
+      497,
+      130,
+      610,
+      291
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Potions/potion_antidote.png",
+    "rect": [
+      624,
+      130,
+      736,
+      291
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Potions/potion_speed.png",
+    "rect": [
+      753,
+      130,
+      869,
+      291
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Potions/potion_shield.png",
+    "rect": [
+      875,
+      130,
+      987,
+      291
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Potions/potion_rage.png",
+    "rect": [
+      995,
+      130,
+      1110,
+      291
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Potions/potion_revive.png",
+    "rect": [
+      1118,
+      130,
+      1240,
+      291
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Materials/gold_coins.png",
+    "rect": [
+      12,
+      430,
+      127,
+      578
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Materials/silver_coins.png",
+    "rect": [
+      134,
+      430,
+      247,
+      578
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Materials/gem_shard.png",
+    "rect": [
+      260,
+      430,
+      340,
+      578
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Materials/magic_crystal.png",
+    "rect": [
+      346,
+      430,
+      473,
+      578
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Materials/soul_shard.png",
+    "rect": [
+      478,
+      430,
+      560,
+      578
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Materials/monster_fang.png",
+    "rect": [
+      569,
+      430,
+      661,
+      578
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Materials/bone_fragment.png",
+    "rect": [
+      663,
+      430,
+      780,
+      578
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Materials/slime_jelly.png",
+    "rect": [
+      780,
+      430,
+      909,
+      578
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Materials/bat_wing.png",
+    "rect": [
+      909,
+      430,
+      1021,
+      578
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Materials/goblin_knife.png",
+    "rect": [
+      1021,
+      430,
+      1127,
+      578
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Materials/rocky_core.png",
+    "rect": [
+      1128,
+      430,
+      1241,
+      578
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Utility/key.png",
+    "rect": [
+      13,
+      703,
+      102,
+      861
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Utility/magic_key.png",
+    "rect": [
+      109,
+      703,
+      203,
+      861
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Utility/scroll.png",
+    "rect": [
+      207,
+      703,
+      307,
+      861
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Utility/spell_scroll.png",
+    "rect": [
+      309,
+      703,
+      415,
+      861
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Utility/bomb.png",
+    "rect": [
+      418,
+      703,
+      511,
+      861
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Utility/trap_disarm_kit.png",
+    "rect": [
+      515,
+      703,
+      636,
+      861
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Utility/torch.png",
+    "rect": [
+      639,
+      703,
+      729,
+      861
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Utility/food_ration.png",
+    "rect": [
+      728,
+      703,
+      834,
+      861
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Utility/heart_pickup.png",
+    "rect": [
+      838,
+      703,
+      939,
+      861
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Utility/mana_orb.png",
+    "rect": [
+      940,
+      703,
+      1040,
+      861
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Utility/experience_orb.png",
+    "rect": [
+      1041,
+      703,
+      1138,
+      861
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/Utility/shield_orb.png",
+    "rect": [
+      1138,
+      703,
+      1247,
+      861
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/RareDrops/treasure_bag.png",
+    "rect": [
+      35,
+      984,
+      228,
+      1147
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/RareDrops/relic_fragment.png",
+    "rect": [
+      286,
+      984,
+      439,
+      1147
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/RareDrops/rune_tablet.png",
+    "rect": [
+      499,
+      984,
+      698,
+      1147
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/RareDrops/enchanted_ring.png",
+    "rect": [
+      749,
+      984,
+      920,
+      1147
+    ]
+  },
+  {
+    "source": "Assets/Art/Items/items-transparent.png",
+    "output": "Assets/Art/Items/RareDrops/mystery_chest.png",
+    "rect": [
+      975,
+      984,
+      1208,
+      1147
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_surface_01.png",
+    "rect": [
+      29,
+      39,
+      113,
+      138
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_surface_02.png",
+    "rect": [
+      113,
+      39,
+      194,
+      138
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_surface_03.png",
+    "rect": [
+      194,
+      39,
+      273,
+      138
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_surface_04.png",
+    "rect": [
+      273,
+      39,
+      351,
+      138
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_surface_05.png",
+    "rect": [
+      351,
+      39,
+      458,
+      138
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_surface_06.png",
+    "rect": [
+      458,
+      39,
+      534,
+      138
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_surface_07.png",
+    "rect": [
+      534,
+      39,
+      592,
+      138
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_surface_08.png",
+    "rect": [
+      600,
+      39,
+      713,
+      138
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_block_01.png",
+    "rect": [
+      28,
+      138,
+      112,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_block_02.png",
+    "rect": [
+      119,
+      138,
+      192,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_block_03.png",
+    "rect": [
+      198,
+      138,
+      275,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_edge_right.png",
+    "rect": [
+      280,
+      138,
+      349,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_slope_down.png",
+    "rect": [
+      354,
+      138,
+      446,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_block_04.png",
+    "rect": [
+      447,
+      138,
+      527,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_slope_up.png",
+    "rect": [
+      530,
+      138,
+      622,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Grass/grass_edge_left.png",
+    "rect": [
+      625,
+      138,
+      714,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_surface_01.png",
+    "rect": [
+      756,
+      45,
+      838,
+      137
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_surface_02.png",
+    "rect": [
+      838,
+      45,
+      918,
+      137
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_surface_03.png",
+    "rect": [
+      918,
+      45,
+      998,
+      137
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_surface_04.png",
+    "rect": [
+      998,
+      45,
+      1078,
+      137
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_surface_05.png",
+    "rect": [
+      1078,
+      45,
+      1129,
+      137
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_surface_06.png",
+    "rect": [
+      1129,
+      45,
+      1207,
+      137
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_surface_07.png",
+    "rect": [
+      1207,
+      45,
+      1281,
+      137
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_surface_08.png",
+    "rect": [
+      1281,
+      45,
+      1344,
+      137
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_surface_09.png",
+    "rect": [
+      1344,
+      45,
+      1428,
+      137
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_block_01.png",
+    "rect": [
+      755,
+      140,
+      840,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_block_02.png",
+    "rect": [
+      844,
+      140,
+      927,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_block_03.png",
+    "rect": [
+      932,
+      140,
+      1008,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_block_04.png",
+    "rect": [
+      1012,
+      140,
+      1080,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_block_05.png",
+    "rect": [
+      1081,
+      140,
+      1169,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_block_06.png",
+    "rect": [
+      1173,
+      140,
+      1252,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_block_07.png",
+    "rect": [
+      1253,
+      140,
+      1342,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Stone/stone_block_08.png",
+    "rect": [
+      1346,
+      140,
+      1428,
+      230
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Platforms/grass_platform_01.png",
+    "rect": [
+      24,
+      282,
+      117,
+      380
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Platforms/grass_platform_02.png",
+    "rect": [
+      117,
+      282,
+      250,
+      380
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Platforms/grass_platform_03.png",
+    "rect": [
+      257,
+      282,
+      346,
+      380
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Platforms/grass_platform_04.png",
+    "rect": [
+      347,
+      282,
+      427,
+      380
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Platforms/grass_platform_05.png",
+    "rect": [
+      429,
+      282,
+      515,
+      380
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Platforms/stone_platform_01.png",
+    "rect": [
+      26,
+      381,
+      119,
+      473
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Platforms/stone_platform_02.png",
+    "rect": [
+      121,
+      381,
+      261,
+      473
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Platforms/stone_platform_03.png",
+    "rect": [
+      263,
+      381,
+      413,
+      473
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Platforms/stone_platform_04.png",
+    "rect": [
+      414,
+      381,
+      504,
+      473
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Ledges/ledge_left_tall.png",
+    "rect": [
+      529,
+      282,
+      635,
+      481
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Ledges/ledge_left_short.png",
+    "rect": [
+      637,
+      282,
+      732,
+      400
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Ledges/ledge_center.png",
+    "rect": [
+      732,
+      284,
+      796,
+      395
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Ledges/ledge_right_tall.png",
+    "rect": [
+      795,
+      283,
+      875,
+      472
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Ledges/corner_left.png",
+    "rect": [
+      642,
+      398,
+      726,
+      501
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Ledges/corner_right.png",
+    "rect": [
+      726,
+      398,
+      797,
+      494
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Stairs/stone_steps_small.png",
+    "rect": [
+      903,
+      285,
+      991,
+      379
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Stairs/stone_steps_medium.png",
+    "rect": [
+      993,
+      283,
+      1093,
+      379
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Stairs/stone_steps_block.png",
+    "rect": [
+      1093,
+      286,
+      1172,
+      379
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Stairs/stone_slope_down.png",
+    "rect": [
+      1174,
+      286,
+      1272,
+      379
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Stairs/stone_steps_low.png",
+    "rect": [
+      908,
+      398,
+      1016,
+      483
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Stairs/grass_slope_up_01.png",
+    "rect": [
+      1014,
+      391,
+      1113,
+      488
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Stairs/grass_slope_up_02.png",
+    "rect": [
+      1112,
+      391,
+      1216,
+      488
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Stairs/stone_staircase.png",
+    "rect": [
+      1220,
+      284,
+      1429,
+      481
+    ],
+    "polygon": [
+      [
+        1222,
+        417
+      ],
+      [
+        1345,
+        282
+      ],
+      [
+        1429,
+        282
+      ],
+      [
+        1429,
+        361
+      ],
+      [
+        1284,
+        484
+      ],
+      [
+        1222,
+        484
+      ]
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Walls/stone_wall_01_01.png",
+    "rect": [
+      26,
+      530,
+      126,
+      625
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Walls/stone_wall_01_02.png",
+    "rect": [
+      130,
+      530,
+      236,
+      625
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Walls/stone_wall_01_03.png",
+    "rect": [
+      239,
+      530,
+      339,
+      625
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Walls/stone_wall_01_04.png",
+    "rect": [
+      343,
+      530,
+      404,
+      625
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Walls/stone_wall_02_01.png",
+    "rect": [
+      26,
+      625,
+      126,
+      723
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Walls/stone_wall_02_02.png",
+    "rect": [
+      130,
+      625,
+      236,
+      723
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Walls/stone_wall_02_03.png",
+    "rect": [
+      239,
+      625,
+      339,
+      723
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Walls/stone_wall_02_04.png",
+    "rect": [
+      343,
+      625,
+      404,
+      723
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Columns/ruin_column_01.png",
+    "rect": [
+      410,
+      528,
+      492,
+      726
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Columns/ruin_column_02.png",
+    "rect": [
+      495,
+      528,
+      582,
+      726
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Columns/ruin_column_03.png",
+    "rect": [
+      586,
+      528,
+      661,
+      726
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Columns/ruin_column_04.png",
+    "rect": [
+      663,
+      528,
+      749,
+      726
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Columns/ruin_column_05.png",
+    "rect": [
+      751,
+      528,
+      813,
+      726
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Architecture/archway_pillar_left.png",
+    "rect": [
+      822,
+      541,
+      883,
+      726
+    ],
+    "exclude": [
+      [
+        880,
+        580,
+        884,
+        650
+      ]
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Architecture/stone_archway.png",
+    "rect": [
+      883,
+      533,
+      1061,
+      726
+    ],
+    "exclude": [
+      [
+        883,
+        533,
+        893,
+        587
+      ]
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Architecture/gate_cap.png",
+    "rect": [
+      1059,
+      530,
+      1135,
+      586
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Architecture/iron_gate.png",
+    "rect": [
+      1064,
+      595,
+      1173,
+      727
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Architecture/archway_pillar_right.png",
+    "rect": [
+      1174,
+      530,
+      1244,
+      726
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Banners/banner_blue.png",
+    "rect": [
+      1246,
+      528,
+      1340,
+      714
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Banners/banner_red.png",
+    "rect": [
+      1350,
+      528,
+      1439,
+      714
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/rock_cluster.png",
+    "rect": [
+      29,
+      763,
+      145,
+      838
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/rock_large.png",
+    "rect": [
+      147,
+      775,
+      265,
+      844
+    ],
+    "exclude": [
+      [
+        145,
+        828,
+        169,
+        849
+      ]
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/rock_small_01.png",
+    "rect": [
+      28,
+      835,
+      106,
+      896
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/skull.png",
+    "rect": [
+      106,
+      835,
+      157,
+      890
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/rock_small_02.png",
+    "rect": [
+      158,
+      848,
+      221,
+      896
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/rock_small_03.png",
+    "rect": [
+      222,
+      849,
+      278,
+      896
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/bush_small.png",
+    "rect": [
+      267,
+      800,
+      340,
+      852
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/bush_medium.png",
+    "rect": [
+      345,
+      787,
+      422,
+      845
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/grass_tuft.png",
+    "rect": [
+      422,
+      817,
+      479,
+      858
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/grass_small.png",
+    "rect": [
+      277,
+      859,
+      327,
+      896
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/flower_blue_01.png",
+    "rect": [
+      328,
+      848,
+      373,
+      895
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/flower_blue_02.png",
+    "rect": [
+      373,
+      852,
+      406,
+      895
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/mushroom_red_01.png",
+    "rect": [
+      406,
+      857,
+      437,
+      895
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/mushroom_red_02.png",
+    "rect": [
+      437,
+      862,
+      462,
+      895
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/dead_tree.png",
+    "rect": [
+      476,
+      746,
+      634,
+      895
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/wood_crate_stack.png",
+    "rect": [
+      635,
+      789,
+      726,
+      896
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/wood_crate_small.png",
+    "rect": [
+      674,
+      845,
+      726,
+      896
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Props/wood_barrel.png",
+    "rect": [
+      723,
+      775,
+      818,
+      896
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Crystals/crystal_blue_cluster.png",
+    "rect": [
+      825,
+      765,
+      989,
+      905
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Crystals/crystal_blue_tall.png",
+    "rect": [
+      993,
+      765,
+      1131,
+      903
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Crystals/crystal_amber.png",
+    "rect": [
+      1134,
+      750,
+      1271,
+      903
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Crystals/crystal_purple.png",
+    "rect": [
+      1266,
+      750,
+      1435,
+      903
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Platforms/grass_strip.png",
+    "rect": [
+      24,
+      943,
+      333,
+      1062
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Platforms/stone_strip.png",
+    "rect": [
+      333,
+      946,
+      603,
+      1062
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Platforms/grass_floating_strip.png",
+    "rect": [
+      603,
+      935,
+      876,
+      1062
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Variants/grass_tile.png",
+    "rect": [
+      884,
+      947,
+      987,
+      1061
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Variants/lava_tile.png",
+    "rect": [
+      993,
+      946,
+      1094,
+      1061
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Variants/snow_tile.png",
+    "rect": [
+      1104,
+      943,
+      1205,
+      1061
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Variants/corrupted_tile.png",
+    "rect": [
+      1210,
+      944,
+      1318,
+      1061
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Tiles/Variants/sandstone_tile.png",
+    "rect": [
+      1328,
+      944,
+      1431,
+      1061
+    ],
+    "padding": 0
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Portals/portal_inactive.png",
+    "rect": [
+      14,
+      46,
+      208,
+      241
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Portals/portal_forming.png",
+    "rect": [
+      208,
+      43,
+      394,
+      240
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Portals/portal_active.png",
+    "rect": [
+      396,
+      27,
+      583,
+      239
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Portals/portal_upgraded.png",
+    "rect": [
+      584,
+      24,
+      780,
+      240
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Portals/portal_swirl_01.png",
+    "rect": [
+      799,
+      62,
+      973,
+      244
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Portals/portal_swirl_02.png",
+    "rect": [
+      970,
+      62,
+      1127,
+      244
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Portals/portal_swirl_03.png",
+    "rect": [
+      1125,
+      62,
+      1285,
+      244
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Portals/portal_swirl_04.png",
+    "rect": [
+      1284,
+      62,
+      1442,
+      244
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Progression/rune_door_closed.png",
+    "rect": [
+      17,
+      281,
+      185,
+      473
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Progression/iron_gate_closed.png",
+    "rect": [
+      184,
+      282,
+      342,
+      475
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Progression/rune_door_open.png",
+    "rect": [
+      342,
+      272,
+      509,
+      475
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Progression/crystal_barrier_large.png",
+    "rect": [
+      508,
+      271,
+      639,
+      475
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Progression/crystal_barrier_small.png",
+    "rect": [
+      639,
+      289,
+      770,
+      475
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Progression/progression_lock.png",
+    "rect": [
+      772,
+      284,
+      909,
+      464
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Triggers/pressure_plate_pressed.png",
+    "rect": [
+      913,
+      317,
+      993,
+      370
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Triggers/pressure_plate_raised.png",
+    "rect": [
+      993,
+      301,
+      1082,
+      370
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Triggers/wall_switch_inactive.png",
+    "rect": [
+      1091,
+      287,
+      1169,
+      368
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Triggers/wall_switch_active.png",
+    "rect": [
+      1175,
+      287,
+      1249,
+      368
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Triggers/lever_left.png",
+    "rect": [
+      1260,
+      291,
+      1331,
+      367
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Triggers/lever_right.png",
+    "rect": [
+      1331,
+      285,
+      1406,
+      367
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Triggers/rune_totem_inactive.png",
+    "rect": [
+      969,
+      394,
+      1045,
+      502
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Triggers/rune_totem_active.png",
+    "rect": [
+      1045,
+      394,
+      1131,
+      502
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Triggers/monster_seal_inactive.png",
+    "rect": [
+      1148,
+      395,
+      1268,
+      497
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Triggers/monster_seal_active.png",
+    "rect": [
+      1268,
+      395,
+      1388,
+      498
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/push_block.png",
+    "rect": [
+      18,
+      549,
+      124,
+      665
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/rune_block.png",
+    "rect": [
+      123,
+      548,
+      231,
+      665
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/metal_block.png",
+    "rect": [
+      229,
+      547,
+      345,
+      665
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/wooden_crate.png",
+    "rect": [
+      346,
+      548,
+      455,
+      665
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/explosive_barrel.png",
+    "rect": [
+      455,
+      546,
+      554,
+      665
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/puzzle_key.png",
+    "rect": [
+      555,
+      560,
+      637,
+      660
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/key_pedestal.png",
+    "rect": [
+      633,
+      542,
+      716,
+      665
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/key_pedestal_column.png",
+    "rect": [
+      719,
+      548,
+      778,
+      665
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/orb_socket.png",
+    "rect": [
+      777,
+      528,
+      878,
+      665
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/energy_crystal.png",
+    "rect": [
+      879,
+      548,
+      957,
+      665
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/mirror_statue_front.png",
+    "rect": [
+      955,
+      529,
+      1052,
+      665
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/mirror_statue_diagonal.png",
+    "rect": [
+      1060,
+      528,
+      1182,
+      665
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/mirror_statue_side.png",
+    "rect": [
+      1184,
+      528,
+      1299,
+      665
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Puzzle/mirror_statue_back.png",
+    "rect": [
+      1323,
+      528,
+      1443,
+      667
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/spike_trap_retracted.png",
+    "rect": [
+      12,
+      758,
+      87,
+      850
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/spike_trap_extended.png",
+    "rect": [
+      87,
+      751,
+      169,
+      850
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/flame_jet_inactive.png",
+    "rect": [
+      187,
+      752,
+      242,
+      853
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/flame_jet_active.png",
+    "rect": [
+      240,
+      751,
+      299,
+      853
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/arrow_trap.png",
+    "rect": [
+      299,
+      751,
+      450,
+      850
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/saw_trap_01.png",
+    "rect": [
+      450,
+      751,
+      523,
+      851
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/saw_trap_02.png",
+    "rect": [
+      522,
+      751,
+      610,
+      851
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/cracked_floor.png",
+    "rect": [
+      610,
+      752,
+      740,
+      850
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/collapsing_platform_01.png",
+    "rect": [
+      742,
+      753,
+      821,
+      818
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/collapsing_platform_02.png",
+    "rect": [
+      821,
+      754,
+      902,
+      818
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/collapsing_platform_03.png",
+    "rect": [
+      902,
+      752,
+      974,
+      851
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/collapsing_platform_04.png",
+    "rect": [
+      974,
+      751,
+      1087,
+      851
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/poison_puddle.png",
+    "rect": [
+      1088,
+      761,
+      1211,
+      844
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/ice_patch.png",
+    "rect": [
+      1210,
+      761,
+      1333,
+      850
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Hazards/lava_tile.png",
+    "rect": [
+      1334,
+      757,
+      1445,
+      850
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Rewards/checkpoint_inactive.png",
+    "rect": [
+      11,
+      895,
+      91,
+      1026
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Rewards/checkpoint_active.png",
+    "rect": [
+      91,
+      890,
+      176,
+      1035
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Rewards/health_orb.png",
+    "rect": [
+      175,
+      936,
+      242,
+      1008
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Rewards/mana_orb.png",
+    "rect": [
+      240,
+      936,
+      312,
+      1008
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Rewards/treasure_chest_closed.png",
+    "rect": [
+      314,
+      934,
+      394,
+      1014
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Rewards/treasure_chest_open.png",
+    "rect": [
+      395,
+      921,
+      489,
+      1015
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Rewards/magic_crystal.png",
+    "rect": [
+      490,
+      922,
+      566,
+      1019
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Rewards/stage_clear_emblem.png",
+    "rect": [
+      568,
+      905,
+      707,
+      1016
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Rewards/skull_warning_sign.png",
+    "rect": [
+      709,
+      935,
+      805,
+      1028
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Utility/magic_bridge_inactive.png",
+    "rect": [
+      815,
+      938,
+      879,
+      1009
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Utility/magic_bridge_active.png",
+    "rect": [
+      885,
+      926,
+      950,
+      1010
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Utility/teleport_pad_inactive.png",
+    "rect": [
+      955,
+      943,
+      1022,
+      1009
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Utility/teleport_pad_active.png",
+    "rect": [
+      1020,
+      920,
+      1093,
+      1011
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Utility/summon_circle_inactive.png",
+    "rect": [
+      1094,
+      937,
+      1168,
+      1015
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Utility/summon_circle_active.png",
+    "rect": [
+      1164,
+      919,
+      1252,
+      1016
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Utility/enemy_spawn_seal.png",
+    "rect": [
+      1248,
+      923,
+      1340,
+      1025
+    ],
+    "exclude": [
+      [
+        1333,
+        985,
+        1341,
+        1026
+      ]
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/portal&co.png",
+    "output": "Assets/Art/Environments/Utility/enemy_spawn_rocks.png",
+    "rect": [
+      1348,
+      924,
+      1447,
+      1028
+    ]
+  },
+  {
+    "source": "Assets/Art/Environments/arena-objects-px.png",
+    "output": "Assets/Art/Environments/Stairs/grass_slope_long.png",
+    "rect": [
+      1291,
+      363,
+      1429,
+      484
+    ],
+    "polygon": [
+      [
+        1291,
+        477
+      ],
+      [
+        1419,
+        363
+      ],
+      [
+        1429,
+        363
+      ],
+      [
+        1429,
+        484
+      ],
+      [
+        1291,
+        484
+      ]
+    ]
+  }
+]
