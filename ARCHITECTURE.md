@@ -8,7 +8,7 @@ dependencies may point. Keep it short; update it when a rule changes.
 | Folder | Namespace | Assembly | What lives there |
 | --- | --- | --- | --- |
 | `Assets/Scripts/World/` | `WizardArena.World` | `WizardArena.Runtime` | Arena geometry (`ArenaSurface`), later hazards |
-| `Assets/Scripts/Combat/` | `WizardArena.Combat` | `WizardArena.Runtime` | Health, damage, projectiles (`ArcaneBolt`) |
+| `Assets/Scripts/Combat/` | `WizardArena.Combat` | `WizardArena.Runtime` | `Health`, `IDamageable`, `DamageInfo`, `Team`, `Projectile` + `ProjectileLauncher` |
 | `Assets/Scripts/Player/` | `WizardArena.Player` | `WizardArena.Runtime` | The wizard (`WizardController`) |
 | `Assets/Scripts/Enemies/` | `WizardArena.Enemies` | `WizardArena.Runtime` | Enemies (`BatEnemyController`) |
 | `Assets/Scripts/Stage/` | `WizardArena.Stage` | `WizardArena.Runtime` | Stage flow, portal, game state (`StagePortalGate`) |
@@ -65,6 +65,16 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 - **Script GUIDs are sacred.** When moving a script, move its `.meta` with it (`git mv` both),
   or the scene loses the component.
 
+## Combat
+
+- Anything that can be hurt implements `IDamageable` (usually by having a `Health`). Owners
+  subscribe to `Health.Damaged` / `Died` for visuals and movement; `Health` does neither.
+- `Team` decides who can hurt whom: same side is ignored, `Neutral` hurts everyone.
+- Projectiles are fired with `ProjectileLauncher.Fire`. Each frame a projectile sweeps a circle
+  (`Physics2D.CircleCast`, triggers included) from its last to its new position and damages the
+  first `IDamageable` (found with `GetComponentInParent`) that accepts the hit. A target only
+  needs a `Collider2D`; no rigidbody or physics layers are required.
+
 ## Tests
 
 - Unity Test Framework (NUnit). Run them with `Tools/unity/unity.sh test` or the Test Runner
@@ -83,11 +93,10 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 
 The prototype predates these rules. Tickets fix them; don't copy these patterns.
 
-- `ArcaneBolt` (Combat) targets `BatEnemyController` directly and finds bats with
-  `FindObjectsByType` ([05]).
 - `WizardController` is one large class that also draws the HUD and end screen in `OnGUI`
   ([06], [09]).
-- `BatEnemyController` finds the wizard with `FindFirstObjectByType` and draws its health bar
-  in `OnGUI` ([07], [09]).
+- `BatEnemyController` does its own contact-damage circle math against a serialized target
+  `Health` and draws its health bar in `OnGUI` ([07], [09]).
 - `StagePortalGate` polls `FindObjectsByType` every frame and is added by the wizard ([08]).
-- Tunable numbers are still serialized fields or constants in the behaviours ([05]-[08]).
+- Tunable numbers are still serialized fields or constants in the behaviours ([06]-[08]).
+  Health and projectile numbers already live in `Assets/Config/Combat/`.

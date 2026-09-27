@@ -1,10 +1,13 @@
 using UnityEngine;
-using WizardArena.Player;
+using WizardArena.Combat;
 
 namespace WizardArena.Enemies
 {
+    [RequireComponent(typeof(Health))]
     public sealed class BatEnemyController : MonoBehaviour
     {
+        [Tooltip("What the bat hurts on contact (the wizard's Health). Set by the scene builder.")]
+        [SerializeField] private Health target;
         [SerializeField] private float moveSpeed = 2.2f;
         [SerializeField, Min(1)] private int attackPower = 2;
         [SerializeField] private float animationFramesPerSecond = 7f;
@@ -24,10 +27,8 @@ namespace WizardArena.Enemies
         private float directionTimer;
         private float contactCooldown;
         private CircleCollider2D batCollider;
-        private CircleCollider2D wizardCollider;
-        private WizardController wizard;
-        private const int MaxHealth = 3;
-        private int health = MaxHealth;
+        private CircleCollider2D targetCollider;
+        private Health health;
         private const float HurtDuration = 0.3f;
         private float hurtTimer;
         private float hitDirection;
@@ -57,12 +58,24 @@ namespace WizardArena.Enemies
             ColorUtility.TryParseHtmlString(healthStyle.background, out healthBackground);
             ColorUtility.TryParseHtmlString(healthStyle.fill, out healthFill);
             batCollider = GetComponent<CircleCollider2D>();
-            wizard = FindFirstObjectByType<WizardController>();
-            if (wizard != null)
+            health = GetComponent<Health>();
+            if (target != null)
             {
-                wizardCollider = wizard.GetComponent<CircleCollider2D>();
+                targetCollider = target.GetComponent<CircleCollider2D>();
             }
             ChooseNewDirection();
+        }
+
+        private void OnEnable()
+        {
+            health.Damaged += OnDamaged;
+            health.Died += OnDied;
+        }
+
+        private void OnDisable()
+        {
+            health.Damaged -= OnDamaged;
+            health.Died -= OnDied;
         }
 
         private void Update()
@@ -81,7 +94,7 @@ namespace WizardArena.Enemies
                 // returning to flight or beginning the existing death sequence.
                 return;
             }
-            if (health <= 0)
+            if (health.IsDead)
             {
                 if (!landed)
                 {
@@ -137,23 +150,23 @@ namespace WizardArena.Enemies
         // every frame instead of relying on a sleeping kinematic trigger's enter event.
         private void LateUpdate()
         {
-            if (health <= 0 || hurtTimer > 0f || wizard == null || wizard.IsDefeated || wizardCollider == null || batCollider == null || contactCooldown > 0f)
+            if (health.IsDead || hurtTimer > 0f || target == null || target.IsDead || targetCollider == null || batCollider == null || contactCooldown > 0f)
             {
                 return;
             }
 
             Vector2 batCenter = transform.TransformPoint(batCollider.offset);
-            Vector2 wizardCenter = wizard.transform.TransformPoint(wizardCollider.offset);
+            Vector2 wizardCenter = target.transform.TransformPoint(targetCollider.offset);
             Vector3 batScale = transform.lossyScale;
-            Vector3 wizardScale = wizard.transform.lossyScale;
+            Vector3 wizardScale = target.transform.lossyScale;
             float combinedRadius = batCollider.radius * Mathf.Max(Mathf.Abs(batScale.x), Mathf.Abs(batScale.y))
-                + wizardCollider.radius * Mathf.Max(Mathf.Abs(wizardScale.x), Mathf.Abs(wizardScale.y));
+                + targetCollider.radius * Mathf.Max(Mathf.Abs(wizardScale.x), Mathf.Abs(wizardScale.y));
             if ((batCenter - wizardCenter).sqrMagnitude > combinedRadius * combinedRadius)
             {
                 return;
             }
 
-            wizard.TakeContactDamage(attackPower, transform.position.x);
+            target.TakeDamage(new DamageInfo(attackPower, transform.position, gameObject, health.Team));
             Vector2 awayFromWizard = (batCenter - wizardCenter).normalized;
             direction = awayFromWizard.sqrMagnitude > 0f ? awayFromWizard : -direction;
             transform.position += (Vector3)(direction * 0.45f);
@@ -173,32 +186,26 @@ namespace WizardArena.Enemies
             directionTimer = Random.Range(1.2f, 3f);
         }
 
-        public bool TryHit(Vector2 start, Vector2 end)
+        private void OnDamaged(DamageInfo damage)
         {
-            if (health <= 0) return false;
-            Vector2 center = transform.TransformPoint(batCollider.offset);
-            Vector2 segment = end - start;
-            float t = segment.sqrMagnitude > 0f ? Mathf.Clamp01(Vector2.Dot(center - start, segment) / segment.sqrMagnitude) : 0f;
-            float radius = batCollider.radius * Mathf.Max(Mathf.Abs(transform.lossyScale.x), Mathf.Abs(transform.lossyScale.y)) + 0.12f;
-            if ((center - (start + segment * t)).sqrMagnitude > radius * radius) return false;
             Sprite hurtSprite = direction.x >= 0f ? hurtRight : hurtLeft;
             if (hurtSprite != null) spriteRenderer.sprite = hurtSprite;
             hurtTimer = HurtDuration;
-            hitDirection = end.x >= start.x ? 1f : -1f;
-            health--;
+            // Knocked away from where the hit came from.
+            hitDirection = transform.position.x >= damage.SourcePosition.x ? 1f : -1f;
             direction = new Vector2(hitDirection, 0.5f).normalized;
             directionTimer = 1f;
-            if (health <= 0)
-            {
-                batCollider.enabled = false;
-            }
-            return true;
+        }
+
+        private void OnDied()
+        {
+            batCollider.enabled = false;
         }
 
         private void OnGUI()
         {
             Camera camera = Camera.main;
-            if (camera == null || (health <= 0 && landed)) return;
+            if (camera == null || (health.IsDead && landed)) return;
             Vector3 screen = camera.WorldToScreenPoint(transform.position + Vector3.up * 0.9f);
             Rect bar = new Rect(screen.x - healthStyle.width / 2f, Screen.height - screen.y, healthStyle.width, healthStyle.height);
             Color previousColor = GUI.color;
@@ -206,8 +213,8 @@ namespace WizardArena.Enemies
             GUI.DrawTexture(bar, Texture2D.whiteTexture);
             GUI.color = healthFill;
             float inset = healthStyle.border;
-            if (health > 0)
-                GUI.DrawTexture(new Rect(bar.x + inset, bar.y + inset, (bar.width - 2f * inset) * health / MaxHealth, bar.height - 2f * inset), Texture2D.whiteTexture);
+            if (health.Current > 0)
+                GUI.DrawTexture(new Rect(bar.x + inset, bar.y + inset, (bar.width - 2f * inset) * health.Current / health.Max, bar.height - 2f * inset), Texture2D.whiteTexture);
             GUI.color = Color.white;
             GUIStyle labelStyle = new GUIStyle(GUI.skin.label)
             {
@@ -217,9 +224,9 @@ namespace WizardArena.Enemies
             };
             Rect label = new Rect(bar.x - 12f, bar.y - 22f, bar.width + 24f, 22f);
             labelStyle.normal.textColor = Color.black;
-            GUI.Label(new Rect(label.x + 1f, label.y + 1f, label.width, label.height), $"{health} / {MaxHealth} HP", labelStyle);
+            GUI.Label(new Rect(label.x + 1f, label.y + 1f, label.width, label.height), $"{health.Current} / {health.Max} HP", labelStyle);
             labelStyle.normal.textColor = Color.white;
-            GUI.Label(label, $"{health} / {MaxHealth} HP", labelStyle);
+            GUI.Label(label, $"{health.Current} / {health.Max} HP", labelStyle);
             GUI.color = previousColor;
         }
 

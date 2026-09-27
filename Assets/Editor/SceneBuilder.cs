@@ -2,6 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using WizardArena.Combat;
 using WizardArena.Enemies;
 using WizardArena.Player;
 using WizardArena.World;
@@ -46,7 +47,11 @@ namespace WizardArena.EditorTools
             if (scene.path != ScenePath) throw new InvalidOperationException("Active scene is " + scene.path);
             if (scene.isDirty) throw new InvalidOperationException("Scene was left unsaved");
             if (Object.FindFirstObjectByType<WizardController>() == null) throw new InvalidOperationException("No wizard in scene");
-            if (Object.FindFirstObjectByType<BatEnemyController>() == null) throw new InvalidOperationException("No bat in scene");
+            BatEnemyController bat = Object.FindFirstObjectByType<BatEnemyController>();
+            if (bat == null) throw new InvalidOperationException("No bat in scene");
+            WizardController wizard = Object.FindFirstObjectByType<WizardController>();
+            if (wizard.GetComponent<ProjectileLauncher>() == null) throw new InvalidOperationException("Wizard has no ProjectileLauncher");
+            if (wizard.GetComponent<Health>() == null || bat.GetComponent<Health>() == null) throw new InvalidOperationException("Wizard or bat has no Health");
             if (Object.FindFirstObjectByType<ArenaSurface>() == null) throw new InvalidOperationException("No arena surfaces in scene");
         }
     }
