@@ -14,8 +14,8 @@ namespace WizardArena.Stage
         [SerializeField] private Vector3 playerSpawn;
         [SerializeField] private Vector3 portalPosition;
         [SerializeField] private EnemySpawn[] enemySpawns = Array.Empty<EnemySpawn>();
-        [Tooltip("Hazards, pickups and other non-enemy scenery for this stage. Not spawned by " +
-                 "anything yet -- a placement hook for later tickets ([12], [13]).")]
+        [Tooltip("Hazards, pickups and other non-enemy scenery for this stage. Spawned the same " +
+                 "way as enemies ([12] hazards; [13] pickups).")]
         [SerializeField] private PropSpawn[] propSpawns = Array.Empty<PropSpawn>();
 
         public string DisplayName => displayName;

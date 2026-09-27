@@ -26,4 +26,8 @@ MonoBehaviour:
     position: {x: -2, y: -2.4, z: 0}
   - prefab: {fileID: 3887893716096323123, guid: 879f924a1764c471b8dd80e3367b130e, type: 3}
     position: {x: 3, y: -2.4, z: 0}
-  propSpawns: []
+  propSpawns:
+  - prefab: {fileID: 3507658518745279286, guid: 7cc50199fd8904be9ae86b2aef42ddcb, type: 3}
+    position: {x: 1, y: -2.4, z: 0}
+  - prefab: {fileID: 6588020308486143437, guid: 93d10b7de7d7641418118e6a52f08b92, type: 3}
+    position: {x: -1, y: -2.4, z: 0}
