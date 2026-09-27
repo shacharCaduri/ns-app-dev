@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 8474da24b17fb407b9a7cec3bfe1233c
+  - enabled: 1
     path: Assets/Scenes/WizardMovement.unity
     guid: 95f3f85dca3204966be362dae5f433bf
   m_configObjects: {}

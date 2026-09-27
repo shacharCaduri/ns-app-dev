@@ -24,7 +24,7 @@ namespace WizardArena.UI
             overlay = root.Q<VisualElement>("pause-overlay");
             root.Q<Button>("resume-button").clicked += Resume;
             root.Q<Button>("retry-button-pause").clicked += session.Retry;
-            root.Q<Button>("quit-button-pause").clicked += QuitCommand.Execute;
+            root.Q<Button>("quit-button-pause").clicked += MainMenuCommand.ReturnToMenu;
             liveInput = player.GetComponent<IPlayerInput>();
             SetVisible(false);
         }

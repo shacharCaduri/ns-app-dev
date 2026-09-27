@@ -1,0 +1,30 @@
+/* Colors and .pixel-button/.button-row come from Screens.uss (shared :root custom properties);
+   this file only adds what is specific to the title screen's layout. */
+
+.menu-root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-panel {
+    background-color: rgba(6, 10, 18, 0.55);
+    border-width: 3px;
+    border-color: var(--color-teal-dim);
+    border-radius: 6px;
+    padding: 40px 60px;
+    align-items: center;
+}
+
+.menu-title {
+    font-size: 56px;
+    -unity-font-style: bold;
+    color: var(--color-teal);
+    letter-spacing: 3px;
+    margin-bottom: 32px;
+    -unity-text-align: middle-center;
+}

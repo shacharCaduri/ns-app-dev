@@ -135,7 +135,7 @@ namespace WizardArena.EditorTools
 
             EditorSceneManager.SaveScene(scene, ScenePath);
             ArenaSurfaceSetup.AddSurfaces();
-            EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
+            SceneBuilder.SyncBuildSettings();
             Selection.activeGameObject = wizard;
             AssetDatabase.SaveAssets();
 

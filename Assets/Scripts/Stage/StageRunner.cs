@@ -65,6 +65,8 @@ namespace WizardArena.Stage
 
         void IStageProgression.AdvanceToNextStage() => BeginStage(Mathf.Min(currentIndex + 1, sequence.Stages.Count - 1));
 
+        void IStageProgression.RestartRun() => BeginStage(0);
+
         private void BeginStage(int index)
         {
             currentIndex = index;

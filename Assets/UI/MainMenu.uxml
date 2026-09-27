@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="Screens.uss" />
+    <Style src="MainMenu.uss" />
+    <ui:VisualElement name="menu-root" class="menu-root">
+        <ui:VisualElement name="menu-panel" class="menu-panel">
+            <ui:Label name="menu-title" text="Wizard Arena" class="menu-title" />
+            <ui:VisualElement class="button-row">
+                <ui:Button name="menu-play-button" text="Play" class="pixel-button" />
+                <ui:Button name="menu-quit-button" text="Quit" class="pixel-button pixel-button--ghost" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

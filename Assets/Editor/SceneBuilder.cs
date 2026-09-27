@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using WizardArena.Combat;
@@ -9,18 +12,35 @@ using Object = UnityEngine.Object;
 
 namespace WizardArena.EditorTools
 {
-    // Single entry point for generating the demo scene, from the menu or headless.
+    // Single entry point for generating the demo scene (and the main menu), from the menu or
+    // headless.
     public static class SceneBuilder
     {
         public const string ScenePath = "Assets/Scenes/WizardMovement.unity";
 
-        // Scene, walkable surfaces, combat assets and build settings, then saved.
+        // Both scenes, walkable surfaces, combat assets and build settings, then saved. Menu
+        // last so its own scene ends up active in-editor least often (Validate() below expects
+        // the arena scene active, matching every other headless command).
         [MenuItem("Wizard Prototype/Rebuild Demo Scene")]
         public static void Rebuild()
         {
             WizardPrototypeSetup.BuildScene();
             WizardPrototypeSetup.UpdateCombatAssets();
+            MenuSetup.BuildScene();
+            EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Single);
+            SyncBuildSettings();
             AssetDatabase.SaveAssets();
+        }
+
+        // Build Settings: main menu first, then the arena -- skips a scene whose file does not
+        // exist yet (e.g. before either builder has run once), so callers can invoke this from
+        // either builder in any order and always end up with the correct full list.
+        internal static void SyncBuildSettings()
+        {
+            List<EditorBuildSettingsScene> scenes = new List<EditorBuildSettingsScene>();
+            if (File.Exists(MenuSetup.ScenePath)) scenes.Add(new EditorBuildSettingsScene(MenuSetup.ScenePath, true));
+            if (File.Exists(ScenePath)) scenes.Add(new EditorBuildSettingsScene(ScenePath, true));
+            EditorBuildSettings.scenes = scenes.ToArray();
         }
 
         // Unity -batchmode -quit -executeMethod WizardArena.EditorTools.SceneBuilder.RebuildFromCommandLine
@@ -55,6 +75,7 @@ namespace WizardArena.EditorTools
             StageSetup.Validate(scene);
             UISetup.Validate(scene);
             FeedbackSetup.Validate(scene);
+            MenuSetup.Validate();
         }
     }
 }
