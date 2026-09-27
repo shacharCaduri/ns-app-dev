@@ -6,13 +6,12 @@ using WizardArena.World;
 
 namespace WizardArena.Player
 {
+    [RequireComponent(typeof(Health), typeof(ProjectileLauncher))]
     public sealed class WizardController : MonoBehaviour
     {
-        [SerializeField, Min(1)] private int maxHealth = 10;
-        [SerializeField, Min(0f)] private float damageCooldown = 0.75f;
-        private int health;
-        private float nextDamageTime;
-        public bool IsDefeated => health <= 0;
+        private Health health;
+        private ProjectileLauncher launcher;
+        public bool IsDefeated => health.IsDead;
         [SerializeField] private float moveSpeed = 4f;
         [SerializeField] private float jumpSpeed = 8f;
         [SerializeField] private float gravity = 20f;
@@ -22,8 +21,6 @@ namespace WizardArena.Player
         [SerializeField] private Sprite[] walkLeftFrames;
         [SerializeField] private Sprite[] attackRightFrames;
         [SerializeField] private Sprite[] attackLeftFrames;
-        [SerializeField] private Sprite projectileRight;
-        [SerializeField] private Sprite projectileLeft;
 
         private SpriteRenderer spriteRenderer;
         private float animationTime;
@@ -50,11 +47,25 @@ namespace WizardArena.Player
             spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = idleSprite;
             groundY = transform.position.y;
-            maxHealth = Mathf.Max(1, maxHealth);
-            health = maxHealth;
+            health = GetComponent<Health>();
+            launcher = GetComponent<ProjectileLauncher>();
+            // No damage while appearing; re-enabled when the transition ends.
+            health.enabled = false;
             normalScale = transform.localScale;
             spriteRenderer.color = new Color(0.4f, 0.9f, 1f, 0f);
             if (GetComponent<StagePortalGate>() == null) gameObject.AddComponent<StagePortalGate>();
+        }
+
+        private void OnEnable()
+        {
+            health.Damaged += OnDamaged;
+            health.Died += OnDied;
+        }
+
+        private void OnDisable()
+        {
+            health.Damaged -= OnDamaged;
+            health.Died -= OnDied;
         }
 
         private void Update()
@@ -116,8 +127,7 @@ namespace WizardArena.Player
                 if (!spellReleased && castTime >= 0.28f)
                 {
                     spellReleased = true;
-                    ArcaneBolt.Fire(transform.position + new Vector3(castFacing * 0.75f, 0.85f, 0f), castFacing,
-                        castFacing > 0f ? projectileRight : projectileLeft);
+                    launcher.Fire(transform.position + new Vector3(castFacing * 0.75f, 0.85f, 0f), new Vector2(castFacing, 0f));
                 }
                 if (castTime >= 0.56f) casting = false;
                 return;
@@ -141,14 +151,14 @@ namespace WizardArena.Player
             spriteRenderer.sprite = frames[frameIndex];
         }
 
-        public bool TakeContactDamage(int attackPower, float sourceX)
+        private void OnDamaged(DamageInfo damage)
         {
-            if (appearing || vanishing || IsDefeated || attackPower <= 0 || Time.time < nextDamageTime) return false;
-            health = Mathf.Max(0, health - attackPower);
-            nextDamageTime = Time.time + damageCooldown;
-            BumpFrom(sourceX);
-            if (IsDefeated) BeginVanishing(transform.position, false);
-            return true;
+            BumpFrom(damage.SourcePosition.x);
+        }
+
+        private void OnDied()
+        {
+            BeginVanishing(transform.position, false);
         }
 
         public void EnterPortal(Vector3 destination)
@@ -167,6 +177,7 @@ namespace WizardArena.Player
             casting = false;
             bumpEffectTimer = 0f;
             spriteRenderer.sprite = idleSprite;
+            health.enabled = false;
             Collider2D body = GetComponent<Collider2D>();
             if (body != null) body.enabled = false;
         }
@@ -182,6 +193,7 @@ namespace WizardArena.Player
             if (appearing && t >= 1f)
             {
                 appearing = false;
+                health.enabled = true;
                 spriteRenderer.color = Color.white;
                 transform.localScale = normalScale;
             }
@@ -224,13 +236,13 @@ namespace WizardArena.Player
             GUIStyle hintStyle = new GUIStyle(titleStyle) { fontSize = 18, fontStyle = FontStyle.Normal };
             GUI.Label(new Rect(0f, 20f, Screen.width, 40f), "Wizard Movement Prototype", titleStyle);
             GUI.Label(new Rect(0f, Screen.height - 55f, Screen.width, 30f), "← / → Walk    Space Jump    Z / Enter Cast", hintStyle);
-            GUI.Label(new Rect(20f, 65f, 220f, 30f), $"Wizard: {health} / {maxHealth} HP", hintStyle);
+            GUI.Label(new Rect(20f, 65f, 220f, 30f), $"Wizard: {health.Current} / {health.Max} HP", hintStyle);
             Color savedColor = GUI.color;
             GUI.color = new Color(0.08f, 0.12f, 0.18f);
             GUI.DrawTexture(new Rect(20f, 98f, 220f, 14f), Texture2D.whiteTexture);
             GUI.color = new Color(0.25f, 0.85f, 0.45f);
-            if (health > 0)
-                GUI.DrawTexture(new Rect(22f, 100f, 216f * health / maxHealth, 10f), Texture2D.whiteTexture);
+            if (health.Current > 0)
+                GUI.DrawTexture(new Rect(22f, 100f, 216f * health.Current / health.Max, 10f), Texture2D.whiteTexture);
             GUI.color = savedColor;
 
             if (bumpEffectTimer > 0f && Camera.main != null)

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a37caed4392749f18867cec062280e9, type: 3}
+  m_Name: ArcaneBolt
+  m_EditorClassIdentifier: WizardArena.Runtime::WizardArena.Combat.ProjectileConfig
+  damage: 1
+  speed: 11
+  lifetime: 2
+  hitRadius: 0.12
+  visualWidth: 0.7
+  sortingOrder: 20
+  spriteRight: {fileID: 21300000, guid: bfd0524951cf54ed3a71b1ce3675b3d4, type: 3}
+  spriteLeft: {fileID: 21300000, guid: e772524037b8d403594cfd290f76fe9e, type: 3}

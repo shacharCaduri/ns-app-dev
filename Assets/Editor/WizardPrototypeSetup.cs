@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using WizardArena.Combat;
 using WizardArena.Enemies;
 using WizardArena.Player;
 
@@ -53,6 +54,7 @@ namespace WizardArena.EditorTools
             ConfigureSpriteTextures("Assets/Art/Effects/Projectiles", new Vector2(0.5f, 0.5f));
             ConfigureSpriteTextures("Assets/Art/Environments/Portals", new Vector2(0.5f, 0f));
             BindWizardCombat(wizard);
+            CombatSetup.BindBat(bat.gameObject, wizard.GetComponent<Health>());
             SerializedObject data = new SerializedObject(bat);
             data.FindProperty("deadLeft").objectReferenceValue = LoadSprite(BatRoot + "/death/cave_bat_death_left_01.png");
             data.FindProperty("deadRight").objectReferenceValue = LoadSprite(BatRoot + "/death/cave_bat_death_right_01.png");
@@ -75,9 +77,8 @@ namespace WizardArena.EditorTools
             SerializedObject data = new SerializedObject(controller);
             AssignSprites(data.FindProperty("attackRightFrames"), WizardRoot + "/attack/wizard_attack_right_0{0}.png");
             AssignSprites(data.FindProperty("attackLeftFrames"), WizardRoot + "/attack/wizard_attack_left_0{0}.png");
-            data.FindProperty("projectileRight").objectReferenceValue = LoadSprite("Assets/Art/Effects/Projectiles/arcane_projectile_right_01.png");
-            data.FindProperty("projectileLeft").objectReferenceValue = LoadSprite("Assets/Art/Effects/Projectiles/arcane_projectile_left_01.png");
             data.ApplyModifiedPropertiesWithoutUndo();
+            CombatSetup.BindWizard(controller.gameObject);
         }
 
         private static void CreatePrototype(bool force)
@@ -126,7 +127,7 @@ namespace WizardArena.EditorTools
 
             BindWizardCombat(controller);
 
-            CreateBatEnemy();
+            CreateBatEnemy(wizard.GetComponent<Health>());
 
             EditorSceneManager.SaveScene(scene, ScenePath);
             ArenaSurfaceSetup.AddSurfaces();
@@ -203,7 +204,7 @@ namespace WizardArena.EditorTools
             renderer.sortingOrder = -10;
         }
 
-        private static void CreateBatEnemy()
+        private static void CreateBatEnemy(Health wizardHealth)
         {
             GameObject bat = new GameObject("Bat Enemy");
             bat.transform.position = new Vector3(4f, 1.5f, 0f);
@@ -231,6 +232,7 @@ namespace WizardArena.EditorTools
             serializedController.FindProperty("hurtRight").objectReferenceValue = LoadSprite(BatRoot + "/hurt/cave_bat_hurt_right_01.png");
             serializedController.FindProperty("exitPortal").objectReferenceValue = CreatePortal();
             serializedController.ApplyModifiedPropertiesWithoutUndo();
+            CombatSetup.BindBat(bat, wizardHealth);
         }
 
         private static GameObject CreatePortal()
