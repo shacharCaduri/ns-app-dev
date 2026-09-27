@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad3c38be9125489e9e5359d17842782, type: 3}
+  m_Name: BlueSlime
+  m_EditorClassIdentifier: WizardArena.Runtime::WizardArena.Enemies.EnemyConfig
+  health: {fileID: 11400000, guid: 4d45a0a5491bb40d3bf7af1cbd789fec, type: 2}
+  moveSpeed: 0.6
+  turnInterval: {x: 1.2, y: 3}
+  minimumSideways: 0.35
+  contactDamage: 1
+  contactCooldown: 0.6
+  contactBounce: 0.45
+  turnIntervalAfterContact: {x: 1.2, y: 2.5}
+  hurtSeconds: 0.3
+  knockbackSpeed: 3
+  wobbleDegrees: 12
+  knockbackLift: 0.5
+  fleeSeconds: 0.7
+  fallGravity: 9
+  corpseHoldSeconds: 2
+  corpseFadeSeconds: 3
+  gravity: 9
+  chaseRange: 3
+  meleeRange: 1
+  meleeDamage: 2
+  attackWindUpSeconds: 0.5
+  attackRecoverSeconds: 0.5
+  hopInterval: 0.45
+  hopSpeed: 3.2
+  animationFramesPerSecond: 7
+  sprites:
+    moveRight:
+    - {fileID: 21300000, guid: 21bc016e5da594faf80aa2b9610b6fdf, type: 3}
+    - {fileID: 21300000, guid: fe864b8f0b4c34818a1288b1e4444e2d, type: 3}
+    moveLeft:
+    - {fileID: 21300000, guid: 85cd6bfc5ed3640fc9049fe8f6970f8d, type: 3}
+    - {fileID: 21300000, guid: 8a4f1a63659604b9cb909aa833952ab7, type: 3}
+    hurtRight: {fileID: 21300000, guid: 04a05294ee1d64e59a7ce251bf7f926d, type: 3}
+    hurtLeft: {fileID: 21300000, guid: 129b739c6be2e4acfa608b2114691cd3, type: 3}
+    deadRight: {fileID: 21300000, guid: 9de860ec6afea4c90a17e8d7bcf4f8c1, type: 3}
+    deadLeft: {fileID: 21300000, guid: 02795d58d064840f4bd213a0636912c2, type: 3}
+    attackRight: {fileID: 21300000, guid: 31e6a6a0a6ccc4ad08751f221cd13945, type: 3}
+    attackLeft: {fileID: 21300000, guid: da407e012c19842deaccd82d21b5ab35, type: 3}
