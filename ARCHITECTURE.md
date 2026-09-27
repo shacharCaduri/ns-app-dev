@@ -11,7 +11,7 @@ dependencies may point. Keep it short; update it when a rule changes.
 | `Assets/Scripts/Combat/` | `WizardArena.Combat` | `WizardArena.Runtime` | `Health`, `IDamageable`, `DamageInfo`, `Team`, `Projectile` + `ProjectileLauncher` |
 | `Assets/Scripts/Player/` | `WizardArena.Player` | `WizardArena.Runtime` | The wizard: `WizardController` composes `PlayerMotor`, `PlayerCaster`, `PlayerAnimator`, `PlayerHitFeedback`, `PlayerTransitions`; input via `IPlayerInput` |
 | `Assets/Scripts/Enemies/` | `WizardArena.Enemies` | `WizardArena.Runtime` | Enemy framework (`Enemy`, `EnemyConfig`, `EnemyRegistry`, `ContactDamage`, states) and enemy types (`BatEnemyController`) |
-| `Assets/Scripts/Stage/` | `WizardArena.Stage` | `WizardArena.Runtime` | Stage flow, portal, game state (`StagePortalGate`) |
+| `Assets/Scripts/Stage/` | `WizardArena.Stage` | `WizardArena.Runtime` | Stage flow, portal, game state (`GameSession`, `StageManager`, `StagePortal`) |
 | `Assets/Scripts/UI/` | `WizardArena.UI` | `WizardArena.Runtime` | HUD and screens (temporary `LegacyHud` and `WorldHealthBar` until [09]) |
 | `Assets/Scripts/Feedback/` | `WizardArena.Feedback` | `WizardArena.Runtime` | Hit-stop, shake, particles, sound (added in [14]) |
 | `Assets/Editor/` | `WizardArena.EditorTools` | `WizardArena.Editor` (Editor only) | Scene builder, menu items |
@@ -98,6 +98,25 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
   highest walkable `ArenaSurface` below them (`ArenaSurface.TryGetGroundBelow`).
 - `ContactDamage` hurts any `Health` of a hostile team its circle touches. No target reference.
 
+## Stage
+
+- `GameSession` (one per scene) holds `GameState` (`Playing`, `Defeated`, `StageCleared`,
+  `Victory`) and raises `StateChanged` when it changes. Anyone may read `State` and call the
+  commands `Retry()` (reload the scene) and `Continue()`; only `StageManager` and `StagePortal`
+  are allowed to end the run (`End(GameState)` is `internal`). `Continue()` currently just calls
+  `Retry()` (there is only one stage) — [10] replaces it with real stage progression.
+- `StageManager` listens to `EnemyRegistry.Died`/`AliveCount` and opens the `StagePortal` once
+  every enemy is dead (including zero enemies at scene start), and listens to the wizard's
+  `Health.Died` to end the run in `Defeated`.
+- `StagePortal` sits on the exit portal object. Hidden until `Open()`, it grows and fades in
+  over `StagePortalConfig.RevealSeconds` (0.8 s, scale 0.7 -> 1). Once fully revealed, the wizard
+  standing within `EntryHalfSize` (0.65, 0.5) of it is drawn in through
+  `WizardController.EnterPortal`; when the wizard's `Vanished` event then fires, the portal ends
+  the run in `StageCleared` itself (`GameSession.End`) and raises its own `PlayerEntered`/
+  `PlayerExited` events for anything else that wants to react (sound, UI, [10] progression).
+- `LegacyHud` (temporary) draws its end screen purely from `GameSession.StateChanged`/`State`
+  and its Retry button calls `GameSession.Retry()`; it no longer tracks defeat/clear itself.
+
 ## Tests
 
 - Unity Test Framework (NUnit). Run them with `Tools/unity/unity.sh test` or the Test Runner
@@ -117,10 +136,9 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 The prototype predates these rules. Tickets fix them; don't copy these patterns.
 
 - `LegacyHud` (UI) is the old `OnGUI` HUD and end screen, moved out of the wizard as-is. It
-  polls the player every frame and decides "stage cleared" itself ([08], [09]).
-- `WizardController` still adds `StagePortalGate` to itself in `Awake` ([08]).
+  still polls `Health`/`PlayerHitFeedback` every frame for the live HP bar and bump text
+  (only the end screen is event-driven now, via `GameSession.StateChanged`) ([09] replaces it).
 - `WorldHealthBar` (the bat's HP bar) still draws with `OnGUI` ([09]).
-- `StagePortalGate` finds the portal with `FindObjectsByType` in `Start`, polls
-  `EnemyRegistry.AliveCount` every frame and is added by the wizard ([08]).
-- Tunable numbers are still serialized fields or constants in the stage behaviours ([08]).
-  Health, projectile, player and enemy numbers live in `Assets/Config/{Combat,Player,Enemies}/`.
+- `GameSession.Continue()` just reloads the stage; there is no real stage progression yet ([10]).
+- Tunable numbers now live in ScriptableObject config assets for every area, under
+  `Assets/Config/{Combat,Player,Enemies,Stage}/`.

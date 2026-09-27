@@ -55,6 +55,7 @@ namespace WizardArena.EditorTools
             if (wizard.GetComponent<Health>() == null || bat.GetComponent<Health>() == null) throw new InvalidOperationException("Wizard or bat has no Health");
             if (Object.FindFirstObjectByType<ArenaSurface>() == null) throw new InvalidOperationException("No arena surfaces in scene");
             EnemySetup.Validate();
+            StageSetup.Validate(scene);
         }
     }
 }

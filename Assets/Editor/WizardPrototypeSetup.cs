@@ -60,6 +60,7 @@ namespace WizardArena.EditorTools
             foreach (GameObject root in scene.GetRootGameObjects())
                 if (root.name == "Stage Exit Portal") hasPortal = true;
             if (!hasPortal) CreatePortal();
+            StageSetup.Bind(scene, wizard);
             EditorSceneManager.MarkSceneDirty(scene);
             if (!wasDirty) EditorSceneManager.SaveScene(scene);
         }
@@ -127,6 +128,7 @@ namespace WizardArena.EditorTools
             EnemySetup.EnsureArenaBounds(scene);
             CreatePortal();
             PlayerSetup.CreateLegacyHud(controller);
+            StageSetup.Bind(scene, controller);
 
             EditorSceneManager.SaveScene(scene, ScenePath);
             ArenaSurfaceSetup.AddSurfaces();
@@ -212,7 +214,8 @@ namespace WizardArena.EditorTools
             portalRenderer.sortingOrder = 5;
             float portalScale = 2.8f / portalRenderer.sprite.bounds.size.y;
             portal.transform.localScale = Vector3.one * portalScale;
-            portal.SetActive(false);
+            // The GameObject stays active: StagePortal owns visibility via its SpriteRenderer
+            // (disabled until StageManager opens it), and it needs Update to run to reveal it.
             return portal;
         }
 

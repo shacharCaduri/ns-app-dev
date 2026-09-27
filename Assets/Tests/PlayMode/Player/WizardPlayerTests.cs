@@ -31,7 +31,7 @@ namespace WizardArena.Tests.PlayMode.Player
         {
             yield return SceneManager.LoadSceneAsync("WizardMovement", LoadSceneMode.Single);
             // Park the bat: these tests are about the wizard alone. Deactivated (not destroyed)
-            // so the stage keeps the exit portal, which sits next to the wizard, closed.
+            // so the stage keeps the exit portal closed (EnemyRegistry.AliveCount stays 1).
             Object.FindFirstObjectByType<BatEnemyController>().gameObject.SetActive(false);
             wizard = Object.FindFirstObjectByType<WizardController>();
             input = new FakeInput();
