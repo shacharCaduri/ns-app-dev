@@ -38,6 +38,7 @@ Tools/unity/unity.sh test-editmode   # EditMode tests
 Tools/unity/unity.sh test-playmode   # PlayMode tests
 Tools/unity/unity.sh test            # both
 Tools/unity/unity.sh rebuild-scene   # regenerate Assets/Scenes/WizardMovement.unity
+Tools/unity/unity.sh screenshot      # render Camera.main to Logs/screenshot.png (visual check)
 Tools/unity/unity.sh build-macos     # stub until ticket [15]
 ```
 

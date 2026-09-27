@@ -3,66 +3,108 @@ using WizardArena.Combat;
 
 namespace WizardArena.UI
 {
-    // A small "current / max HP" bar floating above any Health. Hidden once it dies.
-    // Still immediate-mode OnGUI; ticket [09] replaces it with a proper world-space UI.
+    // A small "current / max HP" bar that floats above any Health, built from two flat
+    // SpriteRenderers (background + fill) instead of OnGUI. Hidden once the target dies.
     public sealed class WorldHealthBar : MonoBehaviour
     {
         [Tooltip("The Health to show. Defaults to the one on this object.")]
         [SerializeField] private Health health;
         [SerializeField] private Vector3 worldOffset = new Vector3(0f, 0.9f, 0f);
-        [Tooltip("Resources path of a JSON style (width, height, border, background, fill).")]
-        [SerializeField] private string styleResource = "UI/BatHealthBar";
+        [SerializeField] private Vector2 size = new Vector2(0.7f, 0.1f);
+        [SerializeField] private Color backgroundColor = new Color(0.086f, 0.133f, 0.22f);
+        [SerializeField] private Color fillColor = new Color(0.263f, 0.855f, 0.643f);
+        [SerializeField] private int sortingOrder = 20;
 
-        private Style style;
-        private Color background;
-        private Color fill;
-        private GUIStyle labelStyle;
+        // Shared 1x1-unit sprites: Center for the background, Left (pivot on its left edge)
+        // for the fill, so shrinking it keeps the left edge in place.
+        private static Sprite pixelCenter;
+        private static Sprite pixelLeft;
 
-        [System.Serializable]
-        private sealed class Style
-        {
-            public float width = 64;
-            public float height = 9;
-            public float border = 2;
-            public string background = "#162238";
-            public string fill = "#EF5564";
-        }
+        private SpriteRenderer background;
+        private SpriteRenderer fill;
 
         private void Awake()
         {
             if (health == null) health = GetComponent<Health>();
-            TextAsset json = string.IsNullOrEmpty(styleResource) ? null : Resources.Load<TextAsset>(styleResource);
-            style = json != null ? JsonUtility.FromJson<Style>(json.text) : new Style();
-            ColorUtility.TryParseHtmlString(style.background, out background);
-            ColorUtility.TryParseHtmlString(style.fill, out fill);
+            BuildBar();
         }
 
-        private void OnGUI()
+        private void OnEnable()
         {
-            Camera camera = Camera.main;
-            if (camera == null || health == null || health.IsDead) return;
-            Vector3 screen = camera.WorldToScreenPoint(transform.position + worldOffset);
-            Rect bar = new Rect(screen.x - style.width / 2f, Screen.height - screen.y, style.width, style.height);
-            Color previousColor = GUI.color;
-            GUI.color = background;
-            GUI.DrawTexture(bar, Texture2D.whiteTexture);
-            GUI.color = fill;
-            float inset = style.border;
-            GUI.DrawTexture(new Rect(bar.x + inset, bar.y + inset, (bar.width - 2f * inset) * health.Current / health.Max, bar.height - 2f * inset), Texture2D.whiteTexture);
-            GUI.color = Color.white;
-            labelStyle ??= new GUIStyle(GUI.skin.label)
+            health.Damaged += OnDamaged;
+            health.Healed += OnHealed;
+            health.Died += OnDied;
+        }
+
+        private void OnDisable()
+        {
+            health.Damaged -= OnDamaged;
+            health.Healed -= OnHealed;
+            health.Died -= OnDied;
+        }
+
+        // Not OnEnable: Health.Awake (which sets Current = Max) is not guaranteed to have run
+        // yet at that point. Start runs after every Awake in the scene.
+        private void Start() => Refresh();
+
+        private void OnDamaged(DamageInfo damage) => Refresh();
+
+        private void OnHealed(int amountHealed) => Refresh();
+
+        private void OnDied() => SetVisible(false);
+
+        private void Refresh()
+        {
+            if (health.IsDead)
             {
-                alignment = TextAnchor.MiddleCenter,
-                fontSize = 14,
-                fontStyle = FontStyle.Bold
-            };
-            string text = $"{health.Current} / {health.Max} HP";
-            Rect label = new Rect(bar.x - 12f, bar.y - 22f, bar.width + 24f, 22f);
-            labelStyle.normal.textColor = Color.black;
-            GUI.Label(new Rect(label.x + 1f, label.y + 1f, label.width, label.height), text, labelStyle);
-            labelStyle.normal.textColor = Color.white;
-            GUI.Label(label, text, labelStyle);
-            GUI.color = previousColor;
+                SetVisible(false);
+                return;
+            }
+
+            SetVisible(true);
+            float fraction = health.Max > 0 ? Mathf.Clamp01((float)health.Current / health.Max) : 0f;
+            fill.transform.localScale = new Vector3(size.x * fraction, size.y, 1f);
+        }
+
+        private void SetVisible(bool visible)
+        {
+            background.enabled = visible;
+            fill.enabled = visible;
+        }
+
+        private void BuildBar()
+        {
+            EnsureSprites();
+
+            GameObject barRoot = new GameObject("HealthBar");
+            barRoot.transform.SetParent(transform, false);
+            barRoot.transform.localPosition = worldOffset;
+
+            background = CreateBar(barRoot.transform, "Background", pixelCenter, backgroundColor, sortingOrder);
+            background.transform.localScale = new Vector3(size.x, size.y, 1f);
+
+            fill = CreateBar(barRoot.transform, "Fill", pixelLeft, fillColor, sortingOrder + 1);
+            fill.transform.localPosition = new Vector3(-size.x / 2f, 0f, 0f);
+        }
+
+        private static SpriteRenderer CreateBar(Transform parent, string name, Sprite sprite, Color color, int order)
+        {
+            GameObject go = new GameObject(name);
+            go.transform.SetParent(parent, false);
+            SpriteRenderer renderer = go.AddComponent<SpriteRenderer>();
+            renderer.sprite = sprite;
+            renderer.color = color;
+            renderer.sortingOrder = order;
+            return renderer;
+        }
+
+        private static void EnsureSprites()
+        {
+            if (pixelCenter != null) return;
+            Texture2D texture = Texture2D.whiteTexture;
+            Rect rect = new Rect(0f, 0f, texture.width, texture.height);
+            pixelCenter = Sprite.Create(texture, rect, new Vector2(0.5f, 0.5f), texture.width);
+            pixelLeft = Sprite.Create(texture, rect, new Vector2(0f, 0.5f), texture.width);
         }
     }
 }

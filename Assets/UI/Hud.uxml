@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="Hud.uss" />
+    <ui:VisualElement name="hud-root" class="hud-root" picking-mode="Ignore">
+        <ui:VisualElement name="hp-panel" class="hud-panel" picking-mode="Ignore">
+            <ui:Label name="stage-name" text="Ruins Antechamber" class="stage-name" />
+            <ui:VisualElement class="hp-row" picking-mode="Ignore">
+                <ui:VisualElement name="hp-bar-bg" class="hp-bar-bg" picking-mode="Ignore">
+                    <ui:VisualElement name="hp-bar-fill" class="hp-bar-fill" picking-mode="Ignore" />
+                </ui:VisualElement>
+                <ui:Label name="hp-text" text="10 / 10" class="hp-text" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label name="controls-hint" text="← / → Walk   Space Jump   Z / Enter Cast   Esc Pause" class="controls-hint" />
+    </ui:VisualElement>
+</ui:UXML>

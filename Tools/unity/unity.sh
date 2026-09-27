@@ -9,6 +9,7 @@ UNITY="${UNITY_PATH:-/Applications/Unity/Hub/Editor/6000.3.7f1/Unity.app/Content
 LOGS="$PROJECT/Logs"
 BUILD_DIR="$PROJECT/Builds/macOS"
 SCENE_BUILDER="WizardArena.EditorTools.SceneBuilder.RebuildFromCommandLine"
+SCENE_SCREENSHOT="WizardArena.EditorTools.SceneScreenshot.CaptureFromCommandLine"
 
 usage() {
     cat <<EOF
@@ -20,6 +21,7 @@ Commands:
   test-playmode   Run PlayMode tests.
   test            Run EditMode, then PlayMode tests.
   rebuild-scene   Regenerate Assets/Scenes/WizardMovement.unity with the editor scene builder.
+  screenshot      Render Camera.main to Logs/screenshot.png for a headless visual check.
   build-macos     Build a macOS player (stub for now, added in ticket [15]).
 
 Project: $PROJECT
@@ -51,6 +53,19 @@ run_unity() {
     echo "  log: $log"
     set +e
     "$UNITY" -batchmode -nographics -projectPath "$PROJECT" -logFile "$log" "$@"
+    UNITY_EXIT=$?
+    set -e
+}
+
+# Same as run_unity, but without -nographics: on macOS that flag leaves Camera.Render() with no
+# GPU device, so a RenderTexture capture comes back blank. Only the screenshot command needs this.
+run_unity_with_graphics() {
+    local log="$1"
+    shift
+    echo "Running Unity ($*)"
+    echo "  log: $log"
+    set +e
+    "$UNITY" -batchmode -projectPath "$PROJECT" -logFile "$log" "$@"
     UNITY_EXIT=$?
     set -e
 }
@@ -151,6 +166,22 @@ cmd_rebuild_scene() {
     echo "REBUILD SCENE: OK (review and commit Assets/Scenes/WizardMovement.unity)"
 }
 
+# Renders Camera.main to a PNG so agents can check scene layout without Play Mode. UI Toolkit
+# overlays (HUD, screens) are not captured: there is no camera involved in drawing them.
+cmd_screenshot() {
+    preflight
+    local log="$LOGS/unity-screenshot.log"
+    local out="$LOGS/screenshot.png"
+    rm -f "$out"
+    run_unity_with_graphics "$log" -quit -executeMethod "$SCENE_SCREENSHOT"
+    if [[ "$UNITY_EXIT" -ne 0 ]] || [[ ! -s "$out" ]]; then
+        print_compile_errors "$log" || print_log_tail "$log"
+        echo "SCREENSHOT: FAILED (Unity exit code $UNITY_EXIT)"
+        return 1
+    fi
+    echo "SCREENSHOT: OK ($out)"
+}
+
 # Stub: the project's Standalone scripting backend is IL2CPP, which is not installed on this
 # machine, so a plain -buildOSXUniversalPlayer fails. Player builds are set up in ticket [15].
 cmd_build_macos() {
@@ -166,6 +197,7 @@ case "${1:-help}" in
     test-playmode) preflight; run_tests PlayMode ;;
     test) cmd_test ;;
     rebuild-scene) cmd_rebuild_scene ;;
+    screenshot) cmd_screenshot ;;
     build-macos) cmd_build_macos ;;
     help | -h | --help) usage ;;
     *)

@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="Screens.uss" />
+    <ui:VisualElement name="end-overlay" class="dim-overlay hidden">
+        <ui:VisualElement name="end-panel" class="panel">
+            <ui:Label name="end-heading" text="GAME OVER" class="heading" />
+            <ui:VisualElement class="button-row">
+                <ui:Button name="end-primary-button" text="Retry" class="pixel-button" />
+                <ui:Button name="end-quit-button" text="Quit" class="pixel-button pixel-button--ghost" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="pause-overlay" class="dim-overlay hidden">
+        <ui:VisualElement name="pause-panel" class="panel">
+            <ui:Label text="PAUSED" class="heading" />
+            <ui:VisualElement class="button-row">
+                <ui:Button name="resume-button" text="Resume" class="pixel-button" />
+                <ui:Button name="retry-button-pause" text="Retry" class="pixel-button" />
+                <ui:Button name="quit-button-pause" text="Quit" class="pixel-button pixel-button--ghost" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -12,7 +12,7 @@ dependencies may point. Keep it short; update it when a rule changes.
 | `Assets/Scripts/Player/` | `WizardArena.Player` | `WizardArena.Runtime` | The wizard: `WizardController` composes `PlayerMotor`, `PlayerCaster`, `PlayerAnimator`, `PlayerHitFeedback`, `PlayerTransitions`; input via `IPlayerInput` |
 | `Assets/Scripts/Enemies/` | `WizardArena.Enemies` | `WizardArena.Runtime` | Enemy framework (`Enemy`, `EnemyConfig`, `EnemyRegistry`, `ContactDamage`, states) and enemy types (`BatEnemyController`) |
 | `Assets/Scripts/Stage/` | `WizardArena.Stage` | `WizardArena.Runtime` | Stage flow, portal, game state (`GameSession`, `StageManager`, `StagePortal`) |
-| `Assets/Scripts/UI/` | `WizardArena.UI` | `WizardArena.Runtime` | HUD and screens (temporary `LegacyHud` and `WorldHealthBar` until [09]) |
+| `Assets/Scripts/UI/` | `WizardArena.UI` | `WizardArena.Runtime` | HUD, enemy HP bars and screens (UI Toolkit); UXML/USS under `Assets/UI/` |
 | `Assets/Scripts/Feedback/` | `WizardArena.Feedback` | `WizardArena.Runtime` | Hit-stop, shake, particles, sound (added in [14]) |
 | `Assets/Editor/` | `WizardArena.EditorTools` | `WizardArena.Editor` (Editor only) | Scene builder, menu items |
 | `Assets/Tests/EditMode/<Area>/` | `WizardArena.Tests.EditMode.<Area>` | `WizardArena.Tests.EditMode` | Fast logic tests, no scene |
@@ -114,8 +114,28 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
   `WizardController.EnterPortal`; when the wizard's `Vanished` event then fires, the portal ends
   the run in `StageCleared` itself (`GameSession.End`) and raises its own `PlayerEntered`/
   `PlayerExited` events for anything else that wants to react (sound, UI, [10] progression).
-- `LegacyHud` (temporary) draws its end screen purely from `GameSession.StateChanged`/`State`
-  and its Retry button calls `GameSession.Retry()`; it no longer tracks defeat/clear itself.
+## UI
+
+- Built with UI Toolkit (`UIDocument` + `PanelSettings`), UXML/USS under `Assets/UI/`. UI only
+  listens to `Health`/`GameSession` events and calls small commands (`Retry`, `Continue`,
+  `TogglePause`); it never touches gameplay state directly.
+- `HudController` (on the "HUD" `GameObject`) shows the wizard's HP bar/numbers, the stage name
+  and the controls hint. It reads `Health.Current`/`Max` once in `Start` (after every `Awake` in
+  the scene has run) and after that only on `Health.Damaged`/`Healed`/`Died` -- no per-frame
+  polling.
+- `WorldHealthBar` is a small reusable component that builds its own bar from two flat
+  `SpriteRenderer`s (background + fill) above any `Health`, refreshed the same event-driven way
+  and hidden once that `Health` dies. Enemies get one from `EnemySetup.BindBat`.
+- `EndScreenController` (on the "Screens" `GameObject`) shows Game Over / Stage Cleared /
+  Victory purely from `GameSession.StateChanged`; its button calls `GameSession.Retry()` or
+  `Continue()` depending on which state it is showing.
+- `PauseMenuController` (same `GameObject`, its own `UIDocument` sort order above the HUD) opens
+  on Esc, sets `Time.timeScale = 0` and swaps the wizard's input for a no-op `IPlayerInput` via
+  `WizardController.UseInput` so held keys have no effect while paused; Resume restores both.
+- Both screens share one `PanelSettings` asset (`Assets/Config/UI/GamePanelSettings.asset`);
+  `UIDocument.sortingOrder` (HUD 0, Screens 10) keeps the pause/end overlay above the HUD.
+- `UISetup` (`Assets/Editor/`) builds and wires all of the above; it runs after `StageSetup.Bind`
+  since it needs the scene's `GameSession`.
 
 ## Tests
 
@@ -135,10 +155,14 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 
 The prototype predates these rules. Tickets fix them; don't copy these patterns.
 
-- `LegacyHud` (UI) is the old `OnGUI` HUD and end screen, moved out of the wizard as-is. It
-  still polls `Health`/`PlayerHitFeedback` every frame for the live HP bar and bump text
-  (only the end screen is event-driven now, via `GameSession.StateChanged`) ([09] replaces it).
-- `WorldHealthBar` (the bat's HP bar) still draws with `OnGUI` ([09]).
 - `GameSession.Continue()` just reloads the stage; there is no real stage progression yet ([10]).
+  `EndScreenController` already calls it from Stage Cleared, so [10] only needs to change what
+  it does.
+- `HudController.stageName` is a static string set by `UISetup` (default "Ruins Antechamber"),
+  not read from any real per-stage data; [10] should wire it to whatever names a stage.
+- The "BUMP!" hit-reaction text from the old prototype HUD is gone; [14] (feedback) is where
+  hit feel like that belongs.
+- `Tools/unity/unity.sh screenshot` renders `Camera.main` only: it does not capture UI Toolkit
+  overlays (HUD, screens), since they are not drawn through a camera.
 - Tunable numbers now live in ScriptableObject config assets for every area, under
-  `Assets/Config/{Combat,Player,Enemies,Stage}/`.
+  `Assets/Config/{Combat,Player,Enemies,Stage,UI}/`.

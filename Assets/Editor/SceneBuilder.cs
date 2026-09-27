@@ -56,6 +56,7 @@ namespace WizardArena.EditorTools
             if (Object.FindFirstObjectByType<ArenaSurface>() == null) throw new InvalidOperationException("No arena surfaces in scene");
             EnemySetup.Validate();
             StageSetup.Validate(scene);
+            UISetup.Validate(scene);
         }
     }
 }

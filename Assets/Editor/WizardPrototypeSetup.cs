@@ -61,6 +61,7 @@ namespace WizardArena.EditorTools
                 if (root.name == "Stage Exit Portal") hasPortal = true;
             if (!hasPortal) CreatePortal();
             StageSetup.Bind(scene, wizard);
+            UISetup.Bind(scene, wizard);
             EditorSceneManager.MarkSceneDirty(scene);
             if (!wasDirty) EditorSceneManager.SaveScene(scene);
         }
@@ -127,8 +128,8 @@ namespace WizardArena.EditorTools
             EnemySetup.CreateBat(new Vector3(4f, 1.5f, 0f));
             EnemySetup.EnsureArenaBounds(scene);
             CreatePortal();
-            PlayerSetup.CreateLegacyHud(controller);
             StageSetup.Bind(scene, controller);
+            UISetup.Bind(scene, controller);
 
             EditorSceneManager.SaveScene(scene, ScenePath);
             ArenaSurfaceSetup.AddSurfaces();

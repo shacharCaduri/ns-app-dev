@@ -1,0 +1,76 @@
+:root {
+    --color-ink: #060a12;
+    --color-stone: #16222f;
+    --color-stone-light: #22384a;
+    --color-teal: #4fd8c4;
+    --color-teal-dim: #2f8f80;
+    --color-hp: #43d9a3;
+    --color-text: #eaf2f2;
+}
+
+.hud-root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.hud-panel {
+    position: absolute;
+    left: 18px;
+    top: 16px;
+    padding: 10px 14px;
+    background-color: rgba(6, 10, 18, 0.72);
+    border-width: 2px;
+    border-color: var(--color-teal-dim);
+    border-radius: 4px;
+}
+
+.stage-name {
+    color: var(--color-teal);
+    font-size: 14px;
+    -unity-font-style: bold;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    -unity-text-align: middle-left;
+}
+
+.hp-row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.hp-bar-bg {
+    width: 200px;
+    height: 16px;
+    background-color: var(--color-ink);
+    border-width: 2px;
+    border-color: var(--color-stone-light);
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.hp-bar-fill {
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-hp);
+}
+
+.hp-text {
+    color: var(--color-text);
+    font-size: 14px;
+    -unity-font-style: bold;
+    min-width: 58px;
+    -unity-text-align: middle-left;
+}
+
+.controls-hint {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    color: rgba(234, 242, 242, 0.75);
+    font-size: 13px;
+    -unity-text-align: middle-center;
+}
