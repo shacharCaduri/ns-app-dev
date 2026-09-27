@@ -32,10 +32,9 @@ namespace WizardArena.Stage
         private void Update()
         {
             if (portal == null) return;
-            // Include inactive enemies and corpses; removal happens only after fading.
-            foreach (BatEnemyController enemy in FindObjectsByType<BatEnemyController>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            // Opens once every enemy is dead (corpses may still be fading).
+            if (EnemyRegistry.AliveCount > 0)
             {
-                if (enemy.gameObject.scene != gameObject.scene) continue;
                 portal.SetActive(false);
                 revealTime = 0f;
                 return;

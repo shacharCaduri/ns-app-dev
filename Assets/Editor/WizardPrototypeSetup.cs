@@ -54,20 +54,12 @@ namespace WizardArena.EditorTools
             ConfigureSpriteTextures("Assets/Art/Effects/Projectiles", new Vector2(0.5f, 0.5f));
             ConfigureSpriteTextures("Assets/Art/Environments/Portals", new Vector2(0.5f, 0f));
             BindWizardCombat(wizard);
-            CombatSetup.BindBat(bat.gameObject, wizard.GetComponent<Health>());
-            SerializedObject data = new SerializedObject(bat);
-            data.FindProperty("deadLeft").objectReferenceValue = LoadSprite(BatRoot + "/death/cave_bat_death_left_01.png");
-            data.FindProperty("deadRight").objectReferenceValue = LoadSprite(BatRoot + "/death/cave_bat_death_right_01.png");
-            data.FindProperty("hurtLeft").objectReferenceValue = LoadSprite(BatRoot + "/hurt/cave_bat_hurt_left_01.png");
-            data.FindProperty("hurtRight").objectReferenceValue = LoadSprite(BatRoot + "/hurt/cave_bat_hurt_right_01.png");
-            if (data.FindProperty("exitPortal").objectReferenceValue == null)
-            {
-                GameObject portal = null;
-                foreach (GameObject root in scene.GetRootGameObjects())
-                    if (root.name == "Stage Exit Portal") portal = root;
-                data.FindProperty("exitPortal").objectReferenceValue = portal != null ? portal : CreatePortal();
-            }
-            data.ApplyModifiedPropertiesWithoutUndo();
+            EnemySetup.BindBat(bat.gameObject);
+            EnemySetup.EnsureArenaBounds(scene);
+            bool hasPortal = false;
+            foreach (GameObject root in scene.GetRootGameObjects())
+                if (root.name == "Stage Exit Portal") hasPortal = true;
+            if (!hasPortal) CreatePortal();
             EditorSceneManager.MarkSceneDirty(scene);
             if (!wasDirty) EditorSceneManager.SaveScene(scene);
         }
@@ -131,7 +123,9 @@ namespace WizardArena.EditorTools
 
             BindWizardCombat(controller);
 
-            CreateBatEnemy(wizard.GetComponent<Health>());
+            EnemySetup.CreateBat(new Vector3(4f, 1.5f, 0f));
+            EnemySetup.EnsureArenaBounds(scene);
+            CreatePortal();
             PlayerSetup.CreateLegacyHud(controller);
 
             EditorSceneManager.SaveScene(scene, ScenePath);
@@ -209,37 +203,6 @@ namespace WizardArena.EditorTools
             renderer.sortingOrder = -10;
         }
 
-        private static void CreateBatEnemy(Health wizardHealth)
-        {
-            GameObject bat = new GameObject("Bat Enemy");
-            bat.transform.position = new Vector3(4f, 1.5f, 0f);
-
-            SpriteRenderer renderer = bat.AddComponent<SpriteRenderer>();
-            Sprite firstFrame = LoadSprite(BatRoot + "/fly/cave_bat_fly_left_01.png");
-            renderer.sprite = firstFrame;
-            renderer.sortingOrder = 10;
-
-            CircleCollider2D collider = bat.AddComponent<CircleCollider2D>();
-            collider.isTrigger = true;
-            collider.radius = 0.45f;
-
-            Rigidbody2D rigidbody = bat.AddComponent<Rigidbody2D>();
-            rigidbody.bodyType = RigidbodyType2D.Kinematic;
-            rigidbody.gravityScale = 0f;
-
-            BatEnemyController controller = bat.AddComponent<BatEnemyController>();
-            SerializedObject serializedController = new SerializedObject(controller);
-            AssignSprites(serializedController.FindProperty("flyRightFrames"), BatRoot + "/fly/cave_bat_fly_right_0{0}.png", 2);
-            AssignSprites(serializedController.FindProperty("flyLeftFrames"), BatRoot + "/fly/cave_bat_fly_left_0{0}.png", 2);
-            serializedController.FindProperty("deadLeft").objectReferenceValue = LoadSprite(BatRoot + "/death/cave_bat_death_left_01.png");
-            serializedController.FindProperty("deadRight").objectReferenceValue = LoadSprite(BatRoot + "/death/cave_bat_death_right_01.png");
-            serializedController.FindProperty("hurtLeft").objectReferenceValue = LoadSprite(BatRoot + "/hurt/cave_bat_hurt_left_01.png");
-            serializedController.FindProperty("hurtRight").objectReferenceValue = LoadSprite(BatRoot + "/hurt/cave_bat_hurt_right_01.png");
-            serializedController.FindProperty("exitPortal").objectReferenceValue = CreatePortal();
-            serializedController.ApplyModifiedPropertiesWithoutUndo();
-            CombatSetup.BindBat(bat, wizardHealth);
-        }
-
         private static GameObject CreatePortal()
         {
             GameObject portal = new GameObject("Stage Exit Portal");
@@ -251,15 +214,6 @@ namespace WizardArena.EditorTools
             portal.transform.localScale = Vector3.one * portalScale;
             portal.SetActive(false);
             return portal;
-        }
-
-        private static void AssignSprites(SerializedProperty property, string pathPattern, int frameCount)
-        {
-            property.arraySize = frameCount;
-            for (int i = 0; i < frameCount; i++)
-            {
-                property.GetArrayElementAtIndex(i).objectReferenceValue = LoadSprite(string.Format(pathPattern, i + 1));
-            }
         }
 
     }

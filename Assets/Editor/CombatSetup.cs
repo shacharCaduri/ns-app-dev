@@ -1,7 +1,6 @@
 using UnityEditor;
 using UnityEngine;
 using WizardArena.Combat;
-using WizardArena.Enemies;
 
 namespace WizardArena.EditorTools
 {
@@ -30,17 +29,7 @@ namespace WizardArena.EditorTools
             launcher.ApplyModifiedPropertiesWithoutUndo();
         }
 
-        // contactTarget: the Health the bat hurts on touch (the wizard).
-        internal static void BindBat(GameObject bat, Health contactTarget)
-        {
-            HealthConfig healthConfig = LoadOrCreateHealth("BatHealth", 3, 0f);
-            BindHealth(bat.GetComponent<Health>(), healthConfig, Team.Enemy);
-            SerializedObject controller = new SerializedObject(bat.GetComponent<BatEnemyController>());
-            controller.FindProperty("target").objectReferenceValue = contactTarget;
-            controller.ApplyModifiedPropertiesWithoutUndo();
-        }
-
-        private static void BindHealth(Health health, HealthConfig config, Team team)
+        internal static void BindHealth(Health health, HealthConfig config, Team team)
         {
             SerializedObject data = new SerializedObject(health);
             data.FindProperty("config").objectReferenceValue = config;
@@ -48,7 +37,7 @@ namespace WizardArena.EditorTools
             data.ApplyModifiedPropertiesWithoutUndo();
         }
 
-        private static HealthConfig LoadOrCreateHealth(string assetName, int maxHealth, float invulnerabilitySeconds)
+        internal static HealthConfig LoadOrCreateHealth(string assetName, int maxHealth, float invulnerabilitySeconds)
         {
             string path = ConfigFolder + "/" + assetName + ".asset";
             HealthConfig config = AssetDatabase.LoadAssetAtPath<HealthConfig>(path);

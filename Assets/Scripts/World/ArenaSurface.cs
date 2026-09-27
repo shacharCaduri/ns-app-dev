@@ -27,6 +27,20 @@ namespace WizardArena.World
             return null;
         }
 
+        // The top of the highest walkable surface under the point (at or below it).
+        public static bool TryGetGroundBelow(Vector2 point, out float groundY)
+        {
+            groundY = float.NegativeInfinity;
+            foreach (ArenaSurface surface in Active)
+            {
+                if (!surface.walkable) continue;
+                Bounds b = surface.Bounds;
+                if (point.x < b.min.x || point.x > b.max.x || b.max.y > point.y) continue;
+                groundY = Mathf.Max(groundY, b.max.y);
+            }
+            return !float.IsNegativeInfinity(groundY);
+        }
+
         // Swept feet prevent landing through a platform even at low frame rates.
         public static Vector3 Move(Vector3 from, Vector3 to, ref float verticalSpeed, bool canStep)
         {

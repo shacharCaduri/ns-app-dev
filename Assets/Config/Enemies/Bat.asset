@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad3c38be9125489e9e5359d17842782, type: 3}
+  m_Name: Bat
+  m_EditorClassIdentifier: WizardArena.Runtime::WizardArena.Enemies.EnemyConfig
+  health: {fileID: 11400000, guid: ccbb92ef9b9f947b085914871f6fef82, type: 2}
+  moveSpeed: 2.2
+  turnInterval: {x: 1.2, y: 3}
+  minimumSideways: 0.35
+  contactDamage: 2
+  contactCooldown: 0.5
+  contactBounce: 0.45
+  turnIntervalAfterContact: {x: 1.2, y: 2.5}
+  hurtSeconds: 0.3
+  knockbackSpeed: 3
+  wobbleDegrees: 12
+  knockbackLift: 0.5
+  fleeSeconds: 0.7
+  fallGravity: 9
+  corpseHoldSeconds: 2
+  corpseFadeSeconds: 3
+  animationFramesPerSecond: 7
+  sprites:
+    moveRight:
+    - {fileID: 21300000, guid: 423bd29f126f745f99998ff55ff4356c, type: 3}
+    - {fileID: 21300000, guid: 648e6cf8edca540b48a0b975d5d32d7b, type: 3}
+    moveLeft:
+    - {fileID: 21300000, guid: ff27c85320cda4dbea0e5e0cba29593d, type: 3}
+    - {fileID: 21300000, guid: 3360fe515eab94dbb893cab58cd2da19, type: 3}
+    hurtRight: {fileID: 21300000, guid: 1ad1786de9cea4c8ea69c0c8e0ed5158, type: 3}
+    hurtLeft: {fileID: 21300000, guid: e45cfae7e44dc4f9a8c72c9bead52f41, type: 3}
+    deadRight: {fileID: 21300000, guid: 38bbdb0e1fa0f4858b6882cc6fb587c2, type: 3}
+    deadLeft: {fileID: 21300000, guid: 87559d954c61c44dd9f9324cd327f249, type: 3}
