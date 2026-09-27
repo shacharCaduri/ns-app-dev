@@ -1,0 +1,38 @@
+# Normalize text files to LF in the repository
+* text=auto eol=lf
+
+# Code and docs
+*.cs     text diff=csharp
+*.shader text
+*.hlsl   text
+*.cginc  text
+*.json   text
+*.md     text
+*.py     text diff=python
+*.swift  text
+
+# Unity YAML: merge with UnityYAMLMerge (see UNITY_SETUP.md), never auto-merge line by line
+*.unity      text merge=unityyamlmerge
+*.prefab     text merge=unityyamlmerge
+*.asset      text merge=unityyamlmerge
+*.mat        text merge=unityyamlmerge
+*.anim       text merge=unityyamlmerge
+*.controller text merge=unityyamlmerge
+*.overrideController text merge=unityyamlmerge
+*.physicsMaterial2D  text merge=unityyamlmerge
+*.spriteatlas        text merge=unityyamlmerge
+*.meta       text merge=unityyamlmerge
+
+# Binary assets
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.psd  binary
+*.aseprite binary
+*.gif  binary
+*.wav  binary
+*.mp3  binary
+*.ogg  binary
+*.ttf  binary
+*.otf  binary
+*.fbx  binary
