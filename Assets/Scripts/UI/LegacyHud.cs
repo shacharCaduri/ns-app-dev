@@ -1,7 +1,7 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using WizardArena.Combat;
 using WizardArena.Player;
+using WizardArena.Stage;
 
 namespace WizardArena.UI
 {
@@ -10,10 +10,11 @@ namespace WizardArena.UI
     public sealed class LegacyHud : MonoBehaviour
     {
         [SerializeField] private WizardController player;
+        [SerializeField] private GameSession session;
 
         private Health playerHealth;
         private PlayerHitFeedback hitFeedback;
-        private bool stageCleared;
+        private GameState state = GameState.Playing;
 
         private void Awake()
         {
@@ -23,18 +24,17 @@ namespace WizardArena.UI
 
         private void OnEnable()
         {
-            player.Vanished += OnPlayerVanished;
+            session.StateChanged += OnStateChanged;
         }
 
         private void OnDisable()
         {
-            player.Vanished -= OnPlayerVanished;
+            session.StateChanged -= OnStateChanged;
         }
 
-        // A vanish that wasn't a death means the wizard went through the portal.
-        private void OnPlayerVanished()
+        private void OnStateChanged(GameState newState)
         {
-            if (!playerHealth.IsDead) stageCleared = true;
+            state = newState;
         }
 
         private void OnGUI()
@@ -69,13 +69,14 @@ namespace WizardArena.UI
                 };
                 GUI.Label(new Rect(screenPosition.x - 70f, Screen.height - screenPosition.y - 25f, 140f, 50f), "BUMP!", bumpStyle);
             }
-            if (playerHealth.IsDead || stageCleared)
+            if (state != GameState.Playing)
                 DrawEndScreen();
         }
 
         private void DrawEndScreen()
         {
-            bool defeated = playerHealth.IsDead;
+            bool defeated = state == GameState.Defeated;
+            string headingText = defeated ? "GAME OVER" : state == GameState.Victory ? "VICTORY!" : "STAGE CLEARED";
             Color oldColor = GUI.color;
             Matrix4x4 oldMatrix = GUI.matrix;
             GUI.color = new Color(0.015f, 0.025f, 0.06f, 0.88f);
@@ -93,12 +94,11 @@ namespace WizardArena.UI
                 alignment = TextAnchor.MiddleCenter,
                 normal = { textColor = defeated ? new Color(1f, 0.3f, 0.35f) : new Color(0.4f, 1f, 0.75f) }
             };
-            GUI.Label(new Rect(-430f, -140f, 860f, 100f), defeated ? "GAME OVER" : "STAGE CLEARED", heading);
+            GUI.Label(new Rect(-430f, -140f, 860f, 100f), headingText, heading);
             GUIStyle button = new GUIStyle(GUI.skin.button) { fontSize = 28, fontStyle = FontStyle.Bold };
             if (GUI.Button(new Rect(-240f, 20f, 220f, 70f), "Retry", button))
             {
-                Time.timeScale = 1f;
-                SceneManager.LoadScene(gameObject.scene.path, LoadSceneMode.Single);
+                session.Retry();
             }
 #if UNITY_EDITOR
             if (GUI.Button(new Rect(20f, 20f, 220f, 70f), "Quit", button))

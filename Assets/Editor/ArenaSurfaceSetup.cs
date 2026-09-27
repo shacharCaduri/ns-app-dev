@@ -50,9 +50,10 @@ namespace WizardArena.EditorTools
             Add(group, art, "Right Ruin Ledge", 1438, 1672, 501, 531, true);
             Add(group, art, "Central Floating Platform", 951, 1225, 535, 570, true);
             Add(group, art, "Upper Floating Platform", 1250, 1457, 377, 410, true);
-            // Keep the stage exit on the unobstructed floor, away from the stairs.
+            // Keep the stage exit on the unobstructed floor, on the right side and well away
+            // from the wizard's spawn point (x = 0) so the two are never mistaken for each other.
             foreach (GameObject root in scene.GetRootGameObjects())
-                if (root.name == "Stage Exit Portal") root.transform.position = new Vector3(0.5f, art.max.y - 753f / 941f * art.size.y, 0f);
+                if (root.name == "Stage Exit Portal") root.transform.position = new Vector3(6.5f, art.max.y - 753f / 941f * art.size.y, 0f);
             EditorSceneManager.MarkSceneDirty(scene);
             if (!wasDirty) EditorSceneManager.SaveScene(scene);
         }

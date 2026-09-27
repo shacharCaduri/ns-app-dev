@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using WizardArena.Combat;
-using WizardArena.Stage;
 
 namespace WizardArena.Player
 {
@@ -39,7 +38,6 @@ namespace WizardArena.Player
             animator = GetComponent<PlayerAnimator>();
             hitFeedback = GetComponent<PlayerHitFeedback>();
             transitions = GetComponent<PlayerTransitions>();
-            if (GetComponent<StagePortalGate>() == null) gameObject.AddComponent<StagePortalGate>();
         }
 
         private void OnEnable()
