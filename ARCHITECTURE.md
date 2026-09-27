@@ -7,12 +7,12 @@ dependencies may point. Keep it short; update it when a rule changes.
 
 | Folder | Namespace | Assembly | What lives there |
 | --- | --- | --- | --- |
-| `Assets/Scripts/World/` | `WizardArena.World` | `WizardArena.Runtime` | Arena geometry (`ArenaSurface`), later hazards |
+| `Assets/Scripts/World/` | `WizardArena.World` | `WizardArena.Runtime` | Arena geometry (`ArenaSurface`, `ArenaBounds`), later hazards |
 | `Assets/Scripts/Combat/` | `WizardArena.Combat` | `WizardArena.Runtime` | `Health`, `IDamageable`, `DamageInfo`, `Team`, `Projectile` + `ProjectileLauncher` |
 | `Assets/Scripts/Player/` | `WizardArena.Player` | `WizardArena.Runtime` | The wizard: `WizardController` composes `PlayerMotor`, `PlayerCaster`, `PlayerAnimator`, `PlayerHitFeedback`, `PlayerTransitions`; input via `IPlayerInput` |
-| `Assets/Scripts/Enemies/` | `WizardArena.Enemies` | `WizardArena.Runtime` | Enemies (`BatEnemyController`) |
+| `Assets/Scripts/Enemies/` | `WizardArena.Enemies` | `WizardArena.Runtime` | Enemy framework (`Enemy`, `EnemyConfig`, `EnemyRegistry`, `ContactDamage`, states) and enemy types (`BatEnemyController`) |
 | `Assets/Scripts/Stage/` | `WizardArena.Stage` | `WizardArena.Runtime` | Stage flow, portal, game state (`StagePortalGate`) |
-| `Assets/Scripts/UI/` | `WizardArena.UI` | `WizardArena.Runtime` | HUD and screens (temporary `LegacyHud` until [09]) |
+| `Assets/Scripts/UI/` | `WizardArena.UI` | `WizardArena.Runtime` | HUD and screens (temporary `LegacyHud` and `WorldHealthBar` until [09]) |
 | `Assets/Scripts/Feedback/` | `WizardArena.Feedback` | `WizardArena.Runtime` | Hit-stop, shake, particles, sound (added in [14]) |
 | `Assets/Editor/` | `WizardArena.EditorTools` | `WizardArena.Editor` (Editor only) | Scene builder, menu items |
 | `Assets/Tests/EditMode/<Area>/` | `WizardArena.Tests.EditMode.<Area>` | `WizardArena.Tests.EditMode` | Fast logic tests, no scene |
@@ -84,6 +84,20 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
   `WizardController.UseInput(...)`, which tests use to script the wizard.
 - `PlayerTransitions` owns appear/vanish and turns `Health` off whenever the wizard is not in play.
 
+## Enemies
+
+- Every enemy has `Health` + `Enemy` (+ usually `ContactDamage`) and one `IEnemyBehaviour`
+  component that creates its main state (the bat: `BatEnemyController` -> flying wander).
+  `Enemy` runs a tiny `EnemyStateMachine`: main state, then the shared `HurtState` on every
+  accepted hit, then back to main or on to `DeadState` (fall, land, hold, fade, destroy).
+- Numbers and sprites come from an `EnemyConfig` asset in `Assets/Config/Enemies/`.
+- `EnemyRegistry` (static events `Spawned`/`Died`, `AliveCount`) is how other layers learn about
+  enemies. An enemy counts from `Awake` until its Health dies (not until the corpse is gone);
+  a deactivated enemy still counts.
+- Enemies move inside `ArenaBounds.Active.Area` (placed by the scene builder) and land on the
+  highest walkable `ArenaSurface` below them (`ArenaSurface.TryGetGroundBelow`).
+- `ContactDamage` hurts any `Health` of a hostile team its circle touches. No target reference.
+
 ## Tests
 
 - Unity Test Framework (NUnit). Run them with `Tools/unity/unity.sh test` or the Test Runner
@@ -105,9 +119,8 @@ The prototype predates these rules. Tickets fix them; don't copy these patterns.
 - `LegacyHud` (UI) is the old `OnGUI` HUD and end screen, moved out of the wizard as-is. It
   polls the player every frame and decides "stage cleared" itself ([08], [09]).
 - `WizardController` still adds `StagePortalGate` to itself in `Awake` ([08]).
-- `BatEnemyController` does its own contact-damage circle math against a serialized target
-  `Health` and draws its health bar in `OnGUI` ([07], [09]).
-- `StagePortalGate` polls `FindObjectsByType` every frame and is added by the wizard ([08]).
-- Tunable numbers are still serialized fields or constants in the enemy and stage behaviours
-  ([07], [08]). Health, projectile and player numbers live in `Assets/Config/Combat/` and
-  `Assets/Config/Player/`.
+- `WorldHealthBar` (the bat's HP bar) still draws with `OnGUI` ([09]).
+- `StagePortalGate` finds the portal with `FindObjectsByType` in `Start`, polls
+  `EnemyRegistry.AliveCount` every frame and is added by the wizard ([08]).
+- Tunable numbers are still serialized fields or constants in the stage behaviours ([08]).
+  Health, projectile, player and enemy numbers live in `Assets/Config/{Combat,Player,Enemies}/`.
