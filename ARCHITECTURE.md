@@ -100,6 +100,16 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 - Enemies move inside `ArenaBounds.Active.Area` (placed by the scene builder) and land on the
   highest walkable `ArenaSurface` below them (`ArenaSurface.TryGetGroundBelow`).
 - `ContactDamage` hurts any `Health` of a hostile team its circle touches. No target reference.
+- Ground-walking enemy types ([11]: `BlueSlimeController` -> `SlimeState`, `SkeletonWarriorController`
+  -> `SkeletonState`) share `GroundMotion`, a small helper that walks along `ArenaSurface` floors
+  and stairs using the same physics as the player (`ArenaSurface.Move`, gravity, stepping up small
+  stairs) and reports back when a ledge or a wall should turn the state around -- checked every
+  step regardless of whether the enemy is airborne, so a slime's hop cannot drift it past a ledge.
+- `PlayerSensor.TryFind(from, radius, out Health)` finds the nearest `Team.Player` `Health` with a
+  physics query, so a ground state can react to the wizard without ever referencing Player code.
+- Their prefabs live under `Assets/Prefabs/Enemies/` (`BlueSlime.prefab`, `SkeletonWarrior.prefab`),
+  built by `Assets/Editor/GroundEnemySetup.cs`. Not wired into the demo scene yet -- [10]'s
+  `StageDefinition` spawn lists instantiate them.
 
 ## Stage
 

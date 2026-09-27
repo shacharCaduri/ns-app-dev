@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad3c38be9125489e9e5359d17842782, type: 3}
+  m_Name: SkeletonWarrior
+  m_EditorClassIdentifier: WizardArena.Runtime::WizardArena.Enemies.EnemyConfig
+  health: {fileID: 11400000, guid: f09f45c241bdd4525879829e85da5852, type: 2}
+  moveSpeed: 1.1
+  turnInterval: {x: 1.2, y: 3}
+  minimumSideways: 0.35
+  contactDamage: 1
+  contactCooldown: 0.6
+  contactBounce: 0.45
+  turnIntervalAfterContact: {x: 1.2, y: 2.5}
+  hurtSeconds: 0.3
+  knockbackSpeed: 3
+  wobbleDegrees: 12
+  knockbackLift: 0.5
+  fleeSeconds: 0.7
+  fallGravity: 9
+  corpseHoldSeconds: 2
+  corpseFadeSeconds: 3
+  gravity: 9
+  chaseRange: 3.5
+  meleeRange: 0.9
+  meleeDamage: 2
+  attackWindUpSeconds: 0.5
+  attackRecoverSeconds: 0.5
+  hopInterval: 0.45
+  hopSpeed: 3.2
+  animationFramesPerSecond: 7
+  sprites:
+    moveRight:
+    - {fileID: 21300000, guid: 68a405ab7f0bc48eda0987521c590d6f, type: 3}
+    - {fileID: 21300000, guid: 75bf59a2724a0462c9e1a65e575a2b8a, type: 3}
+    moveLeft:
+    - {fileID: 21300000, guid: dcd67a584ff9248adb4014025e423b0a, type: 3}
+    - {fileID: 21300000, guid: dec5c5e5d1f9d49bb87b78c5dee446c8, type: 3}
+    hurtRight: {fileID: 21300000, guid: 7742277cd718c4e908451b7e06a72d67, type: 3}
+    hurtLeft: {fileID: 21300000, guid: 5bfd61bf335a749b28f7fa87d9b87bfa, type: 3}
+    deadRight: {fileID: 21300000, guid: 0c5dd21a25c894eac89206403ba43354, type: 3}
+    deadLeft: {fileID: 21300000, guid: 9c3cef2c0910a4e6c83d0d60b7eb40be, type: 3}
+    attackRight: {fileID: 21300000, guid: 824f5213d50fa4a658b057021b938ee7, type: 3}
+    attackLeft: {fileID: 21300000, guid: 5332865a2c04b4f9387ea5429dc51f48, type: 3}

@@ -41,6 +41,23 @@ namespace WizardArena.Enemies
         [SerializeField, Min(0f)] private float corpseHoldSeconds = 2f;
         [SerializeField, Min(0.01f)] private float corpseFadeSeconds = 3f;
 
+        [Header("Ground movement")]
+        [Tooltip("Used by ground-walking states (GroundMotion) while alive; flying enemies ignore it.")]
+        [SerializeField, Min(0f)] private float gravity = 9f;
+        [Tooltip("Distance at which a ground enemy notices the wizard and starts reacting (slime: hops closer; skeleton: approaches).")]
+        [SerializeField, Min(0f)] private float chaseRange = 3f;
+
+        [Header("Melee (skeleton warrior)")]
+        [SerializeField, Min(0f)] private float meleeRange = 1f;
+        [SerializeField, Min(0)] private int meleeDamage = 2;
+        [Tooltip("How long the wind-up pose is held before the swing lands, so the player can react.")]
+        [SerializeField, Min(0f)] private float attackWindUpSeconds = 0.5f;
+        [SerializeField, Min(0f)] private float attackRecoverSeconds = 0.5f;
+
+        [Header("Hop (blue slime)")]
+        [SerializeField, Min(0.01f)] private float hopInterval = 0.45f;
+        [SerializeField, Min(0f)] private float hopSpeed = 3.2f;
+
         [Header("Art")]
         [SerializeField, Min(0.1f)] private float animationFramesPerSecond = 7f;
         [SerializeField] private EnemySprites sprites = new EnemySprites();
@@ -61,6 +78,14 @@ namespace WizardArena.Enemies
         public float FallGravity => fallGravity;
         public float CorpseHoldSeconds => corpseHoldSeconds;
         public float CorpseFadeSeconds => corpseFadeSeconds;
+        public float Gravity => gravity;
+        public float ChaseRange => chaseRange;
+        public float MeleeRange => meleeRange;
+        public int MeleeDamage => meleeDamage;
+        public float AttackWindUpSeconds => attackWindUpSeconds;
+        public float AttackRecoverSeconds => attackRecoverSeconds;
+        public float HopInterval => hopInterval;
+        public float HopSpeed => hopSpeed;
         public float AnimationFramesPerSecond => animationFramesPerSecond;
         public EnemySprites Sprites => sprites;
 
@@ -83,9 +108,13 @@ namespace WizardArena.Enemies
         [SerializeField] private Sprite hurtLeft;
         [SerializeField] private Sprite deadRight;
         [SerializeField] private Sprite deadLeft;
+        [SerializeField] private Sprite attackRight;
+        [SerializeField] private Sprite attackLeft;
 
         public Sprite[] Move(bool facingRight) => facingRight ? moveRight : moveLeft;
         public Sprite Hurt(bool facingRight) => facingRight ? hurtRight : hurtLeft;
         public Sprite Dead(bool facingRight) => facingRight ? deadRight : deadLeft;
+        // Single wind-up/attack pose (also doubles as the slime's hop pose); no animation.
+        public Sprite Attack(bool facingRight) => facingRight ? attackRight : attackLeft;
     }
 }

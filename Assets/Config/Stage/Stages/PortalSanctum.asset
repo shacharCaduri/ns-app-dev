@@ -19,11 +19,11 @@ MonoBehaviour:
   - prefab: {fileID: 1649271061897662705, guid: d5ae40a43d1b6444fb1ecf507b753ee3, type: 3}
     position: {x: -5, y: 0.2, z: 0}
   - prefab: {fileID: 1649271061897662705, guid: d5ae40a43d1b6444fb1ecf507b753ee3, type: 3}
-    position: {x: -2.5, y: 2.8, z: 0}
-  - prefab: {fileID: 1649271061897662705, guid: d5ae40a43d1b6444fb1ecf507b753ee3, type: 3}
     position: {x: 0, y: 0.8, z: 0}
   - prefab: {fileID: 1649271061897662705, guid: d5ae40a43d1b6444fb1ecf507b753ee3, type: 3}
-    position: {x: 2.5, y: 2.8, z: 0}
-  - prefab: {fileID: 1649271061897662705, guid: d5ae40a43d1b6444fb1ecf507b753ee3, type: 3}
     position: {x: 5, y: 0.2, z: 0}
+  - prefab: {fileID: 8282275082414133679, guid: 5b047c1f2d13948c2bae41c23e5ff42c, type: 3}
+    position: {x: -2, y: -2.4, z: 0}
+  - prefab: {fileID: 3887893716096323123, guid: 879f924a1764c471b8dd80e3367b130e, type: 3}
+    position: {x: 3, y: -2.4, z: 0}
   propSpawns: []

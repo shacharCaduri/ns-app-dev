@@ -112,15 +112,19 @@ namespace WizardArena.EditorTools
             return config;
         }
 
-        // Three stages of growing difficulty, all using bats until [11] adds new monster
-        // types to stages 2-3. Built once; the assets can be hand-tuned afterwards.
+        // Three stages of growing difficulty: stage 1 is bats only; [11] added the blue slime
+        // and skeleton warrior to stages 2-3, trading some bats for them so the total enemy
+        // count per stage is unchanged. The StageSequence and its three StageDefinition
+        // assets are built once (Create/CreateAsset only run when missing), but stages 2/3's
+        // enemySpawns are re-applied on every call via SetEnemySpawns so the composition
+        // below is always what ends up in the assets -- idempotent, and it deliberately
+        // updates the pre-[11] assets rather than only appending to whatever is there.
         private static StageSequence LoadOrCreateSequence()
         {
-            StageSequence sequence = AssetDatabase.LoadAssetAtPath<StageSequence>(SequencePath);
-            if (sequence != null) return sequence;
-
             GameObject bat = EnemySetup.LoadOrCreateBatPrefab();
             GameObject batSwift = EnemySetup.LoadOrCreateBatSwiftPrefab();
+            GameObject slime = GroundEnemySetup.LoadOrCreateSlimePrefab();
+            GameObject skeleton = GroundEnemySetup.LoadOrCreateSkeletonPrefab();
 
             StageDefinition ruinsAntechamber = LoadOrCreateStage("RuinsAntechamber", "Ruins Antechamber",
                 PlayerSpawn, new Vector3(5.5f, -2.4f, 0f),
@@ -134,6 +138,13 @@ namespace WizardArena.EditorTools
                     EnemySpawn.At(batSwift, new Vector3(0f, 2.6f, 0f)),
                     EnemySpawn.At(batSwift, new Vector3(4f, 0.5f, 0f)),
                 });
+            SetEnemySpawns(mossyBridge, new[]
+            {
+                EnemySpawn.At(batSwift, new Vector3(-4f, 0.5f, 0f)),
+                EnemySpawn.At(batSwift, new Vector3(4f, 0.5f, 0f)),
+                // On the floor, clear of the stairs on either side and of the wizard's spawn.
+                EnemySpawn.At(slime, new Vector3(2.8f, -2.4f, 0f)),
+            });
 
             StageDefinition portalSanctum = LoadOrCreateStage("PortalSanctum", "Portal Sanctum",
                 PlayerSpawn, new Vector3(5.5f, -2.4f, 0f),
@@ -145,11 +156,41 @@ namespace WizardArena.EditorTools
                     EnemySpawn.At(batSwift, new Vector3(2.5f, 2.8f, 0f)),
                     EnemySpawn.At(batSwift, new Vector3(5f, 0.2f, 0f)),
                 });
+            SetEnemySpawns(portalSanctum, new[]
+            {
+                EnemySpawn.At(batSwift, new Vector3(-5f, 0.2f, 0f)),
+                EnemySpawn.At(batSwift, new Vector3(0f, 0.8f, 0f)),
+                EnemySpawn.At(batSwift, new Vector3(5f, 0.2f, 0f)),
+                // On the floor, clear of the stairs, spread out on either side of the spawn.
+                EnemySpawn.At(slime, new Vector3(-2f, -2.4f, 0f)),
+                EnemySpawn.At(skeleton, new Vector3(3f, -2.4f, 0f)),
+            });
+
+            StageSequence sequence = AssetDatabase.LoadAssetAtPath<StageSequence>(SequencePath);
+            if (sequence != null) return sequence;
 
             sequence = StageSequence.Create(new[] { ruinsAntechamber, mossyBridge, portalSanctum });
             EnsureFolders(ConfigFolder);
             AssetDatabase.CreateAsset(sequence, SequencePath);
             return sequence;
+        }
+
+        // Deliberately overwrites a stage's enemySpawns to the given list (used for stages
+        // whose composition [11] changed) -- idempotent, unlike LoadOrCreateStage which only
+        // sets its initial spawns once and otherwise leaves an existing asset untouched.
+        private static void SetEnemySpawns(StageDefinition stage, EnemySpawn[] spawns)
+        {
+            SerializedObject data = new SerializedObject(stage);
+            SerializedProperty property = data.FindProperty("enemySpawns");
+            property.arraySize = spawns.Length;
+            for (int i = 0; i < spawns.Length; i++)
+            {
+                SerializedProperty element = property.GetArrayElementAtIndex(i);
+                element.FindPropertyRelative("prefab").objectReferenceValue = spawns[i].Prefab;
+                element.FindPropertyRelative("position").vector3Value = spawns[i].Position;
+            }
+            data.ApplyModifiedPropertiesWithoutUndo();
+            EditorUtility.SetDirty(stage);
         }
 
         private static StageDefinition LoadOrCreateStage(string assetName, string displayName,
