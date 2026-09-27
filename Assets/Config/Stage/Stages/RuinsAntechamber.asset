@@ -18,4 +18,8 @@ MonoBehaviour:
   enemySpawns:
   - prefab: {fileID: 6775448477126298904, guid: 8f5be0ed1b66040349af441206aaa36d, type: 3}
     position: {x: 4, y: 1.5, z: 0}
-  propSpawns: []
+  propSpawns:
+  - prefab: {fileID: 3507658518745279286, guid: 7cc50199fd8904be9ae86b2aef42ddcb, type: 3}
+    position: {x: 2, y: -2.4, z: 0}
+  - prefab: {fileID: 3744085842778024031, guid: 4344ee544229d44b284f153787dda082, type: 3}
+    position: {x: -1.2, y: -2.4, z: 0}

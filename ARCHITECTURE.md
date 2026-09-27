@@ -7,10 +7,11 @@ dependencies may point. Keep it short; update it when a rule changes.
 
 | Folder | Namespace | Assembly | What lives there |
 | --- | --- | --- | --- |
-| `Assets/Scripts/World/` | `WizardArena.World` | `WizardArena.Runtime` | Arena geometry (`ArenaSurface`, `ArenaBounds`), later hazards |
+| `Assets/Scripts/World/` | `WizardArena.World` | `WizardArena.Runtime` | Arena geometry (`ArenaSurface`, `ArenaBounds`) |
 | `Assets/Scripts/Combat/` | `WizardArena.Combat` | `WizardArena.Runtime` | `Health`, `IDamageable`, `DamageInfo`, `Team`, `Projectile` + `ProjectileLauncher` |
 | `Assets/Scripts/Player/` | `WizardArena.Player` | `WizardArena.Runtime` | The wizard: `WizardController` composes `PlayerMotor`, `PlayerCaster`, `PlayerAnimator`, `PlayerHitFeedback`, `PlayerTransitions`; input via `IPlayerInput` |
 | `Assets/Scripts/Enemies/` | `WizardArena.Enemies` | `WizardArena.Runtime` | Enemy framework (`Enemy`, `EnemyConfig`, `EnemyRegistry`, `ContactDamage`, states) and enemy types (`BatEnemyController`) |
+| `Assets/Scripts/Hazards/` | `WizardArena.Hazards` | `WizardArena.Runtime` | Environmental hazards (`SpikeHazard`, `ExplosiveHazard`) as self-contained prefabs |
 | `Assets/Scripts/Stage/` | `WizardArena.Stage` | `WizardArena.Runtime` | Stage flow, portal, game state and progression (`GameSession`, `StageManager`, `StagePortal`, `StageRunner`, `StageDefinition`, `StageSequence`) |
 | `Assets/Scripts/UI/` | `WizardArena.UI` | `WizardArena.Runtime` | HUD, enemy HP bars and screens (UI Toolkit); UXML/USS under `Assets/UI/` |
 | `Assets/Scripts/Feedback/` | `WizardArena.Feedback` | `WizardArena.Runtime` | Hit-stop, shake, particles, sound (added in [14]) |
@@ -27,18 +28,23 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 ```
             UI      Feedback          (listen only; nothing depends on them)
               \      /
-               Stage                  (game flow: listens to Player/Enemies events)
-              /     \
-         Player    Enemies            (never reference each other's concrete classes)
-              \     /
+               Stage                  (game flow: places hazards, listens to Player/Enemies events)
+              /  |   \
+         Player  |  Enemies           (never reference each other's concrete classes)
+              \  |   /
+              Hazards                 (spikes, explosive crystal/barrel -- never Player/Enemies/Stage)
+                 |
               Combat                  (health, damage, projectiles)
                  |
-               World                  (surfaces, hazards)
+               World                  (surfaces)
 ```
 
 - A layer may use the layers **below** it, never the ones above.
-- **Combat** knows nothing about Player or Enemies. It defines small interfaces
-  (e.g. something that can take damage) that Player and Enemies implement.
+- **Combat** knows nothing about Player, Enemies or Hazards. It defines small interfaces
+  (e.g. something that can take damage) that they implement or call into.
+- **Hazards** only use Combat/World (`Health`, `DamageInfo`, `Team.Neutral`). They never
+  reference Player, Enemies or Stage, so a spike or an explosion hurts anyone through the same
+  damage API a projectile uses. They are built as self-contained prefabs and placed by Stage.
 - **Player and Enemies** do not reference each other. An enemy that needs a target gets it
   through a Combat interface or a serialized reference set by the scene builder.
 - **Stage** reacts to events (enemy defeated, player defeated) instead of polling.
@@ -111,6 +117,27 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
   built by `Assets/Editor/GroundEnemySetup.cs`. Not wired into the demo scene yet -- [10]'s
   `StageDefinition` spawn lists instantiate them.
 
+## Hazards
+
+- Self-contained prefabs under `Assets/Prefabs/Hazards/`, built by `Assets/Editor/HazardSetup.cs`
+  (menu **Wizard Prototype > Build Hazard Prefabs**, or headless via `-executeMethod
+  WizardArena.EditorTools.HazardSetup.BuildPrefabsFromCommandLine`). They use only Combat/World
+  (`Health`, `DamageInfo`, `Team.Neutral`) and never reference Player, Enemies or Stage, so the
+  same hazard hurts the wizard or an enemy through the same damage API a projectile uses.
+- `SpikeHazard`: a `Collider2D` trigger area that damages any `Health` touching it
+  (`SpikeHazardConfig`: `Damage`, `CooldownSeconds`). It tracks its own per-target cooldown
+  (a `Dictionary<Health, float>`) independent of that `Health`'s invulnerability window, so it
+  does not re-hit the same target every frame but still hits a different target immediately.
+- `ExplosiveHazard`: has a small `Health` (`Team.Neutral`, 1 HP) so a single bolt or hit pops it;
+  on `Health.Died` it deals one area hit (`ExplosiveHazardConfig`: `Damage`, `Radius`) to every
+  `Health` in range exactly once (enemies included -- shooting it into a crowd is worth it),
+  plays a short flash/scale, then destroys itself. Two prefabs (`ExplosiveCrystal`,
+  `ExplosiveBarrel`) share the one component with different art.
+- Placed per stage via `StageDefinition.PropSpawns` (`StageSetup.SetPropSpawns`, the same
+  idempotent-overwrite pattern as `SetEnemySpawns`): a few spikes/explosive props on the floor
+  in each of the three stages, positioned to be a choice (route around, or shoot) rather than
+  unavoidable, and close enough to a ground enemy in stages 2-3 that an explosion can catch it.
+
 ## Stage
 
 - `GameSession` (one per scene) holds `GameState` (`Playing`, `Defeated`, `StageCleared`,
@@ -136,8 +163,8 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
   for anything else that wants to react (sound, UI).
 - `StageDefinition` (ScriptableObject, `Assets/Config/Stage/Stages/`): a stage's `DisplayName`,
   `PlayerSpawn`, `PortalPosition`, `EnemySpawns` (`EnemySpawn`: a prefab + a position) and
-  `PropSpawns` (`PropSpawn`: same shape -- a placement hook for hazards/pickups, [12]/[13],
-  spawned the same way but nothing populates it yet). `StageSequence` (`Assets/Config/Stage/
+  `PropSpawns` (`PropSpawn`: same shape -- hazards ([12]) and pickups ([13]), spawned the same
+  way as enemies). `StageSequence` (`Assets/Config/Stage/
   StageSequence.asset`) is the ordered list of stages played front to back.
 - `StageRunner` (one per scene, on "Game Session") plays a `StageSequence` inside this one
   scene -- no scene reload for progression. On every stage start (`Awake` for the first stage;

@@ -119,16 +119,28 @@ namespace WizardArena.EditorTools
         // enemySpawns are re-applied on every call via SetEnemySpawns so the composition
         // below is always what ends up in the assets -- idempotent, and it deliberately
         // updates the pre-[11] assets rather than only appending to whatever is there.
+        // [12] adds a few hazards (SetPropSpawns, same idempotent pattern) on the floor
+        // between the wizard's spawn and the portal -- never on top of either, and placed so
+        // a nearby ground enemy can be caught in an explosive's blast if the player is clever.
         private static StageSequence LoadOrCreateSequence()
         {
             GameObject bat = EnemySetup.LoadOrCreateBatPrefab();
             GameObject batSwift = EnemySetup.LoadOrCreateBatSwiftPrefab();
             GameObject slime = GroundEnemySetup.LoadOrCreateSlimePrefab();
             GameObject skeleton = GroundEnemySetup.LoadOrCreateSkeletonPrefab();
+            GameObject spikes = HazardSetup.LoadOrCreateSpikesPrefab();
+            GameObject explosiveCrystal = HazardSetup.LoadOrCreateExplosiveCrystalPrefab();
+            GameObject explosiveBarrel = HazardSetup.LoadOrCreateExplosiveBarrelPrefab();
 
             StageDefinition ruinsAntechamber = LoadOrCreateStage("RuinsAntechamber", "Ruins Antechamber",
                 PlayerSpawn, new Vector3(5.5f, -2.4f, 0f),
                 new[] { EnemySpawn.At(bat, new Vector3(4f, 1.5f, 0f)) });
+            SetPropSpawns(ruinsAntechamber, new[]
+            {
+                // Between the spawn and the bat: a first taste of "walk around or shoot it".
+                PropSpawn.At(spikes, new Vector3(2f, -2.4f, 0f)),
+                PropSpawn.At(explosiveBarrel, new Vector3(-1.2f, -2.4f, 0f)),
+            });
 
             StageDefinition mossyBridge = LoadOrCreateStage("MossyBridge", "Mossy Bridge",
                 PlayerSpawn, new Vector3(6.5f, -2.4f, 0f),
@@ -144,6 +156,12 @@ namespace WizardArena.EditorTools
                 EnemySpawn.At(batSwift, new Vector3(4f, 0.5f, 0f)),
                 // On the floor, clear of the stairs on either side and of the wizard's spawn.
                 EnemySpawn.At(slime, new Vector3(2.8f, -2.4f, 0f)),
+            });
+            SetPropSpawns(mossyBridge, new[]
+            {
+                PropSpawn.At(spikes, new Vector3(-1f, -2.4f, 0f)),
+                // Close enough to the slime's patrol that popping it can catch the slime too.
+                PropSpawn.At(explosiveCrystal, new Vector3(1.5f, -2.4f, 0f)),
             });
 
             StageDefinition portalSanctum = LoadOrCreateStage("PortalSanctum", "Portal Sanctum",
@@ -165,6 +183,12 @@ namespace WizardArena.EditorTools
                 EnemySpawn.At(slime, new Vector3(-2f, -2.4f, 0f)),
                 EnemySpawn.At(skeleton, new Vector3(3f, -2.4f, 0f)),
             });
+            SetPropSpawns(portalSanctum, new[]
+            {
+                // A chokepoint before the skeleton, and a crystal within blast range of the slime.
+                PropSpawn.At(spikes, new Vector3(1f, -2.4f, 0f)),
+                PropSpawn.At(explosiveCrystal, new Vector3(-1f, -2.4f, 0f)),
+            });
 
             StageSequence sequence = AssetDatabase.LoadAssetAtPath<StageSequence>(SequencePath);
             if (sequence != null) return sequence;
@@ -182,6 +206,22 @@ namespace WizardArena.EditorTools
         {
             SerializedObject data = new SerializedObject(stage);
             SerializedProperty property = data.FindProperty("enemySpawns");
+            property.arraySize = spawns.Length;
+            for (int i = 0; i < spawns.Length; i++)
+            {
+                SerializedProperty element = property.GetArrayElementAtIndex(i);
+                element.FindPropertyRelative("prefab").objectReferenceValue = spawns[i].Prefab;
+                element.FindPropertyRelative("position").vector3Value = spawns[i].Position;
+            }
+            data.ApplyModifiedPropertiesWithoutUndo();
+            EditorUtility.SetDirty(stage);
+        }
+
+        // Same idempotent overwrite as SetEnemySpawns, for a stage's hazards/pickups.
+        private static void SetPropSpawns(StageDefinition stage, PropSpawn[] spawns)
+        {
+            SerializedObject data = new SerializedObject(stage);
+            SerializedProperty property = data.FindProperty("propSpawns");
             property.arraySize = spawns.Length;
             for (int i = 0; i < spawns.Length; i++)
             {
