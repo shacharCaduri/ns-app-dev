@@ -69,6 +69,18 @@ namespace WizardArena.Player
             BeginVanishing(destination);
         }
 
+        // Moves the wizard to a stage's spawn point, restores full health and replays the
+        // appear transition. Used by StageRunner when a stage starts or restarts.
+        public void Respawn(Vector3 position)
+        {
+            health.Revive();
+            caster.Cancel();
+            hitFeedback.Cancel();
+            animator.ShowIdle();
+            motor.ResetVelocity();
+            transitions.Respawn(position);
+        }
+
         private void Update()
         {
             float deltaTime = Time.deltaTime;

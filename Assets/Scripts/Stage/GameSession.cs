@@ -14,18 +14,32 @@ namespace WizardArena.Stage
         public GameState State { get; private set; } = GameState.Playing;
         public bool IsPlaying => State == GameState.Playing;
 
-        // Restarts the stage from scratch (reloads the scene), in any state.
+        // What Retry/Continue actually do, supplied by StageRunner (same assembly) in its
+        // Awake. Left null -- e.g. a scene with no StageRunner -- both fall back to reloading
+        // the scene from scratch.
+        internal IStageProgression Progression { get; set; }
+
+        // Restarts the current stage, in any state.
         public void Retry()
         {
             Time.timeScale = 1f;
+            if (Progression != null)
+            {
+                Progression.RestartCurrentStage();
+                return;
+            }
             SceneManager.LoadScene(gameObject.scene.path, LoadSceneMode.Single);
         }
 
-        // Goes on to the next stage. There is only one stage until [10] adds real progression,
-        // so for now this just replays it, same as Retry. Ignored unless the stage was cleared.
+        // Goes on to the next stage. Ignored unless the stage was cleared.
         public void Continue()
         {
             if (State != GameState.StageCleared) return;
+            if (Progression != null)
+            {
+                Progression.AdvanceToNextStage();
+                return;
+            }
             Retry();
         }
 
@@ -36,6 +50,15 @@ namespace WizardArena.Stage
             State = outcome;
             StateChanged?.Invoke(outcome);
             return true;
+        }
+
+        // Called by StageRunner right before it (re)spawns a stage, so any end screen hides
+        // and the run continues. Ignored if already Playing (e.g. the very first stage).
+        internal void BeginStage()
+        {
+            if (State == GameState.Playing) return;
+            State = GameState.Playing;
+            StateChanged?.Invoke(GameState.Playing);
         }
     }
 }

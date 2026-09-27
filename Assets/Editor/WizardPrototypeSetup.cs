@@ -4,7 +4,6 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using WizardArena.Combat;
-using WizardArena.Enemies;
 using WizardArena.Player;
 
 namespace WizardArena.EditorTools
@@ -46,15 +45,15 @@ namespace WizardArena.EditorTools
             Scene scene = SceneManager.GetActiveScene();
             if (scene.path != ScenePath) return;
             WizardController wizard = Object.FindFirstObjectByType<WizardController>();
-            BatEnemyController bat = Object.FindFirstObjectByType<BatEnemyController>();
-            if (wizard == null || bat == null) return;
+            if (wizard == null) return;
             bool wasDirty = scene.isDirty;
             ConfigureSpriteTextures(WizardRoot, new Vector2(0.5f, 0.015625f));
             ConfigureSpriteTextures(BatRoot, new Vector2(0.5f, 0.5f));
             ConfigureSpriteTextures("Assets/Art/Effects/Projectiles", new Vector2(0.5f, 0.5f));
             ConfigureSpriteTextures("Assets/Art/Environments/Portals", new Vector2(0.5f, 0f));
             BindWizardCombat(wizard);
-            EnemySetup.BindBat(bat.gameObject);
+            EnemySetup.LoadOrCreateBatPrefab();
+            EnemySetup.LoadOrCreateBatSwiftPrefab();
             EnemySetup.EnsureArenaBounds(scene);
             bool hasPortal = false;
             foreach (GameObject root in scene.GetRootGameObjects())
@@ -125,7 +124,8 @@ namespace WizardArena.EditorTools
 
             BindWizardCombat(controller);
 
-            EnemySetup.CreateBat(new Vector3(4f, 1.5f, 0f));
+            EnemySetup.LoadOrCreateBatPrefab();
+            EnemySetup.LoadOrCreateBatSwiftPrefab();
             EnemySetup.EnsureArenaBounds(scene);
             CreatePortal();
             StageSetup.Bind(scene, controller);

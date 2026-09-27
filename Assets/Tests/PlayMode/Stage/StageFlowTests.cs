@@ -88,18 +88,23 @@ namespace WizardArena.Tests.PlayMode.Stage
         }
 
         [UnityTest]
-        public IEnumerator Retry_ReloadsTheStage_BackToPlaying()
+        public IEnumerator Retry_RestartsTheStage_BackToPlaying_WithAFreshBat()
         {
+            // [10]: Retry restarts the current stage in place (StageRunner), not a scene
+            // reload -- the bat above died with it, so a fresh one confirms the restart really
+            // re-spawned the stage's enemies rather than just flipping the state back.
+            yield return KillBat(bat);
+            Assert.AreEqual(0, EnemyRegistry.AliveCount);
+
             wizard.GetComponent<Health>().TakeDamage(new DamageInfo(100, wizard.transform.position, null, Team.Enemy));
             Assert.AreEqual(GameState.Defeated, session.State);
 
             session.Retry();
             yield return null;
-            yield return null;
 
-            GameSession reloaded = Object.FindFirstObjectByType<GameSession>();
-            Assert.IsNotNull(reloaded);
-            Assert.AreEqual(GameState.Playing, reloaded.State);
+            Assert.AreEqual(GameState.Playing, session.State);
+            Assert.AreEqual(1, EnemyRegistry.AliveCount, "stage 1's one bat is back");
+            Assert.IsFalse(portal.IsOpen);
         }
     }
 }

@@ -11,7 +11,7 @@ dependencies may point. Keep it short; update it when a rule changes.
 | `Assets/Scripts/Combat/` | `WizardArena.Combat` | `WizardArena.Runtime` | `Health`, `IDamageable`, `DamageInfo`, `Team`, `Projectile` + `ProjectileLauncher` |
 | `Assets/Scripts/Player/` | `WizardArena.Player` | `WizardArena.Runtime` | The wizard: `WizardController` composes `PlayerMotor`, `PlayerCaster`, `PlayerAnimator`, `PlayerHitFeedback`, `PlayerTransitions`; input via `IPlayerInput` |
 | `Assets/Scripts/Enemies/` | `WizardArena.Enemies` | `WizardArena.Runtime` | Enemy framework (`Enemy`, `EnemyConfig`, `EnemyRegistry`, `ContactDamage`, states) and enemy types (`BatEnemyController`) |
-| `Assets/Scripts/Stage/` | `WizardArena.Stage` | `WizardArena.Runtime` | Stage flow, portal, game state (`GameSession`, `StageManager`, `StagePortal`) |
+| `Assets/Scripts/Stage/` | `WizardArena.Stage` | `WizardArena.Runtime` | Stage flow, portal, game state and progression (`GameSession`, `StageManager`, `StagePortal`, `StageRunner`, `StageDefinition`, `StageSequence`) |
 | `Assets/Scripts/UI/` | `WizardArena.UI` | `WizardArena.Runtime` | HUD, enemy HP bars and screens (UI Toolkit); UXML/USS under `Assets/UI/` |
 | `Assets/Scripts/Feedback/` | `WizardArena.Feedback` | `WizardArena.Runtime` | Hit-stop, shake, particles, sound (added in [14]) |
 | `Assets/Editor/` | `WizardArena.EditorTools` | `WizardArena.Editor` (Editor only) | Scene builder, menu items |
@@ -83,6 +83,9 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 - Input comes from any `IPlayerInput` component (`KeyboardPlayerInput` in the scene) or
   `WizardController.UseInput(...)`, which tests use to script the wizard.
 - `PlayerTransitions` owns appear/vanish and turns `Health` off whenever the wizard is not in play.
+- `WizardController.Respawn(position)` moves the wizard to a stage's spawn point, revives its
+  `Health` and replays the appear transition (`PlayerTransitions.Respawn`) from any state --
+  used by `StageRunner` when a stage starts or restarts.
 
 ## Enemies
 
@@ -102,30 +105,57 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 
 - `GameSession` (one per scene) holds `GameState` (`Playing`, `Defeated`, `StageCleared`,
   `Victory`) and raises `StateChanged` when it changes. Anyone may read `State` and call the
-  commands `Retry()` (reload the scene) and `Continue()`; only `StageManager` and `StagePortal`
-  are allowed to end the run (`End(GameState)` is `internal`). `Continue()` currently just calls
-  `Retry()` (there is only one stage) — [10] replaces it with real stage progression.
+  commands `Retry()` and `Continue()`; only `StageManager` and `StagePortal` are allowed to end
+  the run (`End(GameState)` is `internal`). Both commands delegate to `StageRunner` through the
+  internal `IStageProgression` seam (`GameSession.Progression`, set by `StageRunner.Awake`): a
+  scene with no `StageRunner` falls back to reloading itself. `Retry()` restarts the CURRENT
+  stage in place (no scene reload); `Continue()` (only valid from `StageCleared`) advances to
+  the next one. `GameSession.BeginStage()` (internal) flips the state back to `Playing` and
+  raises `StateChanged(Playing)` so the end screen hides -- called by `StageRunner`, not raised
+  for the very first stage.
 - `StageManager` listens to `EnemyRegistry.Died`/`AliveCount` and opens the `StagePortal` once
   every enemy is dead (including zero enemies at scene start), and listens to the wizard's
-  `Health.Died` to end the run in `Defeated`.
+  `Health.Died` to end the run in `Defeated`. It is stage-agnostic: `StageRunner` spawning a new
+  batch of enemies just gives it a new count to watch.
 - `StagePortal` sits on the exit portal object. Hidden until `Open()`, it grows and fades in
   over `StagePortalConfig.RevealSeconds` (0.8 s, scale 0.7 -> 1). Once fully revealed, the wizard
   standing within `EntryHalfSize` (0.65, 0.5) of it is drawn in through
   `WizardController.EnterPortal`; when the wizard's `Vanished` event then fires, the portal ends
-  the run in `StageCleared` itself (`GameSession.End`) and raises its own `PlayerEntered`/
-  `PlayerExited` events for anything else that wants to react (sound, UI, [10] progression).
+  the run with `ClearOutcome` (internal; `StageCleared` for any stage but the last, `Victory`
+  for the last -- set by `StageRunner`) and raises its own `PlayerEntered`/`PlayerExited` events
+  for anything else that wants to react (sound, UI).
+- `StageDefinition` (ScriptableObject, `Assets/Config/Stage/Stages/`): a stage's `DisplayName`,
+  `PlayerSpawn`, `PortalPosition`, `EnemySpawns` (`EnemySpawn`: a prefab + a position) and
+  `PropSpawns` (`PropSpawn`: same shape -- a placement hook for hazards/pickups, [12]/[13],
+  spawned the same way but nothing populates it yet). `StageSequence` (`Assets/Config/Stage/
+  StageSequence.asset`) is the ordered list of stages played front to back.
+- `StageRunner` (one per scene, on "Game Session") plays a `StageSequence` inside this one
+  scene -- no scene reload for progression. On every stage start (`Awake` for the first stage;
+  `RestartCurrentStage`/`AdvanceToNextStage` from `IStageProgression` after that) it destroys
+  whatever the last stage spawned, `Instantiate`s the new stage's `EnemySpawns`/`PropSpawns` at
+  their positions, moves the portal and sets its `ClearOutcome`, and (except for the very first
+  stage, to avoid an Awake-ordering dependency on the wizard) calls
+  `WizardController.Respawn(stage.PlayerSpawn)`. Public API: `CurrentStage`, `IsLastStage`,
+  `Sequence`, and `event Action<StageDefinition> StageStarted` (raised on every stage start,
+  including the first -- a late subscriber should also read `CurrentStage` once from its own
+  `Start`, the same way `HudController` reads `Health`). No enemy exists in the scene file
+  itself; `StageRunner` is the only thing that spawns one, always from a prefab
+  (`EnemySetup.LoadOrCreateBatPrefab`/`LoadOrCreateBatSwiftPrefab`, `Assets/Prefabs/Enemies/`).
+
 ## UI
 
 - Built with UI Toolkit (`UIDocument` + `PanelSettings`), UXML/USS under `Assets/UI/`. UI only
   listens to `Health`/`GameSession` events and calls small commands (`Retry`, `Continue`,
   `TogglePause`); it never touches gameplay state directly.
 - `HudController` (on the "HUD" `GameObject`) shows the wizard's HP bar/numbers, the stage name
-  and the controls hint. It reads `Health.Current`/`Max` once in `Start` (after every `Awake` in
-  the scene has run) and after that only on `Health.Damaged`/`Healed`/`Died` -- no per-frame
-  polling.
+  and the controls hint. It reads `Health.Current`/`Max` and (if wired) `StageRunner.CurrentStage`
+  once in `Start` (after every `Awake` in the scene has run) and after that only on
+  `Health.Damaged`/`Healed`/`Died` or `StageRunner.StageStarted` -- no per-frame polling.
+  `HudController.SetStageName(string)` is public for anything else that wants to drive it.
 - `WorldHealthBar` is a small reusable component that builds its own bar from two flat
   `SpriteRenderer`s (background + fill) above any `Health`, refreshed the same event-driven way
-  and hidden once that `Health` dies. Enemies get one from `EnemySetup.BindBat`.
+  and hidden once that `Health` dies. Bats get one built into their prefab
+  (`EnemySetup.LoadOrCreateBatPrefab`/`LoadOrCreateBatSwiftPrefab`).
 - `EndScreenController` (on the "Screens" `GameObject`) shows Game Over / Stage Cleared /
   Victory purely from `GameSession.StateChanged`; its button calls `GameSession.Retry()` or
   `Continue()` depending on which state it is showing.
@@ -155,13 +185,15 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 
 The prototype predates these rules. Tickets fix them; don't copy these patterns.
 
-- `GameSession.Continue()` just reloads the stage; there is no real stage progression yet ([10]).
-  `EndScreenController` already calls it from Stage Cleared, so [10] only needs to change what
-  it does.
-- `HudController.stageName` is a static string set by `UISetup` (default "Ruins Antechamber"),
-  not read from any real per-stage data; [10] should wire it to whatever names a stage.
 - The "BUMP!" hit-reaction text from the old prototype HUD is gone; [14] (feedback) is where
   hit feel like that belongs.
+- A `StageDefinition` with zero enemies would leave its portal closed forever (`StageManager`
+  only re-checks `AliveCount` on an enemy `Died`, and one with nothing to kill never dies). Not
+  an issue for the current three stages (1/3/5 bats); a future all-hazard stage would need
+  `StageManager` (or `StageRunner`) to re-check after spawning.
+- `EndScreenController`'s Victory button ("Play Again") calls `GameSession.Retry()`, which
+  restarts the CURRENT (last) stage, not the whole sequence from stage 1. Simple by design
+  ([10]); revisit if "play again" should mean "start over".
 - `Tools/unity/unity.sh screenshot` renders `Camera.main` only: it does not capture UI Toolkit
   overlays (HUD, screens), since they are not drawn through a camera.
 - Tunable numbers now live in ScriptableObject config assets for every area, under

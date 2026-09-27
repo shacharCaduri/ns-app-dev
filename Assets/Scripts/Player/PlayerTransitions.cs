@@ -36,6 +36,20 @@ namespace WizardArena.Player
             spriteRenderer.color = new Color(0.4f, 0.9f, 1f, 0f);
         }
 
+        // Moves the wizard to a new spot and replays the appear transition, from any phase (a
+        // fresh stage, a retry after death). Health stays off until the transition finishes.
+        internal void Respawn(Vector3 position)
+        {
+            phase = Phase.Appearing;
+            time = 0f;
+            transform.position = position;
+            transform.localScale = normalScale;
+            health.enabled = false;
+            spriteRenderer.color = new Color(0.4f, 0.9f, 1f, 0f);
+            Collider2D body = GetComponent<Collider2D>();
+            if (body != null) body.enabled = true;
+        }
+
         // Starts shrinking into the given point; ignored if already on the way out.
         internal void VanishInto(Vector3 destination)
         {
