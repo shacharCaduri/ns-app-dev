@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public sealed class WizardController : MonoBehaviour
 {
@@ -226,10 +227,6 @@ public sealed class WizardController : MonoBehaviour
         if (health > 0)
             GUI.DrawTexture(new Rect(22f, 100f, 216f * health / maxHealth, 10f), Texture2D.whiteTexture);
         GUI.color = savedColor;
-        if (IsDefeated)
-            GUI.Label(new Rect(0f, Screen.height / 2f - 25f, Screen.width, 50f), "Wizard defeated — stop and press Play to retry", titleStyle);
-        if (stageCleared && transitionTime >= 1.4f)
-            GUI.Label(new Rect(0f, Screen.height / 2f - 25f, Screen.width, 50f), "Stage clear!", titleStyle);
 
         if (bumpEffectTimer > 0f && Camera.main != null)
         {
@@ -241,5 +238,47 @@ public sealed class WizardController : MonoBehaviour
             };
             GUI.Label(new Rect(screenPosition.x - 70f, Screen.height - screenPosition.y - 25f, 140f, 50f), "BUMP!", bumpStyle);
         }
+        if (IsDefeated || (stageCleared && transitionTime >= 1.4f))
+            DrawEndScreen();
+    }
+
+    private void DrawEndScreen()
+    {
+        Color oldColor = GUI.color;
+        Matrix4x4 oldMatrix = GUI.matrix;
+        GUI.color = new Color(0.015f, 0.025f, 0.06f, 0.88f);
+        GUI.DrawTexture(new Rect(0f, 0f, Screen.width, Screen.height), Texture2D.whiteTexture);
+        GUI.color = Color.white;
+
+        // Keep the panel readable at different Game view resolutions.
+        float scale = Mathf.Min(Screen.width / 900f, Screen.height / 600f);
+        GUI.matrix = Matrix4x4.TRS(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f),
+            Quaternion.identity, Vector3.one * scale);
+        GUIStyle heading = new GUIStyle(GUI.skin.label)
+        {
+            fontSize = 64,
+            fontStyle = FontStyle.Bold,
+            alignment = TextAnchor.MiddleCenter,
+            normal = { textColor = IsDefeated ? new Color(1f, 0.3f, 0.35f) : new Color(0.4f, 1f, 0.75f) }
+        };
+        GUI.Label(new Rect(-430f, -140f, 860f, 100f), IsDefeated ? "GAME OVER" : "STAGE CLEARED", heading);
+        GUIStyle button = new GUIStyle(GUI.skin.button) { fontSize = 28, fontStyle = FontStyle.Bold };
+        if (GUI.Button(new Rect(-240f, 20f, 220f, 70f), "Retry", button))
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(gameObject.scene.path, LoadSceneMode.Single);
+        }
+#if UNITY_EDITOR
+        if (GUI.Button(new Rect(20f, 20f, 220f, 70f), "Quit", button))
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+        // Quit is specifically an Editor Play Mode control, not an app-exit action.
+        bool oldEnabled = GUI.enabled;
+        GUI.enabled = false;
+        GUI.Button(new Rect(20f, 20f, 220f, 70f), new GUIContent("Quit", "Available in Unity Play Mode"), button);
+        GUI.enabled = oldEnabled;
+#endif
+        GUI.matrix = oldMatrix;
+        GUI.color = oldColor;
     }
 }
