@@ -25,7 +25,7 @@ namespace WizardArena.UI
             overlay = root.Q<VisualElement>("end-overlay");
             heading = root.Q<Label>("end-heading");
             primaryButton = root.Q<Button>("end-primary-button");
-            root.Q<Button>("end-quit-button").clicked += QuitCommand.Execute;
+            root.Q<Button>("end-quit-button").clicked += MainMenuCommand.ReturnToMenu;
             SetVisible(false);
         }
 
@@ -71,8 +71,19 @@ namespace WizardArena.UI
 
         private void OnPrimaryClicked()
         {
-            if (state == GameState.StageCleared) session.Continue();
-            else session.Retry();
+            switch (state)
+            {
+                case GameState.StageCleared:
+                    session.Continue();
+                    break;
+                case GameState.Victory:
+                    // "Play Again" means the whole run, not just the last stage.
+                    session.RestartRun();
+                    break;
+                default:
+                    session.Retry();
+                    break;
+            }
         }
 
         private void SetVisible(bool visible) => overlay.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;

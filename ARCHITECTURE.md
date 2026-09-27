@@ -14,7 +14,7 @@ dependencies may point. Keep it short; update it when a rule changes.
 | `Assets/Scripts/Hazards/` | `WizardArena.Hazards` | `WizardArena.Runtime` | Environmental hazards (`SpikeHazard`, `ExplosiveHazard`) as self-contained prefabs |
 | `Assets/Scripts/Pickups/` | `WizardArena.Pickups` | `WizardArena.Runtime` | Pickups (`Pickup`, `IPickupEffect`, `HealEffect`, `PickupRegistry`) as self-contained prefabs |
 | `Assets/Scripts/Stage/` | `WizardArena.Stage` | `WizardArena.Runtime` | Stage flow, portal, game state and progression (`GameSession`, `StageManager`, `StagePortal`, `StageRunner`, `StageDefinition`, `StageSequence`) |
-| `Assets/Scripts/UI/` | `WizardArena.UI` | `WizardArena.Runtime` | HUD, enemy HP bars and screens (UI Toolkit); UXML/USS under `Assets/UI/` |
+| `Assets/Scripts/UI/` | `WizardArena.UI` | `WizardArena.Runtime` | HUD, enemy HP bars, screens and the main menu (UI Toolkit); UXML/USS under `Assets/UI/` |
 | `Assets/Scripts/Feedback/` | `WizardArena.Feedback` | `WizardArena.Runtime` | Hit-stop, camera shake, hit flash and particle bursts (added in [14]; no sound yet) |
 | `Assets/Editor/` | `WizardArena.EditorTools` | `WizardArena.Editor` (Editor only) | Scene builder, menu items |
 | `Assets/Tests/EditMode/<Area>/` | `WizardArena.Tests.EditMode.<Area>` | `WizardArena.Tests.EditMode` | Fast logic tests, no scene |
@@ -69,12 +69,15 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 - **Config in ScriptableObjects.** Tunable numbers (speeds, health, damage, timings) live in
   ScriptableObject assets, one config class per area in that area's namespace, assets under
   `Assets/Config/<Area>/`. No magic numbers in behaviour code.
-- **Scenes are generated.** `Assets/Scenes/WizardMovement.unity` is built by
-  `WizardArena.EditorTools.SceneBuilder` (menu **Wizard Prototype > Rebuild Demo Scene**, or
-  `Tools/unity/unity.sh rebuild-scene`). To change the scene, change the builder
+- **Scenes are generated.** `Assets/Scenes/WizardMovement.unity` (the arena) and
+  `Assets/Scenes/MainMenu.unity` (the title screen, `Assets/Editor/MenuSetup.cs`) are both built
+  by `WizardArena.EditorTools.SceneBuilder` (menu **Wizard Prototype > Rebuild Demo Scene**, or
+  `Tools/unity/unity.sh rebuild-scene`). To change either scene, change its builder
   (`Assets/Editor/`), regenerate, and commit the scene. Never hand-edit scene YAML.
-  The builder's automatic on-load hooks are skipped in batch mode, so compile/test runs never
-  change the scene.
+  The builders' automatic on-load hooks are skipped in batch mode, so compile/test runs never
+  change either scene. Build Settings list `MainMenu` first, then `WizardMovement`
+  (`SceneBuilder.SyncBuildSettings`, called by both builders so either can run alone and still
+  end up with the correct full list).
 - **Script GUIDs are sacred.** When moving a script, move its `.meta` with it (`git mv` both),
   or the scene loses the component.
 
@@ -238,14 +241,16 @@ the stage restarts, via `PickupRegistry`).
 
 - `GameSession` (one per scene) holds `GameState` (`Playing`, `Defeated`, `StageCleared`,
   `Victory`) and raises `StateChanged` when it changes. Anyone may read `State` and call the
-  commands `Retry()` and `Continue()`; only `StageManager` and `StagePortal` are allowed to end
-  the run (`End(GameState)` is `internal`). Both commands delegate to `StageRunner` through the
-  internal `IStageProgression` seam (`GameSession.Progression`, set by `StageRunner.Awake`): a
-  scene with no `StageRunner` falls back to reloading itself. `Retry()` restarts the CURRENT
-  stage in place (no scene reload); `Continue()` (only valid from `StageCleared`) advances to
-  the next one. `GameSession.BeginStage()` (internal) flips the state back to `Playing` and
-  raises `StateChanged(Playing)` so the end screen hides -- called by `StageRunner`, not raised
-  for the very first stage.
+  commands `Retry()`, `Continue()` and `RestartRun()`; only `StageManager` and `StagePortal` are
+  allowed to end the run (`End(GameState)` is `internal`). All three commands delegate to
+  `StageRunner` through the internal `IStageProgression` seam (`GameSession.Progression`, set by
+  `StageRunner.Awake`): a scene with no `StageRunner` falls back to reloading itself. `Retry()`
+  restarts the CURRENT stage in place (no scene reload); `Continue()` (only valid from
+  `StageCleared`) advances to the next one; `RestartRun()` ([15]) restarts the WHOLE run from
+  stage 1 -- the Victory screen's "Play Again" calls this one, not `Retry()`, so a finished run
+  really starts over rather than just re-running the last stage. `GameSession.BeginStage()`
+  (internal) flips the state back to `Playing` and raises `StateChanged(Playing)` so the end
+  screen hides -- called by `StageRunner`, not raised for the very first stage.
 - `StageManager` listens to `EnemyRegistry.Died`/`AliveCount` and opens the `StagePortal` once
   every enemy is dead (including zero enemies at scene start), and listens to the wizard's
   `Health.Died` to end the run in `Defeated`. It is stage-agnostic: `StageRunner` spawning a new
@@ -264,7 +269,8 @@ the stage restarts, via `PickupRegistry`).
   StageSequence.asset`) is the ordered list of stages played front to back.
 - `StageRunner` (one per scene, on "Game Session") plays a `StageSequence` inside this one
   scene -- no scene reload for progression. On every stage start (`Awake` for the first stage;
-  `RestartCurrentStage`/`AdvanceToNextStage` from `IStageProgression` after that) it destroys
+  `RestartCurrentStage`/`AdvanceToNextStage`/`RestartRun` (jumps to index 0) from
+  `IStageProgression` after that) it destroys
   whatever the last stage spawned, `Instantiate`s the new stage's `EnemySpawns`/`PropSpawns` at
   their positions, moves the portal and sets its `ClearOutcome`, and (except for the very first
   stage, to avoid an Awake-ordering dependency on the wizard) calls
@@ -293,15 +299,29 @@ the stage restarts, via `PickupRegistry`).
   and hidden once that `Health` dies. Bats get one built into their prefab
   (`EnemySetup.LoadOrCreateBatPrefab`/`LoadOrCreateBatSwiftPrefab`).
 - `EndScreenController` (on the "Screens" `GameObject`) shows Game Over / Stage Cleared /
-  Victory purely from `GameSession.StateChanged`; its button calls `GameSession.Retry()` or
-  `Continue()` depending on which state it is showing.
+  Victory purely from `GameSession.StateChanged`; its primary button calls `GameSession.Retry()`
+  (Defeated), `Continue()` (StageCleared) or `RestartRun()` (Victory -- [15]: "Play Again" starts
+  the whole run over, not just the last stage) depending on which state it is showing. Its Quit
+  button calls `MainMenuCommand.ReturnToMenu()`.
 - `PauseMenuController` (same `GameObject`, its own `UIDocument` sort order above the HUD) opens
   on Esc, sets `Time.timeScale = 0` and swaps the wizard's input for a no-op `IPlayerInput` via
-  `WizardController.UseInput` so held keys have no effect while paused; Resume restores both.
+  `WizardController.UseInput` so held keys have no effect while paused; Resume restores both. Its
+  Quit button also calls `MainMenuCommand.ReturnToMenu()`.
 - Both screens share one `PanelSettings` asset (`Assets/Config/UI/GamePanelSettings.asset`);
   `UIDocument.sortingOrder` (HUD 0, Screens 10) keeps the pause/end overlay above the HUD.
 - `UISetup` (`Assets/Editor/`) builds and wires all of the above; it runs after `StageSetup.Bind`
   since it needs the scene's `GameSession`.
+- **Main menu** ([15]): `Assets/Scenes/MainMenu.unity` (built by `Assets/Editor/MenuSetup.cs`) is
+  a camera + the arena background sprite behind a UI Toolkit overlay (title "Wizard Arena", Play,
+  Quit), reusing the same shared `GamePanelSettings.asset` via `UISetup.LoadOrCreatePanelSettings`
+  (made `internal` for this reuse). `MainMenuController.Play()` (public, so tests can call it
+  without simulating a pointer click) loads the arena by name; a freshly loaded scene always
+  starts `StageRunner` at stage 1 (`currentIndex = 0` in its own `Awake`), so there is nothing
+  stage-specific to do here. Its Quit button is the one place `QuitCommand` (actually exits the
+  app / stops Play Mode) is still used directly -- every in-run Quit button (pause, end screens)
+  instead calls `MainMenuCommand.ReturnToMenu()`, which resets `Time.timeScale` to 1 (in case the
+  game was paused or mid hit-stop) and loads `MainMenu` by name. `SceneNames` (internal) holds
+  both scene names once, shared by `MainMenuController` and `MainMenuCommand`.
 
 ## Tests
 
@@ -327,10 +347,13 @@ The prototype predates these rules. Tickets fix them; don't copy these patterns.
   only re-checks `AliveCount` on an enemy `Died`, and one with nothing to kill never dies). Not
   an issue for the current three stages (1/3/5 bats); a future all-hazard stage would need
   `StageManager` (or `StageRunner`) to re-check after spawning.
-- `EndScreenController`'s Victory button ("Play Again") calls `GameSession.Retry()`, which
-  restarts the CURRENT (last) stage, not the whole sequence from stage 1. Simple by design
-  ([10]); revisit if "play again" should mean "start over".
 - `Tools/unity/unity.sh screenshot` renders `Camera.main` only: it does not capture UI Toolkit
-  overlays (HUD, screens), since they are not drawn through a camera.
+  overlays (HUD, screens, the main menu), since they are not drawn through a camera.
 - Tunable numbers now live in ScriptableObject config assets for every area, under
   `Assets/Config/{Combat,Player,Enemies,Stage,UI}/`.
+- The Standalone scripting backend is Mono, not IL2CPP ([15]): the IL2CPP module is not
+  installed on this machine, so a plain build fails without this. `ProjectSettings.asset`
+  carries the choice; `Assets/Editor/MacBuild.cs` (`Tools/unity/unity.sh build-macos`) also
+  re-asserts it in code before building, so a headless build never depends on the Editor's
+  cached setting. Switch it back to IL2CPP (`PlayerSettings.SetScriptingBackend`) once that
+  module is installed.

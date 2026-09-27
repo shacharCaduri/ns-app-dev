@@ -43,6 +43,19 @@ namespace WizardArena.Stage
             Retry();
         }
 
+        // Restarts the WHOLE run from stage 1, in any state. Distinct from Retry(), which
+        // restarts only the current stage; the Victory screen's "Play Again" calls this one.
+        public void RestartRun()
+        {
+            Time.timeScale = 1f;
+            if (Progression != null)
+            {
+                Progression.RestartRun();
+                return;
+            }
+            SceneManager.LoadScene(gameObject.scene.path, LoadSceneMode.Single);
+        }
+
         // The first outcome wins: once the stage has ended, later outcomes are ignored.
         internal bool End(GameState outcome)
         {

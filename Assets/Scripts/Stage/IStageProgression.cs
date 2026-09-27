@@ -7,5 +7,6 @@ namespace WizardArena.Stage
     {
         void RestartCurrentStage();
         void AdvanceToNextStage();
+        void RestartRun();
     }
 }

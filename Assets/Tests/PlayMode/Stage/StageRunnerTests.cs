@@ -132,5 +132,29 @@ namespace WizardArena.Tests.PlayMode.Stage
             Assert.IsFalse(portal.IsOpen);
             LogAssert.NoUnexpectedReceived();
         }
+
+        [UnityTest]
+        public IEnumerator RestartRun_FromVictory_GoesBackToStageOneWithItsEnemies()
+        {
+            yield return ClearStageAndEnterPortal(); // Ruins Antechamber (1 bat)
+            session.Continue();
+            yield return null;
+
+            yield return ClearStageAndEnterPortal(); // Mossy Bridge (3 bats)
+            session.Continue();
+            yield return null;
+
+            yield return ClearStageAndEnterPortal(); // Portal Sanctum (5 bats, the last stage)
+            Assert.AreEqual(GameState.Victory, session.State);
+
+            session.RestartRun();
+            yield return null;
+
+            Assert.AreEqual(GameState.Playing, session.State);
+            Assert.AreEqual("Ruins Antechamber", runner.CurrentStage.DisplayName, "restarted the WHOLE run, not just the last stage");
+            Assert.AreEqual(1, EnemyRegistry.AliveCount, "stage 1's one bat is back");
+            Assert.IsFalse(portal.IsOpen);
+            LogAssert.NoUnexpectedReceived();
+        }
     }
 }

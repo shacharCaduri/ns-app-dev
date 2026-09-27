@@ -89,7 +89,9 @@ namespace WizardArena.EditorTools
             return null;
         }
 
-        private static PanelSettings LoadOrCreatePanelSettings()
+        // Internal (not private): MenuSetup reuses this so the main menu shares the same
+        // PanelSettings asset as the HUD/screens instead of creating a second one.
+        internal static PanelSettings LoadOrCreatePanelSettings()
         {
             PanelSettings settings = AssetDatabase.LoadAssetAtPath<PanelSettings>(PanelSettingsPath);
             if (settings != null) return settings;

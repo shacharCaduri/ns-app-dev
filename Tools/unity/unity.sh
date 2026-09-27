@@ -22,7 +22,7 @@ Commands:
   test            Run EditMode, then PlayMode tests.
   rebuild-scene   Regenerate Assets/Scenes/WizardMovement.unity with the editor scene builder.
   screenshot      Render Camera.main to Logs/screenshot.png for a headless visual check.
-  build-macos     Build a macOS player (stub for now, added in ticket [15]).
+  build-macos     Build a macOS player at Builds/macOS/WizardArena.app (Mono backend).
 
 Project: $PROJECT
 Unity:   $UNITY  (override with UNITY_PATH)
@@ -182,12 +182,20 @@ cmd_screenshot() {
     echo "SCREENSHOT: OK ($out)"
 }
 
-# Stub: the project's Standalone scripting backend is IL2CPP, which is not installed on this
-# machine, so a plain -buildOSXUniversalPlayer fails. Player builds are set up in ticket [15].
+# Builds Builds/macOS/WizardArena.app. The Standalone scripting backend is Mono (not IL2CPP,
+# which is not installed on this machine) -- see MacBuild.cs and ProjectSettings.asset.
 cmd_build_macos() {
-    echo "build-macos is not available yet: macOS builds are added in ticket [15]." >&2
-    echo "(Target output: $BUILD_DIR/WizardArena.app)" >&2
-    return 2
+    preflight
+    local log="$LOGS/unity-build-macos.log"
+    local app="$BUILD_DIR/WizardArena.app"
+    rm -rf "$app"
+    run_unity "$log" -quit -executeMethod WizardArena.EditorTools.MacBuild.BuildFromCommandLine
+    if [[ "$UNITY_EXIT" -ne 0 ]] || [[ ! -d "$app" ]]; then
+        print_compile_errors "$log" || print_log_tail "$log"
+        echo "BUILD MACOS: FAILED (Unity exit code $UNITY_EXIT)"
+        return 1
+    fi
+    echo "BUILD MACOS: OK ($app)"
 }
 
 UNITY_EXIT=0
