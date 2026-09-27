@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f522c310cb4524dd5bd43a9ba58f7f36, type: 3}
+  m_Name: WizardPlayer
+  m_EditorClassIdentifier: WizardArena.Runtime::WizardArena.Player.PlayerConfig
+  moveSpeed: 4
+  jumpSpeed: 10.5
+  gravity: 20
+  arenaHalfWidth: 9.2
+  knockbackSpeed: 13
+  knockbackLift: 5
+  knockbackDecay: 30
+  castReleaseTime: 0.28
+  castDuration: 0.56
+  muzzleOffset: {x: 0.75, y: 0.85}
+  walkFramesPerSecond: 8
+  castFrameSeconds: 0.14
+  hitFeedbackSeconds: 0.45
+  hitFlashColor: {r: 1, g: 0.25, b: 0.25, a: 1}
+  hitSquash: {x: 0.18, y: 0.12}
+  appearSeconds: 0.9
+  vanishSeconds: 1.4

@@ -2,7 +2,6 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using WizardArena.Player;
 using WizardArena.World;
 
 namespace WizardArena.EditorTools
@@ -51,13 +50,6 @@ namespace WizardArena.EditorTools
             Add(group, art, "Right Ruin Ledge", 1438, 1672, 501, 531, true);
             Add(group, art, "Central Floating Platform", 951, 1225, 535, 570, true);
             Add(group, art, "Upper Floating Platform", 1250, 1457, 377, 410, true);
-            WizardController wizard = Object.FindFirstObjectByType<WizardController>();
-            if (wizard != null)
-            {
-                SerializedObject data = new SerializedObject(wizard);
-                data.FindProperty("jumpSpeed").floatValue = 10.5f;
-                data.ApplyModifiedPropertiesWithoutUndo();
-            }
             // Keep the stage exit on the unobstructed floor, away from the stairs.
             foreach (GameObject root in scene.GetRootGameObjects())
                 if (root.name == "Stage Exit Portal") root.transform.position = new Vector3(0.5f, art.max.y - 753f / 941f * art.size.y, 0f);

@@ -50,6 +50,7 @@ namespace WizardArena.EditorTools
             BatEnemyController bat = Object.FindFirstObjectByType<BatEnemyController>();
             if (bat == null) throw new InvalidOperationException("No bat in scene");
             WizardController wizard = Object.FindFirstObjectByType<WizardController>();
+            if (wizard.GetComponent<IPlayerInput>() == null) throw new InvalidOperationException("Wizard has no player input");
             if (wizard.GetComponent<ProjectileLauncher>() == null) throw new InvalidOperationException("Wizard has no ProjectileLauncher");
             if (wizard.GetComponent<Health>() == null || bat.GetComponent<Health>() == null) throw new InvalidOperationException("Wizard or bat has no Health");
             if (Object.FindFirstObjectByType<ArenaSurface>() == null) throw new InvalidOperationException("No arena surfaces in scene");
