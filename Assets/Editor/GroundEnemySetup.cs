@@ -106,6 +106,7 @@ namespace WizardArena.EditorTools
             go.AddComponent<ContactDamage>();
             go.AddComponent<WorldHealthBar>();
             go.AddComponent<BlueSlimeController>();
+            go.AddComponent<EnemyDropper>();
 
             CombatSetup.BindHealth(health, config.Health, Team.Enemy);
             LinkConfig(enemy, config);
@@ -133,6 +134,7 @@ namespace WizardArena.EditorTools
             go.AddComponent<ContactDamage>();
             go.AddComponent<WorldHealthBar>();
             go.AddComponent<SkeletonWarriorController>();
+            go.AddComponent<EnemyDropper>();
 
             CombatSetup.BindHealth(health, config.Health, Team.Enemy);
             LinkConfig(enemy, config);
@@ -162,6 +164,8 @@ namespace WizardArena.EditorTools
                 tuning.FindProperty("contactCooldown").floatValue = 0.6f;
                 tuning.ApplyModifiedPropertiesWithoutUndo();
                 CreateConfigAsset(config, SlimeConfigPath);
+                // [13]: a 30% chance of a health potion, set once and kept afterward.
+                SetDrops(config, DropEntry.At(PickupSetup.LoadOrCreateHealthPotionPrefab(), 0.3f));
             }
 
             // Sprites are re-linked every rebuild; numeric tuning above is set once and
@@ -192,6 +196,8 @@ namespace WizardArena.EditorTools
                 tuning.FindProperty("contactCooldown").floatValue = 0.6f;
                 tuning.ApplyModifiedPropertiesWithoutUndo();
                 CreateConfigAsset(config, SkeletonConfigPath);
+                // [13]: always drops a health potion, set once and kept afterward.
+                SetDrops(config, DropEntry.At(PickupSetup.LoadOrCreateHealthPotionPrefab(), 1f));
             }
 
             // Sprites are re-linked every rebuild; numeric tuning above is set once and
@@ -202,6 +208,21 @@ namespace WizardArena.EditorTools
             data.ApplyModifiedPropertiesWithoutUndo();
             EditorUtility.SetDirty(config);
             return config;
+        }
+
+        // Sets an EnemyConfig's drop table (EnemyConfig.Drops), same helper as EnemySetup's.
+        private static void SetDrops(EnemyConfig config, params DropEntry[] entries)
+        {
+            SerializedObject data = new SerializedObject(config);
+            SerializedProperty property = data.FindProperty("drops");
+            property.arraySize = entries.Length;
+            for (int i = 0; i < entries.Length; i++)
+            {
+                SerializedProperty element = property.GetArrayElementAtIndex(i);
+                element.FindPropertyRelative("prefab").objectReferenceValue = entries[i].Prefab;
+                element.FindPropertyRelative("chance").floatValue = entries[i].Chance;
+            }
+            data.ApplyModifiedPropertiesWithoutUndo();
         }
 
         private static void BindSprites(SerializedObject config, string root, string fileStem)

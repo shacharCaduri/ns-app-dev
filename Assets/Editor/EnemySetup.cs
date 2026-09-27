@@ -101,6 +101,7 @@ namespace WizardArena.EditorTools
             bat.AddComponent<ContactDamage>();
             bat.AddComponent<WorldHealthBar>();
             bat.AddComponent<BatEnemyController>();
+            bat.AddComponent<EnemyDropper>();
 
             CombatSetup.BindHealth(health, config.Health, Team.Enemy);
             SerializedObject enemyData = new SerializedObject(enemy);
@@ -123,6 +124,9 @@ namespace WizardArena.EditorTools
                 }
                 EnsureFolders(ConfigFolder);
                 AssetDatabase.CreateAsset(config, path);
+                // [13]: a 1-in-5 chance of a health potion, set once and kept afterward like
+                // the tuning above.
+                SetDrops(config, DropEntry.At(PickupSetup.LoadOrCreateHealthPotionPrefab(), 0.2f));
             }
 
             SerializedObject data = new SerializedObject(config);
@@ -136,6 +140,22 @@ namespace WizardArena.EditorTools
             data.ApplyModifiedPropertiesWithoutUndo();
             EditorUtility.SetDirty(config);
             return config;
+        }
+
+        // Sets an EnemyConfig's drop table (EnemyConfig.Drops), reflecting each DropEntry's
+        // private fields the same way other tuning is set from editor code.
+        private static void SetDrops(EnemyConfig config, params DropEntry[] entries)
+        {
+            SerializedObject data = new SerializedObject(config);
+            SerializedProperty property = data.FindProperty("drops");
+            property.arraySize = entries.Length;
+            for (int i = 0; i < entries.Length; i++)
+            {
+                SerializedProperty element = property.GetArrayElementAtIndex(i);
+                element.FindPropertyRelative("prefab").objectReferenceValue = entries[i].Prefab;
+                element.FindPropertyRelative("chance").floatValue = entries[i].Chance;
+            }
+            data.ApplyModifiedPropertiesWithoutUndo();
         }
 
         private static void AssignFrames(SerializedProperty property, string pathPattern, int frameCount)
