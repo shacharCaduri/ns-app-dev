@@ -23,3 +23,5 @@ To recreate the scene, select **Wizard Prototype > Rebuild Demo Scene** from Uni
 
   Logs and test results are written to `Logs/`. Set `UNITY_PATH` if Unity is installed
   somewhere else. See `CLAUDE.md` and `ARCHITECTURE.md` for project conventions.
+- **On GitHub:** the same tests run on every pull request once the Unity license secrets are
+  added. See `docs/CI.md`.
