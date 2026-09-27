@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using WizardArena.Pickups;
 using WizardArena.Player;
 
 namespace WizardArena.Stage
 {
     // Plays a StageSequence's stages one after another inside this one scene (no scene
     // reload for progression): on every stage start it clears whatever the last stage left
-    // behind (enemies, corpses, props), spawns the new stage's enemies from their prefabs,
-    // puts the wizard back at its spawn and moves the portal into place. Registers itself
-    // with GameSession as what Retry()/Continue() actually do.
+    // behind (enemies, corpses, props, dropped pickups), spawns the new stage's enemies from
+    // their prefabs, puts the wizard back at its spawn and moves the portal into place.
+    // Registers itself with GameSession as what Retry()/Continue() actually do.
     public sealed class StageRunner : MonoBehaviour, IStageProgression
     {
         [SerializeField] private StageSequence sequence;
@@ -42,9 +43,22 @@ namespace WizardArena.Stage
             StageStarted?.Invoke(stage);
         }
 
+        private void OnEnable() => PickupRegistry.Spawned += RegisterSpawned;
+        private void OnDisable() => PickupRegistry.Spawned -= RegisterSpawned;
+
         private void OnDestroy()
         {
             if (session != null && ReferenceEquals(session.Progression, this)) session.Progression = null;
+        }
+
+        // A pickup an EnemyDropper spawned at runtime (never through PropSpawns) still needs
+        // to be cleaned up like anything else the current stage put in the scene. Registering
+        // it here (rather than the dropper knowing about StageRunner) keeps Enemies from
+        // depending on Stage. A PropSpawn-placed pickup notifies this too, once this is
+        // subscribed (harmless: SpawnStageContent already tracks it directly).
+        private void RegisterSpawned(GameObject pickup)
+        {
+            if (!spawned.Contains(pickup)) spawned.Add(pickup);
         }
 
         void IStageProgression.RestartCurrentStage() => BeginStage(currentIndex);

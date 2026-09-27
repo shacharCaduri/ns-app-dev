@@ -12,6 +12,7 @@ dependencies may point. Keep it short; update it when a rule changes.
 | `Assets/Scripts/Player/` | `WizardArena.Player` | `WizardArena.Runtime` | The wizard: `WizardController` composes `PlayerMotor`, `PlayerCaster`, `PlayerAnimator`, `PlayerHitFeedback`, `PlayerTransitions`; input via `IPlayerInput` |
 | `Assets/Scripts/Enemies/` | `WizardArena.Enemies` | `WizardArena.Runtime` | Enemy framework (`Enemy`, `EnemyConfig`, `EnemyRegistry`, `ContactDamage`, states) and enemy types (`BatEnemyController`) |
 | `Assets/Scripts/Hazards/` | `WizardArena.Hazards` | `WizardArena.Runtime` | Environmental hazards (`SpikeHazard`, `ExplosiveHazard`) as self-contained prefabs |
+| `Assets/Scripts/Pickups/` | `WizardArena.Pickups` | `WizardArena.Runtime` | Pickups (`Pickup`, `IPickupEffect`, `HealEffect`, `PickupRegistry`) as self-contained prefabs |
 | `Assets/Scripts/Stage/` | `WizardArena.Stage` | `WizardArena.Runtime` | Stage flow, portal, game state and progression (`GameSession`, `StageManager`, `StagePortal`, `StageRunner`, `StageDefinition`, `StageSequence`) |
 | `Assets/Scripts/UI/` | `WizardArena.UI` | `WizardArena.Runtime` | HUD, enemy HP bars and screens (UI Toolkit); UXML/USS under `Assets/UI/` |
 | `Assets/Scripts/Feedback/` | `WizardArena.Feedback` | `WizardArena.Runtime` | Hit-stop, shake, particles, sound (added in [14]) |
@@ -28,12 +29,12 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 ```
             UI      Feedback          (listen only; nothing depends on them)
               \      /
-               Stage                  (game flow: places hazards, listens to Player/Enemies events)
+               Stage                  (game flow: places hazards/pickups, listens to Player/Enemies/Pickups events)
               /  |   \
          Player  |  Enemies           (never reference each other's concrete classes)
               \  |   /
-              Hazards                 (spikes, explosive crystal/barrel -- never Player/Enemies/Stage)
-                 |
+         Hazards   Pickups            (spikes, explosive crystal/barrel, potions -- never Player/Enemies/Stage)
+              \      /
               Combat                  (health, damage, projectiles)
                  |
                World                  (surfaces)
@@ -45,9 +46,15 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 - **Hazards** only use Combat/World (`Health`, `DamageInfo`, `Team.Neutral`). They never
   reference Player, Enemies or Stage, so a spike or an explosion hurts anyone through the same
   damage API a projectile uses. They are built as self-contained prefabs and placed by Stage.
+- **Pickups** only use Combat (`Health`, `Team`). They never reference Player, Enemies or
+  Stage, so anything touching one is judged the same way a hazard judges its targets. They are
+  built as self-contained prefabs, placed either by Stage (`StageDefinition.PropSpawns`) or
+  instantiated at runtime by an Enemies-side `EnemyDropper` (Enemies may use Pickups: it sits
+  in the same row as Hazards, below Enemies). `PickupRegistry` is how Stage learns about a
+  pickup an `EnemyDropper` spawned, the same way `EnemyRegistry` lets Stage learn about enemies.
 - **Player and Enemies** do not reference each other. An enemy that needs a target gets it
   through a Combat interface or a serialized reference set by the scene builder.
-- **Stage** reacts to events (enemy defeated, player defeated) instead of polling.
+- **Stage** reacts to events (enemy defeated, player defeated, pickup spawned) instead of polling.
 - **UI and Feedback** subscribe to gameplay events. Gameplay code never calls UI or Feedback.
 - **Editor** and **Tests** may reference anything in `WizardArena.Runtime`.
 
@@ -116,6 +123,14 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 - Their prefabs live under `Assets/Prefabs/Enemies/` (`BlueSlime.prefab`, `SkeletonWarrior.prefab`),
   built by `Assets/Editor/GroundEnemySetup.cs`. Not wired into the demo scene yet -- [10]'s
   `StageDefinition` spawn lists instantiate them.
+- `EnemyConfig.Drops` is a list of `DropEntry` (a prefab + a chance in [0, 1]), rolled
+  independently on death by `EnemyDropper` (`[RequireComponent(Enemy)]`, added alongside the
+  other components on each enemy prefab). It instantiates whatever rolls at the enemy's death
+  position, snapped to the ground below via `ArenaSurface.TryGetGroundBelow` if there is one --
+  same lookup `DeadState` uses for the corpse. It never references what it drops (e.g. Pickups):
+  it only ever `Instantiate`s a generic prefab, so Enemies stays within ARCHITECTURE.md's
+  dependency direction (a layer may use anything below it) without a compile-time dependency on
+  the dropped item's own area.
 
 ## Hazards
 
@@ -137,6 +152,39 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
   idempotent-overwrite pattern as `SetEnemySpawns`): a few spikes/explosive props on the floor
   in each of the three stages, positioned to be a choice (route around, or shoot) rather than
   unavoidable, and close enough to a ground enemy in stages 2-3 that an explosion can catch it.
+
+## Pickups
+
+- Self-contained prefabs under `Assets/Prefabs/Pickups/`, built by `Assets/Editor/PickupSetup.cs`
+  (menu **Wizard Prototype > Build Pickup Prefabs**, or headless via `-executeMethod
+  WizardArena.EditorTools.PickupSetup.BuildPrefabsFromCommandLine`). They use only Combat
+  (`Health`, `Team`) and never reference Player, Enemies or Stage.
+- `Pickup`: a `Collider2D` trigger area, checked each frame like `SpikeHazard`'s overlap but
+  only against a `Team.Player` `Health`. On touch it calls `Apply(collector)` on every sibling
+  `IPickupEffect` and consumes itself (destroys the GameObject) only if at least one effect
+  actually did something -- e.g. a health potion touched at full HP is left in place rather
+  than wasted. It bobs gently in place (`PickupConfig`: `BobHeight`/`BobSpeed`) and despawns on
+  its own after `LifetimeSeconds`, blinking (toggling its `SpriteRenderer`) in its last
+  `BlinkSeconds`.
+- `IPickupEffect.Apply(GameObject collector) : bool` -- one thing a pickup does to whatever
+  collected it; `HealEffect` heals through `Health.Heal` (capped there at `Max`) and returns
+  `false` (does not consume the pickup) when the collector has no `Health`, is dead, or is
+  already at `Max` HP.
+- `PickupRegistry` (static `event Action<GameObject> Spawned`, raised from every `Pickup.Awake`)
+  is how Stage learns about a pickup the moment it exists, the same way `EnemyRegistry` lets
+  Stage learn about enemies -- used for cleanup of a pickup an `EnemyDropper` spawns at
+  runtime, never through `StageDefinition.PropSpawns`.
+- `HealthPotion.prefab` (`Assets/Art/Items/Potions/potion_health_small.png`, imported as a small
+  centred sprite by `PickupSetup`, unlike the rest of `Assets/Art/Items` which isn't
+  pre-configured as sprites): `Pickup` + `HealEffect` (4 HP), `PickupConfig` (12 s lifetime, 2 s
+  blink). Dropped by enemies via `EnemyConfig.Drops` (Bat/BatSwift 20%, Blue Slime 30%, Skeleton
+  Warrior 100%) and placed once directly on Portal Sanctum's floor via `PropSpawn`.
+
+Tests: `Assets/Tests/PlayMode/Pickups/PickupTests.cs` (heals, capped at Max; leaves an
+uncollected pickup in place at full HP; despawns after its lifetime), `EnemyDropperTests.cs`
+(Assets/Tests/PlayMode/Enemies -- a chance of 1 always drops, 0 never does, at the death
+position), `PickupCleanupTests.cs` (a pickup spawned outside PropSpawns is still removed when
+the stage restarts, via `PickupRegistry`).
 
 ## Stage
 
@@ -178,6 +226,9 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
   `Start`, the same way `HudController` reads `Health`). No enemy exists in the scene file
   itself; `StageRunner` is the only thing that spawns one, always from a prefab
   (`EnemySetup.LoadOrCreateBatPrefab`/`LoadOrCreateBatSwiftPrefab`, `Assets/Prefabs/Enemies/`).
+  It also subscribes to `PickupRegistry.Spawned` (`OnEnable`/`OnDisable`) so a pickup an
+  `EnemyDropper` spawns at runtime -- never through `PropSpawns` -- is tracked and destroyed on
+  the next stage/retry exactly like anything else the stage spawned.
 
 ## UI
 

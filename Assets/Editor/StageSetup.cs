@@ -131,6 +131,7 @@ namespace WizardArena.EditorTools
             GameObject spikes = HazardSetup.LoadOrCreateSpikesPrefab();
             GameObject explosiveCrystal = HazardSetup.LoadOrCreateExplosiveCrystalPrefab();
             GameObject explosiveBarrel = HazardSetup.LoadOrCreateExplosiveBarrelPrefab();
+            GameObject healthPotion = PickupSetup.LoadOrCreateHealthPotionPrefab();
 
             StageDefinition ruinsAntechamber = LoadOrCreateStage("RuinsAntechamber", "Ruins Antechamber",
                 PlayerSpawn, new Vector3(5.5f, -2.4f, 0f),
@@ -188,6 +189,9 @@ namespace WizardArena.EditorTools
                 // A chokepoint before the skeleton, and a crystal within blast range of the slime.
                 PropSpawn.At(spikes, new Vector3(1f, -2.4f, 0f)),
                 PropSpawn.At(explosiveCrystal, new Vector3(-1f, -2.4f, 0f)),
+                // [13]: one fixed potion on the last stage's floor, past the skeleton, clear of
+                // the portal and every enemy/hazard above.
+                PropSpawn.At(healthPotion, new Vector3(4.3f, -2.4f, 0f)),
             });
 
             StageSequence sequence = AssetDatabase.LoadAssetAtPath<StageSequence>(SequencePath);

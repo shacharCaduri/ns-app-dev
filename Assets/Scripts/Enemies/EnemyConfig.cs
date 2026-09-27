@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using WizardArena.Combat;
 
@@ -62,6 +63,10 @@ namespace WizardArena.Enemies
         [SerializeField, Min(0.1f)] private float animationFramesPerSecond = 7f;
         [SerializeField] private EnemySprites sprites = new EnemySprites();
 
+        [Header("Drops")]
+        [Tooltip("Rolled independently per entry on death (EnemyDropper); more than one can drop from the same enemy.")]
+        [SerializeField] private DropEntry[] drops = Array.Empty<DropEntry>();
+
         public HealthConfig Health => health;
         public float MoveSpeed => moveSpeed;
         public Vector2 TurnInterval => turnInterval;
@@ -88,12 +93,14 @@ namespace WizardArena.Enemies
         public float HopSpeed => hopSpeed;
         public float AnimationFramesPerSecond => animationFramesPerSecond;
         public EnemySprites Sprites => sprites;
+        public IReadOnlyList<DropEntry> Drops => drops;
 
         // For enemies and tests built from code; everything else keeps its default.
-        public static EnemyConfig Create(HealthConfig health)
+        public static EnemyConfig Create(HealthConfig health, DropEntry[] drops = null)
         {
             EnemyConfig config = CreateInstance<EnemyConfig>();
             config.health = health;
+            config.drops = drops ?? Array.Empty<DropEntry>();
             return config;
         }
     }
@@ -116,5 +123,22 @@ namespace WizardArena.Enemies
         public Sprite Dead(bool facingRight) => facingRight ? deadRight : deadLeft;
         // Single wind-up/attack pose (also doubles as the slime's hop pose); no animation.
         public Sprite Attack(bool facingRight) => facingRight ? attackRight : attackLeft;
+    }
+
+    // One possible drop: a self-contained prefab (e.g. a Pickup) and the chance [0, 1] it
+    // drops, rolled independently of every other entry. See EnemyDropper.
+    [Serializable]
+    public sealed class DropEntry
+    {
+        [SerializeField] private GameObject prefab;
+        [SerializeField, Range(0f, 1f)] private float chance;
+
+        public GameObject Prefab => prefab;
+        public float Chance => chance;
+
+        public static DropEntry At(GameObject prefab, float chance)
+        {
+            return new DropEntry { prefab = prefab, chance = chance };
+        }
     }
 }

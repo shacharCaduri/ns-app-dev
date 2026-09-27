@@ -50,3 +50,4 @@ MonoBehaviour:
     deadLeft: {fileID: 21300000, guid: 87559d954c61c44dd9f9324cd327f249, type: 3}
     attackRight: {fileID: 0}
     attackLeft: {fileID: 0}
+  drops: []
