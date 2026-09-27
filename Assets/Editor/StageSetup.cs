@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 using WizardArena.Combat;
 using WizardArena.Player;
 using WizardArena.Stage;
-using WizardArena.UI;
 
 namespace WizardArena.EditorTools
 {
@@ -26,7 +25,6 @@ namespace WizardArena.EditorTools
             GameSession session = FindOrCreateSession(scene);
             StagePortal portal = BindPortal(portalObject, wizard, session);
             BindManager(session, portal, wizard);
-            BindHud(scene, session);
         }
 
         internal static void Validate(Scene scene)
@@ -70,17 +68,6 @@ namespace WizardArena.EditorTools
             data.FindProperty("session").objectReferenceValue = session;
             data.FindProperty("portal").objectReferenceValue = portal;
             data.FindProperty("playerHealth").objectReferenceValue = wizard.GetComponent<Health>();
-            data.ApplyModifiedPropertiesWithoutUndo();
-        }
-
-        private static void BindHud(Scene scene, GameSession session)
-        {
-            GameObject hudObject = FindRoot(scene, "Legacy HUD");
-            if (hudObject == null) return;
-            LegacyHud hud = hudObject.GetComponent<LegacyHud>();
-            if (hud == null) return;
-            SerializedObject data = new SerializedObject(hud);
-            data.FindProperty("session").objectReferenceValue = session;
             data.ApplyModifiedPropertiesWithoutUndo();
         }
 
