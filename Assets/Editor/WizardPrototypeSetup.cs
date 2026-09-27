@@ -61,6 +61,7 @@ namespace WizardArena.EditorTools
             if (!hasPortal) CreatePortal();
             StageSetup.Bind(scene, wizard);
             UISetup.Bind(scene, wizard);
+            FeedbackSetup.Bind(scene, wizard);
             EditorSceneManager.MarkSceneDirty(scene);
             if (!wasDirty) EditorSceneManager.SaveScene(scene);
         }
@@ -130,6 +131,7 @@ namespace WizardArena.EditorTools
             CreatePortal();
             StageSetup.Bind(scene, controller);
             UISetup.Bind(scene, controller);
+            FeedbackSetup.Bind(scene, controller);
 
             EditorSceneManager.SaveScene(scene, ScenePath);
             ArenaSurfaceSetup.AddSurfaces();
