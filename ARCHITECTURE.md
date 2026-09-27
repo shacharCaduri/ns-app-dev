@@ -15,7 +15,7 @@ dependencies may point. Keep it short; update it when a rule changes.
 | `Assets/Scripts/Pickups/` | `WizardArena.Pickups` | `WizardArena.Runtime` | Pickups (`Pickup`, `IPickupEffect`, `HealEffect`, `PickupRegistry`) as self-contained prefabs |
 | `Assets/Scripts/Stage/` | `WizardArena.Stage` | `WizardArena.Runtime` | Stage flow, portal, game state and progression (`GameSession`, `StageManager`, `StagePortal`, `StageRunner`, `StageDefinition`, `StageSequence`) |
 | `Assets/Scripts/UI/` | `WizardArena.UI` | `WizardArena.Runtime` | HUD, enemy HP bars and screens (UI Toolkit); UXML/USS under `Assets/UI/` |
-| `Assets/Scripts/Feedback/` | `WizardArena.Feedback` | `WizardArena.Runtime` | Hit-stop, shake, particles, sound (added in [14]) |
+| `Assets/Scripts/Feedback/` | `WizardArena.Feedback` | `WizardArena.Runtime` | Hit-stop, camera shake, hit flash and particle bursts (added in [14]; no sound yet) |
 | `Assets/Editor/` | `WizardArena.EditorTools` | `WizardArena.Editor` (Editor only) | Scene builder, menu items |
 | `Assets/Tests/EditMode/<Area>/` | `WizardArena.Tests.EditMode.<Area>` | `WizardArena.Tests.EditMode` | Fast logic tests, no scene |
 | `Assets/Tests/PlayMode/<Area>/` | `WizardArena.Tests.PlayMode.<Area>` | `WizardArena.Tests.PlayMode` | Tests that run frames or load the scene |
@@ -152,6 +152,54 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
   idempotent-overwrite pattern as `SetEnemySpawns`): a few spikes/explosive props on the floor
   in each of the three stages, positioned to be a choice (route around, or shoot) rather than
   unavoidable, and close enough to a ground enemy in stages 2-3 that an explosion can catch it.
+- `ExplosiveHazard.Exploded` (static `event Action<Vector3>`, raised once per explosion, right
+  before the flash/shrink coroutine): the one thing Hazards exposes upward, so Feedback ([14])
+  can react to any explosion without holding a reference to a specific hazard -- the same shape
+  as `EnemyRegistry.Spawned`/`Died`.
+
+## Feedback
+
+- `FeedbackDirector` (one per scene, on the "Feedback" `GameObject`) is the only thing that
+  listens for hit feel: the player's `Health` (serialized, wired by `FeedbackSetup`),
+  `EnemyRegistry.Spawned` (to hear every enemy that shows up) and
+  `ExplosiveHazard.Exploded`. Nothing in Player/Enemies/Hazards calls into Feedback; it only
+  subscribes to events they already raise for other reasons.
+- On `EnemyRegistry.Spawned` it adds `EnemyFeedbackLink` to that enemy -- a tiny component that
+  subscribes to the enemy's own `Health.Damaged`/`Died` in `OnEnable` and unsubscribes in
+  `OnDisable` (which Unity also calls right before the enemy's `GameObject` is destroyed, so a
+  death and a plain stage-transition `Destroy` both clean up the same way). It plays the white
+  hit flash on the enemy's own `SpriteRenderer` and asks `FeedbackDirector` for hit-stop and a
+  particle burst.
+- **Hit-stop** is a brief `Time.timeScale` dip (`FeedbackConfig.HitStopSeconds`/`HitStopTimeScale`,
+  real/unscaled seconds) shared by every enemy hit and every player hurt. Coordination with the
+  Pause menu (`PauseMenuController`, the only other writer of `Time.timeScale`): the dip never
+  starts while `Time.timeScale` is already 0 (paused), and when it finishes it restores
+  `Time.timeScale` to 1 only if `Time.timeScale` is still exactly the dip value it set -- if Pause
+  changed it meanwhile, hit-stop leaves it alone so only Resume un-pauses. `FeedbackDirector`
+  also restores `Time.timeScale` from `OnDisable` if a dip was still in flight (a scene
+  reload/unload can destroy it mid-wait, otherwise leaking a sub-1 `Time.timeScale` forever).
+- **Camera shake** (player hurt, explosions) is trauma-based: each trigger adds
+  `FeedbackConfig.PlayerHurtShakeTrauma`/`ExplosionShakeTrauma` (clamped to 1), and every `Update`
+  decays it (`ShakeDecayPerSecond`, unscaled) and offsets the camera by
+  `Random.insideUnitCircle * ShakeMaxOffset * trauma^2` from its captured base position -- once
+  trauma reaches 0 the offset is exactly zero, so the camera lands back on its base position
+  exactly, not approximately.
+- **Particles**: `ParticleBurstFactory.Spawn(position, ParticleBurst, startColor, endColor)`
+  builds a one-shot `ParticleSystem` entirely from code (a 4x4 point-filtered white texture, so
+  particles read as pixel squares) and destroys itself after its lifetime. Enemy hit and death
+  get separate, escalating bursts (`FeedbackConfig.EnemyHitBurst`/`EnemyDeathBurst`); explosions
+  get the biggest (`ExplosionBurst`). Requires the `com.unity.modules.particlesystem` built-in
+  module (added to `Packages/manifest.json` in [14] -- it is not enabled by default in a
+  minimal-modules project like this one).
+- `FeedbackConfig` (ScriptableObject, `Assets/Config/Feedback/FeedbackConfig.asset`): every
+  number above, plus one `Enabled` bool per effect (hit-stop, shake, hit flash, particles) --
+  `FeedbackConfig.Create(bool)` for code/tests turns all four on or off together.
+- `FeedbackSetup` (`Assets/Editor/`) creates the config asset and the "Feedback" GameObject once
+  and wires `FeedbackDirector` to the wizard's `Health` and the scene's `Camera`; runs after
+  `UISetup.Bind`.
+- Not attempted: a floating damage number/"BUMP!" text (see Known gaps) -- it would need a UI
+  Toolkit label positioned in world space, which is more than the "only if cheap" bar in this
+  ticket allowed; the hit flash + particles carry the hit feel instead.
 
 ## Pickups
 
@@ -273,8 +321,8 @@ the stage restarts, via `PickupRegistry`).
 
 The prototype predates these rules. Tickets fix them; don't copy these patterns.
 
-- The "BUMP!" hit-reaction text from the old prototype HUD is gone; [14] (feedback) is where
-  hit feel like that belongs.
+- The "BUMP!" hit-reaction text from the old prototype HUD is gone and not brought back; [14]
+  (feedback) covers hit feel with hit-stop, camera shake, hit flash and particles instead.
 - A `StageDefinition` with zero enemies would leave its portal closed forever (`StageManager`
   only re-checks `AliveCount` on an enemy `Died`, and one with nothing to kill never dies). Not
   an issue for the current three stages (1/3/5 bats); a future all-hazard stage would need

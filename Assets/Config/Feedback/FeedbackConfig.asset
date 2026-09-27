@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716dedf4bb5d447d480bf699f48ac191, type: 3}
+  m_Name: FeedbackConfig
+  m_EditorClassIdentifier: WizardArena.Runtime::WizardArena.Feedback.FeedbackConfig
+  hitStopEnabled: 1
+  hitStopSeconds: 0.05
+  hitStopTimeScale: 0.05
+  shakeEnabled: 1
+  playerHurtShakeTrauma: 0.4
+  explosionShakeTrauma: 0.7
+  shakeDecayPerSecond: 2.2
+  shakeMaxOffset: 0.35
+  hitFlashEnabled: 1
+  hitFlashColor: {r: 1, g: 1, b: 1, a: 1}
+  hitFlashSeconds: 0.08
+  particlesEnabled: 1
+  particleStartColor: {r: 0.55, g: 0.9, b: 1, a: 1}
+  particleEndColor: {r: 0.1, g: 0.55, b: 0.85, a: 0}
+  enemyHitBurst:
+    count: 10
+    speed: 2.5
+    lifetime: 0.3
+    size: 0.07
+  enemyDeathBurst:
+    count: 18
+    speed: 3.5
+    lifetime: 0.45
+    size: 0.09
+  explosionBurst:
+    count: 30
+    speed: 5
+    lifetime: 0.55
+    size: 0.11

@@ -54,6 +54,7 @@ namespace WizardArena.EditorTools
             EnemySetup.Validate();
             StageSetup.Validate(scene);
             UISetup.Validate(scene);
+            FeedbackSetup.Validate(scene);
         }
     }
 }
