@@ -74,7 +74,9 @@ namespace WizardArena.EditorTools
 
         private static void BindWizardCombat(WizardController controller)
         {
-            SerializedObject data = new SerializedObject(controller);
+            PlayerAnimator animator = controller.GetComponent<PlayerAnimator>();
+            if (animator == null) return;
+            SerializedObject data = new SerializedObject(animator);
             AssignSprites(data.FindProperty("attackRightFrames"), WizardRoot + "/attack/wizard_attack_right_0{0}.png");
             AssignSprites(data.FindProperty("attackLeftFrames"), WizardRoot + "/attack/wizard_attack_left_0{0}.png");
             data.ApplyModifiedPropertiesWithoutUndo();
@@ -114,12 +116,14 @@ namespace WizardArena.EditorTools
             Sprite idleSprite = LoadSprite(WizardRoot + "/idle/wizard_idle_down_01.png");
             renderer.sprite = idleSprite;
             renderer.sortingOrder = 10;
+            wizard.AddComponent<KeyboardPlayerInput>();
             WizardController controller = wizard.AddComponent<WizardController>();
             CircleCollider2D wizardCollider = wizard.AddComponent<CircleCollider2D>();
             wizardCollider.radius = 0.55f;
             wizardCollider.offset = new Vector2(0f, 0.8f);
+            PlayerSetup.BindConfig(wizard);
 
-            SerializedObject serializedController = new SerializedObject(controller);
+            SerializedObject serializedController = new SerializedObject(controller.GetComponent<PlayerAnimator>());
             serializedController.FindProperty("idleSprite").objectReferenceValue = idleSprite;
             AssignSprites(serializedController.FindProperty("walkRightFrames"), WizardRoot + "/walk/wizard_walk_right_0{0}.png");
             AssignSprites(serializedController.FindProperty("walkLeftFrames"), WizardRoot + "/walk/wizard_walk_left_0{0}.png");
@@ -128,6 +132,7 @@ namespace WizardArena.EditorTools
             BindWizardCombat(controller);
 
             CreateBatEnemy(wizard.GetComponent<Health>());
+            PlayerSetup.CreateLegacyHud(controller);
 
             EditorSceneManager.SaveScene(scene, ScenePath);
             ArenaSurfaceSetup.AddSurfaces();

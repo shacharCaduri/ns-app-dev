@@ -9,10 +9,10 @@ dependencies may point. Keep it short; update it when a rule changes.
 | --- | --- | --- | --- |
 | `Assets/Scripts/World/` | `WizardArena.World` | `WizardArena.Runtime` | Arena geometry (`ArenaSurface`), later hazards |
 | `Assets/Scripts/Combat/` | `WizardArena.Combat` | `WizardArena.Runtime` | `Health`, `IDamageable`, `DamageInfo`, `Team`, `Projectile` + `ProjectileLauncher` |
-| `Assets/Scripts/Player/` | `WizardArena.Player` | `WizardArena.Runtime` | The wizard (`WizardController`) |
+| `Assets/Scripts/Player/` | `WizardArena.Player` | `WizardArena.Runtime` | The wizard: `WizardController` composes `PlayerMotor`, `PlayerCaster`, `PlayerAnimator`, `PlayerHitFeedback`, `PlayerTransitions`; input via `IPlayerInput` |
 | `Assets/Scripts/Enemies/` | `WizardArena.Enemies` | `WizardArena.Runtime` | Enemies (`BatEnemyController`) |
 | `Assets/Scripts/Stage/` | `WizardArena.Stage` | `WizardArena.Runtime` | Stage flow, portal, game state (`StagePortalGate`) |
-| `Assets/Scripts/UI/` | `WizardArena.UI` | `WizardArena.Runtime` | HUD and screens (added in [09]) |
+| `Assets/Scripts/UI/` | `WizardArena.UI` | `WizardArena.Runtime` | HUD and screens (temporary `LegacyHud` until [09]) |
 | `Assets/Scripts/Feedback/` | `WizardArena.Feedback` | `WizardArena.Runtime` | Hit-stop, shake, particles, sound (added in [14]) |
 | `Assets/Editor/` | `WizardArena.EditorTools` | `WizardArena.Editor` (Editor only) | Scene builder, menu items |
 | `Assets/Tests/EditMode/<Area>/` | `WizardArena.Tests.EditMode.<Area>` | `WizardArena.Tests.EditMode` | Fast logic tests, no scene |
@@ -75,6 +75,15 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
   first `IDamageable` (found with `GetComponentInParent`) that accepts the hit. A target only
   needs a `Collider2D`; no rigidbody or physics layers are required.
 
+## Player
+
+- `WizardController` is a thin composer. It reads `IPlayerInput` once per frame and ticks its
+  parts in a fixed order (cast start, motor, hit feedback, caster, animator). The parts have no
+  `Update` of their own, so the frame order never depends on Unity's script order.
+- Input comes from any `IPlayerInput` component (`KeyboardPlayerInput` in the scene) or
+  `WizardController.UseInput(...)`, which tests use to script the wizard.
+- `PlayerTransitions` owns appear/vanish and turns `Health` off whenever the wizard is not in play.
+
 ## Tests
 
 - Unity Test Framework (NUnit). Run them with `Tools/unity/unity.sh test` or the Test Runner
@@ -93,10 +102,12 @@ kept by review. If they start to slip, split the areas into their own asmdefs.
 
 The prototype predates these rules. Tickets fix them; don't copy these patterns.
 
-- `WizardController` is one large class that also draws the HUD and end screen in `OnGUI`
-  ([06], [09]).
+- `LegacyHud` (UI) is the old `OnGUI` HUD and end screen, moved out of the wizard as-is. It
+  polls the player every frame and decides "stage cleared" itself ([08], [09]).
+- `WizardController` still adds `StagePortalGate` to itself in `Awake` ([08]).
 - `BatEnemyController` does its own contact-damage circle math against a serialized target
   `Health` and draws its health bar in `OnGUI` ([07], [09]).
 - `StagePortalGate` polls `FindObjectsByType` every frame and is added by the wizard ([08]).
-- Tunable numbers are still serialized fields or constants in the behaviours ([06]-[08]).
-  Health and projectile numbers already live in `Assets/Config/Combat/`.
+- Tunable numbers are still serialized fields or constants in the enemy and stage behaviours
+  ([07], [08]). Health, projectile and player numbers live in `Assets/Config/Combat/` and
+  `Assets/Config/Player/`.
