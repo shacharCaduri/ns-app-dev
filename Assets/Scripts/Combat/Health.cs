@@ -51,6 +51,13 @@ namespace WizardArena.Combat
             return true;
         }
 
+        // Restores full health after death, e.g. when a stage restarts. The owner still
+        // needs to reset its own visuals/position (see WizardController.Respawn).
+        public void Revive()
+        {
+            RestoreFull();
+        }
+
         // Dead things stay dead; healing never goes above Max.
         public void Heal(int amount)
         {

@@ -29,6 +29,10 @@ namespace WizardArena.Stage
         public bool IsOpen { get; private set; }
         // Fully revealed: the player can enter.
         public bool IsReady => IsOpen && revealTime >= config.RevealSeconds;
+        // What ending the run means once the wizard fully steps through: StageCleared for any
+        // stage but the last, Victory for the last. Set by StageRunner each time it places the
+        // portal for a stage; defaults to StageCleared for a scene with only one stage.
+        internal GameState ClearOutcome { get; set; } = GameState.StageCleared;
 
         private void Awake()
         {
@@ -93,7 +97,7 @@ namespace WizardArena.Stage
         {
             player.Vanished -= OnPlayerVanished;
             playerEntering = false;
-            session.End(GameState.StageCleared);
+            session.End(ClearOutcome);
             PlayerExited?.Invoke();
         }
 

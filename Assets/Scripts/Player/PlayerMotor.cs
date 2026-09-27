@@ -22,6 +22,14 @@ namespace WizardArena.Player
             IsGrounded = IsStandingOnGround(transform.position, out _);
         }
 
+        // Clears residual fall/knockback speed, e.g. before a respawn, so the wizard does not
+        // inherit old momentum when it reappears.
+        internal void ResetVelocity()
+        {
+            verticalVelocity = 0f;
+            knockbackVelocity = 0f;
+        }
+
         // Pushes the wizard up and away from the source of a hit.
         public void Knockback(Vector2 sourcePosition)
         {

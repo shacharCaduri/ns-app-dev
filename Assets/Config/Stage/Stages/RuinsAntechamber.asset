@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4466a6e8bc3f34322bed6bd94a41400f, type: 3}
+  m_Name: RuinsAntechamber
+  m_EditorClassIdentifier: WizardArena.Runtime::WizardArena.Stage.StageDefinition
+  displayName: Ruins Antechamber
+  playerSpawn: {x: 0, y: -2.4, z: 0}
+  portalPosition: {x: 5.5, y: -2.4, z: 0}
+  enemySpawns:
+  - prefab: {fileID: 6775448477126298904, guid: 8f5be0ed1b66040349af441206aaa36d, type: 3}
+    position: {x: 4, y: 1.5, z: 0}
+  propSpawns: []

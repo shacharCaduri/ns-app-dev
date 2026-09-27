@@ -53,6 +53,7 @@ namespace WizardArena.EditorTools
             HudController hud = Ensure<HudController>(go);
             SerializedObject data = new SerializedObject(hud);
             data.FindProperty("playerHealth").objectReferenceValue = wizard.GetComponent<Health>();
+            data.FindProperty("stageRunner").objectReferenceValue = Object.FindFirstObjectByType<StageRunner>();
             data.ApplyModifiedPropertiesWithoutUndo();
         }
 

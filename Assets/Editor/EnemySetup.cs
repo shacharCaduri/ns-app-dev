@@ -10,52 +10,35 @@ using Object = UnityEngine.Object;
 
 namespace WizardArena.EditorTools
 {
-    // Builds enemies and the arena bounds they move in. Enemy config assets are created
-    // once (later tuning is kept); their sprites are re-linked on every rebuild.
+    // Builds enemy prefabs and the arena bounds they move in. Enemy config assets and
+    // prefabs are created once (later tuning is kept); a config's sprites are re-linked on
+    // every rebuild. StageRunner instantiates these prefabs at play time -- the scene itself
+    // holds no hand-placed enemy.
     internal static class EnemySetup
     {
         private const string ConfigFolder = "Assets/Config/Enemies";
+        private const string PrefabFolder = "Assets/Prefabs/Enemies";
         private const string BatRoot = "Assets/Art/Enemies/cave_bat";
+        private const string BatConfigPath = ConfigFolder + "/Bat.asset";
+        private const string BatSwiftConfigPath = ConfigFolder + "/BatSwift.asset";
+        private const string BatPrefabPath = PrefabFolder + "/Bat.prefab";
+        private const string BatSwiftPrefabPath = PrefabFolder + "/BatSwift.prefab";
+        // Stage 2/3 bats fly a bit faster than stage 1's (EnemyConfig's own default is 2.2).
+        private const float SwiftMoveSpeed = 2.9f;
         private const string BoundsName = "Arena Bounds";
         // Where flying enemies keep their centre: inside the camera view, above the -2.4 floor.
         private static readonly Rect FlightArea = Rect.MinMaxRect(-7f, -1.8f, 7f, 3.5f);
 
-        internal static GameObject CreateBat(Vector3 position)
+        // The stage 1 bat: normal speed.
+        internal static GameObject LoadOrCreateBatPrefab()
         {
-            GameObject bat = new GameObject("Bat Enemy");
-            bat.transform.position = position;
-
-            SpriteRenderer renderer = bat.AddComponent<SpriteRenderer>();
-            renderer.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(BatRoot + "/fly/cave_bat_fly_left_01.png");
-            renderer.sortingOrder = 10;
-
-            CircleCollider2D collider = bat.AddComponent<CircleCollider2D>();
-            collider.isTrigger = true;
-            collider.radius = 0.45f;
-
-            Rigidbody2D rigidbody = bat.AddComponent<Rigidbody2D>();
-            rigidbody.bodyType = RigidbodyType2D.Kinematic;
-            rigidbody.gravityScale = 0f;
-
-            bat.AddComponent<BatEnemyController>();
-            BindBat(bat);
-            return bat;
+            return LoadOrCreatePrefab(BatPrefabPath, LoadOrCreateBatConfig(BatConfigPath, null));
         }
 
-        // Adds any missing enemy components (also upgrades a bat from an older scene)
-        // and links the bat config.
-        internal static void BindBat(GameObject bat)
+        // The stage 2/3 bat: same everything, just faster.
+        internal static GameObject LoadOrCreateBatSwiftPrefab()
         {
-            Ensure<Health>(bat);
-            Ensure<Enemy>(bat);
-            Ensure<ContactDamage>(bat);
-            Ensure<WorldHealthBar>(bat);
-
-            EnemyConfig config = LoadOrCreateBatConfig();
-            CombatSetup.BindHealth(bat.GetComponent<Health>(), config.Health, Team.Enemy);
-            SerializedObject enemy = new SerializedObject(bat.GetComponent<Enemy>());
-            enemy.FindProperty("config").objectReferenceValue = config;
-            enemy.ApplyModifiedPropertiesWithoutUndo();
+            return LoadOrCreatePrefab(BatSwiftPrefabPath, LoadOrCreateBatConfig(BatSwiftConfigPath, SwiftMoveSpeed));
         }
 
         internal static void EnsureArenaBounds(Scene scene)
@@ -71,24 +54,74 @@ namespace WizardArena.EditorTools
 
         internal static void Validate()
         {
-            BatEnemyController bat = Object.FindFirstObjectByType<BatEnemyController>();
-            if (bat == null) throw new InvalidOperationException("No bat in scene");
-            Enemy enemy = bat.GetComponent<Enemy>();
-            if (enemy == null || enemy.Config == null) throw new InvalidOperationException("Bat has no Enemy with a config");
-            if (enemy.Config.Health == null) throw new InvalidOperationException("Bat config has no HealthConfig");
-            if (bat.GetComponent<ContactDamage>() == null) throw new InvalidOperationException("Bat has no ContactDamage");
+            ValidatePrefab(BatPrefabPath);
+            ValidatePrefab(BatSwiftPrefabPath);
             if (Object.FindFirstObjectByType<ArenaBounds>() == null) throw new InvalidOperationException("No ArenaBounds in scene");
         }
 
-        private static EnemyConfig LoadOrCreateBatConfig()
+        private static void ValidatePrefab(string path)
         {
-            string path = ConfigFolder + "/Bat.asset";
+            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            if (prefab == null) throw new InvalidOperationException("Missing enemy prefab " + path);
+            Enemy enemy = prefab.GetComponent<Enemy>();
+            if (enemy == null || enemy.Config == null) throw new InvalidOperationException(path + " has no Enemy with a config");
+            if (enemy.Config.Health == null) throw new InvalidOperationException(path + " config has no HealthConfig");
+            if (prefab.GetComponent<ContactDamage>() == null) throw new InvalidOperationException(path + " has no ContactDamage");
+        }
+
+        private static GameObject LoadOrCreatePrefab(string path, EnemyConfig config)
+        {
+            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            if (prefab != null) return prefab;
+
+            GameObject instance = BuildBat(config);
+            EnsureFolders(PrefabFolder);
+            prefab = PrefabUtility.SaveAsPrefabAsset(instance, path);
+            Object.DestroyImmediate(instance);
+            return prefab;
+        }
+
+        private static GameObject BuildBat(EnemyConfig config)
+        {
+            GameObject bat = new GameObject("Bat");
+            SpriteRenderer renderer = bat.AddComponent<SpriteRenderer>();
+            renderer.sprite = AssetDatabase.LoadAssetAtPath<Sprite>(BatRoot + "/fly/cave_bat_fly_left_01.png");
+            renderer.sortingOrder = 10;
+
+            CircleCollider2D collider = bat.AddComponent<CircleCollider2D>();
+            collider.isTrigger = true;
+            collider.radius = 0.45f;
+
+            Rigidbody2D rigidbody = bat.AddComponent<Rigidbody2D>();
+            rigidbody.bodyType = RigidbodyType2D.Kinematic;
+            rigidbody.gravityScale = 0f;
+
+            Health health = bat.AddComponent<Health>();
+            Enemy enemy = bat.AddComponent<Enemy>();
+            bat.AddComponent<ContactDamage>();
+            bat.AddComponent<WorldHealthBar>();
+            bat.AddComponent<BatEnemyController>();
+
+            CombatSetup.BindHealth(health, config.Health, Team.Enemy);
+            SerializedObject enemyData = new SerializedObject(enemy);
+            enemyData.FindProperty("config").objectReferenceValue = config;
+            enemyData.ApplyModifiedPropertiesWithoutUndo();
+            return bat;
+        }
+
+        private static EnemyConfig LoadOrCreateBatConfig(string path, float? moveSpeedOverride)
+        {
             EnemyConfig config = AssetDatabase.LoadAssetAtPath<EnemyConfig>(path);
             if (config == null)
             {
                 config = EnemyConfig.Create(CombatSetup.LoadOrCreateHealth("BatHealth", 3, 0f));
-                if (!AssetDatabase.IsValidFolder("Assets/Config")) AssetDatabase.CreateFolder("Assets", "Config");
-                if (!AssetDatabase.IsValidFolder(ConfigFolder)) AssetDatabase.CreateFolder("Assets/Config", "Enemies");
+                if (moveSpeedOverride.HasValue)
+                {
+                    SerializedObject speedData = new SerializedObject(config);
+                    speedData.FindProperty("moveSpeed").floatValue = moveSpeedOverride.Value;
+                    speedData.ApplyModifiedPropertiesWithoutUndo();
+                }
+                EnsureFolders(ConfigFolder);
                 AssetDatabase.CreateAsset(config, path);
             }
 
@@ -117,9 +150,14 @@ namespace WizardArena.EditorTools
             return AssetDatabase.LoadAssetAtPath<Sprite>(path);
         }
 
-        private static T Ensure<T>(GameObject target) where T : Component
+        private static void EnsureFolders(string folder)
         {
-            return target.TryGetComponent(out T existing) ? existing : target.AddComponent<T>();
+            if (AssetDatabase.IsValidFolder(folder)) return;
+            int slash = folder.LastIndexOf('/');
+            string parent = folder.Substring(0, slash);
+            string leaf = folder.Substring(slash + 1);
+            if (!AssetDatabase.IsValidFolder(parent)) EnsureFolders(parent);
+            AssetDatabase.CreateFolder(parent, leaf);
         }
     }
 }
